@@ -1,0 +1,30 @@
+const gulp = require('gulp');
+const pug = require('gulp-pug');
+var spritesmith = require('gulp.spritesmith');
+var gulpif = require('gulp-if');
+
+gulp.task('sprite', function () {
+    var spriteData = gulp.src('src/img/*.{png,jpg}').pipe(spritesmith({
+        imgName: 'sprite.png',
+        cssName: 'sprite.css'
+    }));
+    return spriteData.pipe(gulpif('*.png', gulp.dest('dist/img/'), gulp.dest('src/scss/')));
+});
+
+gulp.task('pug', function () {
+    return gulp.src(['src/pug/pages/**/*.pug', '!./node_modules/**'])
+        .pipe(pug({
+            pretty: true
+        }))
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('watch', ['pug'], function () {
+    gulp.watch('src/**/*', ['pug']);
+});
+
+gulp.task('clear', function () {
+    return cache.clearAll();
+})
+
+gulp.task('default', ['watch']);
