@@ -1,0 +1,401 @@
+/* search modal*/
+.modal-search {
+    // display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 28px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+
+    * {
+        box-sizing: inherit;
+    }
+
+    &__active-tab {
+        position: relative;
+        display: none;
+        font-size: 16px;
+        color: #000000;
+        font-family: "champagne";
+        font-weight: 700;
+        line-height: 1;
+        padding: 13px 30px;
+        border-bottom: 1px solid #e3e3e3;
+        text-decoration: none;
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 15px;
+            transform: translate(0, -50%);
+            width: 8px;
+            height: 10px;
+            background: url(../img/arrow-black.png) center/contain no-repeat;
+        }
+    }
+
+    &__content {
+        position: relative;
+        width: 100%;
+        max-width: 901px;
+        height: 772px;
+        background-color: #fff;
+        margin: auto;
+        padding: 24px 30px;
+        border: 1px solid #888;
+        overflow: auto;
+        box-shadow: 0.5px 0.9px 35px rgba(32, 22, 0, 0.29);
+    }
+
+    &__close {
+        position: absolute;
+        top: 23px;
+        right: 30px;
+        width: 24px;
+        height: 24px;
+        background: url(../img/cancel.png) center/contain no-repeat;
+        font-weight: bold;
+        z-index: 10;
+    }
+
+    &__close:hover,
+    &__close:focus {
+        cursor: pointer;
+    }
+
+    &__title {
+        color: #000000;
+        font-family: "champagne";
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1;
+        margin: 0 0 25px;
+    }
+
+    &__search {
+        margin: 0 -5px 30px;
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+    }
+
+    &__button {
+        flex: 0 1 auto;
+        display: inline-block;
+        vertical-align: middle;
+        width: auto;
+        padding: 19px 19px 19px 43px;
+        margin: 0 5px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        white-space: nowrap;
+        background: #6ac8c7 url(../img/my_location_black_192x192.png) left 15px center no-repeat;
+        border: none;
+        appearance: none;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            background-color: darken(#6ac8c7, 10%);
+        }
+    }
+
+    &__input {
+        position: relative;
+        width: 100%;
+        flex: 1 1 0%;
+        max-width: 100%;
+        padding: 0 5px;
+
+        input {
+            @include input-placeholder {
+                color: #adadad;
+            }
+
+            height: 100%;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 400;
+            background-color: white;
+            border: 1px solid #e5e5e5;
+            padding: 17px 30px 17px 15px;
+        }
+
+        .fa {
+            position: absolute;
+            top: 50%;
+            right: 17px;
+            transform: translate(0, -50%);
+            font-size: 20px;
+            opacity: 0.4;
+        }
+    }
+
+    &__meta {
+        margin-bottom: 25px;
+    }
+
+    &__select {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+
+        &-item {
+            position: relative;
+            width: 100%;
+            flex: 1 1 auto;
+            max-width: 33.33%;
+        }
+
+        &-name {
+            opacity: 0.8;
+            color: #000000;
+            font-size: 22px;
+            font-weight: 700;
+            font-family: "champagne";
+        }
+
+        .b-select__list {
+            max-height: 460px;
+        }
+    }
+
+    @media screen and (max-width: 568px) {
+        padding: 0;
+
+        &__close {
+            top: 15px;
+            right: 15px;
+            width: 14px;
+            height: 14px;
+        }
+
+        &__title {
+            margin-bottom: 0;
+        }
+
+        &__head {
+            &>.modal-search__title {
+                display: none;
+            }
+        }
+
+        &__active-tab {
+            display: block;
+        }
+
+        &__content {
+            height: 100%;
+            padding: 0;
+        }
+
+        &__meta {
+            display: none;
+        }
+
+        &__search {
+            padding: 20px 15px;
+            margin: 0;
+            background-color: #f5f6f2;
+            border-bottom: 1px solid #e3e3e3;
+
+            form {
+                flex-direction: column-reverse;
+            }
+        }
+
+        &__input {
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        &__button {
+            width: 100%;
+            margin: 0;
+        }
+
+        &__select {
+            &-item {
+                max-width: none;
+            }
+        }
+
+        .b-select {
+            &__title {
+                display: none;
+            }
+
+            &__list {
+                margin: 0;
+            }
+
+            &__item {
+                border-bottom: 1px solid #e3e3e3;
+            }
+
+            &__link {
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    top: 50%;
+                    right: 15px;
+                    transform: translate(0, -50%) rotate(180deg);
+                    width: 8px;
+                    height: 10px;
+                    background: url(../img/arrow-black.png) center/contain no-repeat;
+                }
+
+                &.is_active {
+                    color: #068887;
+                    background-color: white;
+                    border: none;
+
+                    &+.b-select__tab {
+                        .b-select__list {
+                            height: 0;
+                        }
+                    }
+
+                    &.is_last {
+                        &+.b-select__tab {
+                            .b-select__list {
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__tab {
+                left: 0;
+            }
+        }
+    }
+}
+
+/*b-top-cities*/
+.b-top-cities {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0 -5px;
+        padding: 0;
+    }
+
+    &__item {
+        padding: 0 5px;
+        margin: 0 0 5px;
+    }
+
+    &__link {
+        display: block;
+        color: #000000;
+        font-size: 16px;
+        font-weight: 400;
+        background-color: #fafafa;
+        border: 1px solid #e5e5e5;
+        padding: 6px 18px;
+        text-decoration: none;
+    }
+}
+
+/*b-select*/
+.b-select {
+    background-color: #fff;
+
+    &__list {
+        list-style: none;
+        margin: 17px 0;
+        padding: 0;
+        overflow: hidden;
+        overflow-y: auto;
+    }
+
+    &__title {
+        opacity: 0.8;
+        color: #000000;
+        font-size: 22px;
+        font-weight: 700;
+        font-family: "champagne";
+    }
+
+    &__tab {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+    }
+
+    &__link {
+        display: block;
+        color: black;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 17px;
+        text-decoration: none;
+
+        &.is_active {
+            background-color: #e6f3f3;
+            border-left: 2px solid #068887;
+
+            &+.b-select__tab {
+                display: block;
+                z-index: 1;
+            }
+        }
+
+        &[data-href="United States"] {
+            &::before {
+                background-image: url(../img/sprite.png);
+                background-position: 0px -14px;
+            }
+        }
+
+        &[data-href="Canada"] {
+            &::before {
+                background-image: url(../img/sprite.png);
+                background-position: 0px 0px;
+            }
+        }
+
+        &[data-href="United Kingdom"] {
+            &::before {
+                background-image: url(../img/sprite.png);
+                background-position: -21px 0px;
+            }
+        }
+    }
+
+    &[data-select="Country"] {
+        &>ul>li>a {
+            position: relative;
+            padding-left: 50px;
+
+            &::before {
+                position: absolute;
+                content: '';
+                top: 19px;
+                left: 17px;
+                width: 21px;
+                height: 14px;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+mixin list(items, className, title, attr)
+    div(class=className, data-select=title)
+        span(class = `${className}__title`)=title
+        ul(class = `${className}__list`)
+            each item, i in items
+                li(class =`${className}__item`)
+                    a(href=`#` data-href=`${item}`, class = `${className}__link`)=item
+                    if block
+                        div(class =`${className}__tab`, data-attr=item)
+                            block

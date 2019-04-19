@@ -1,9 +1,23 @@
+@import "./mixins";
+
 /*base styles*/
 .container {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+}
+
+input[name="selectedMarketNew"] {
+    background: transparent;
+    border: 0;
+    font-family: "Champagne";
+    font-size: 24px;
+    font-weight: 600;
+    width: 261px;
+    letter-spacing: .6px;
+    outline: none;
+    -webkit-appearance: none;
 }
 
 @media (min-width: 1200px) {

@@ -1,0 +1,37 @@
+include mixins
+
+- var top_items = ["Abbeville","Bellingham","Pennsylvania","California","Texas","Pennsylvania","Texas"]
+- var country = ["United States","Canada","United Kingdom"]
+- var state = ["Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington"]
+- var city = ["Aberdeen","Bellevue","Seattle"]
+
+<!--search modal -->
+<!--toggle button -->
+div(class="menu-mobile-item flexCC flex-no-wrap bg-green js-modal" data-target="MODAL_SEARCH")
+    i(class="fa fa-map-marker")
+    div(class="item")
+        form(class="country-select p-0 m-0" method="post")
+            input(type="text" value="" name="selectedMarketNew" placeholder="Select..." readonly)
+    i(class="fa fa-angle-down")
+<!--modal -->
+.modal-search(data-id="MODAL_SEARCH")
+    .modal-search__content
+        span.modal-search__close
+        .modal-search__head
+            h3.modal-search__title Choose the city
+            a(href="#", class="modal-search__active-tab bg-biege", data-active-tab="Country") Country
+        .modal-search__body
+            .modal-search__search
+                form(action="", method="get")
+                    button.modal-search__button Use my current location
+                    .modal-search__input
+                        input(type="text", name="SEARCH_CITY", placeholder="Search...")
+                        i(class="fa fa-search" aria-hidden="true")
+            .modal-search__meta
+                +list(top_items, "b-top-cities")
+            .modal-search__select
+                .modal-search__select-item
+                    +list(country, "b-select", "Country")
+                        +list(state, "b-select", "State")
+                            +list(city, "b-select", "Sity")
+<!--end search modal -->
