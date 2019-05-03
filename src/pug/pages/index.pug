@@ -38,10 +38,14 @@ html(dir='ltr', lang='en')
                     .flexSC.my-6
                         i.fa.fa-user
                         div(onclick='SignInModalShow(false)') Create a free account
-                .vendor-account.flexSC
-                    i.fa.fa-star
-                    a(href='https://vendors.weddingventure.com/', onclick="track('Top nav: FREE Vendor Account clicked');", target='_blank') FREE Vendor Account
-                    i.fa.fa-angle-right
+                //edit VENDOR BTN
+                // .vendor-account.flexSC
+                //     i.fa.fa-star
+                //     a(href='https://vendors.weddingventure.com/', onclick="track('Top nav: FREE Vendor Account clicked');", target='_blank') FREE Vendor Account
+                //     i.fa.fa-angle-right
+                a(href="https://vendors.weddingventure.com/" class="button button-green" onclick="track('Top nav: FREE Vendor Account clicked');", target='_blank') FREE Vendor Account
+                    i(class="fas fa-angle-double-right")
+                //end edit VENDOR BTN
             .menu-content.mt-1
                 ul.fCol.p-0.m-0
                     li.menu-dropdown(onclick='ShowDropDown(this, event)')
@@ -211,11 +215,16 @@ html(dir='ltr', lang='en')
                         li.flexSC
                             i.fa.fa-sign-in
                             .sign-in(onclick='SignInModalShow(true)') Login
-                        li.flexSC
-                            .vendor-account.flexSC
-                                i.fa.fa-star
-                                a(href='https://vendors.weddingventure.com/', onclick="track('Top nav: FREE Vendor Account clicked');", target='_blank') FREE Vendor Account
-                                i.fa.fa-angle-right
+                        //edit VENDOR BTN
+                        //li.flexSC
+                        //    .vendor-account.flexSC
+                        //        i.fa.fa-star
+                        //        a(href='https://vendors.weddingventure.com/', onclick="track('Top nav: FREE Vendor Account clicked');", target='_blank') FREE Vendor Account
+                        //       i.fa.fa-angle-right
+                        li.flexSC.desktop-account__vendor                      
+                            a(href="https://vendors.weddingventure.com/" class="button button-green desktop-account__link" onclick="track('Top nav: FREE Vendor Account clicked');", target='_blank') FREE Vendor Account
+                                i(class="fa fa-angle-double-right")
+                        //end edit VENDOR BTN
             .header-bottom.bg-green
                 .container.p-0
                     .menu-mobile.owl-carousel.owl-theme.visible-xs

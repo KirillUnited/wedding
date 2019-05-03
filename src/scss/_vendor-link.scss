@@ -1,0 +1,12 @@
+/* Vendor Account link */
+.desktop-account {
+    &>li.desktop-account__vendor {
+        a.desktop-account__link{
+            color: #fff;
+            i {
+                color: inherit;
+                margin-left: 20px;
+            }
+        }
+    }
+}

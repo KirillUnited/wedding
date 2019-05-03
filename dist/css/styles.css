@@ -573,3 +573,13 @@ input[name="selectedMarketNew"] {
   height: 14px;
   background-repeat: no-repeat;
 }
+
+/* Vendor Account link */
+.desktop-account > li.desktop-account__vendor a.desktop-account__link {
+  color: #fff;
+}
+
+.desktop-account > li.desktop-account__vendor a.desktop-account__link i {
+  color: inherit;
+  margin-left: 20px;
+}
