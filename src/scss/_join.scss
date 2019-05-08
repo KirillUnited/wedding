@@ -1,0 +1,39 @@
+.join-form {
+    .account-element {
+        background: transparent;
+        &:focus {
+            outline: none;
+        }
+
+        input,
+        select {
+            background: #f2f1f5;
+            transition: .3s;
+
+            &:hover {
+                background: #fff;
+                border: 1px solid rgba(0, 0, 0, 0.39);
+            }
+
+            &:focus {
+                background: #fff;
+                border: 1px solid #0b8a89;
+            }
+        }
+    }
+
+    .input-validation-error {
+        border: 1px solid rgba(161, 74, 74, 0.95);
+        margin-bottom: 20px;
+    }
+
+    .field-validation-error {
+        bottom: 0;
+        top: auto;
+        color: #a14b4b;
+        font-family: 'Roboto';
+        font-size: 12px;
+        font-weight: 400;
+        padding: 0;
+    }
+}

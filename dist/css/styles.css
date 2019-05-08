@@ -6,6 +6,14 @@
   margin-left: auto;
 }
 
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 input[name="selectedMarketNew"] {
   background: transparent;
   border: 0;
@@ -642,4 +650,138 @@ body, html {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+.join-form .account-element {
+  background: transparent;
+}
+
+.join-form .account-element:focus {
+  outline: none;
+}
+
+.join-form .account-element input,
+.join-form .account-element select {
+  background: #f2f1f5;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.join-form .account-element input:hover,
+.join-form .account-element select:hover {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.39);
+}
+
+.join-form .account-element input:focus,
+.join-form .account-element select:focus {
+  background: #fff;
+  border: 1px solid #0b8a89;
+}
+
+.join-form .input-validation-error {
+  border: 1px solid rgba(161, 74, 74, 0.95);
+  margin-bottom: 20px;
+}
+
+.join-form .field-validation-error {
+  bottom: 0;
+  top: auto;
+  color: #a14b4b;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 400;
+  padding: 0;
+}
+
+/*LOCATION*/
+.icon-country {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  max-width: 43px;
+  max-height: 29px;
+  text-align: center;
+}
+
+.icon-country img {
+  max-width: 100%;
+}
+
+.location__title {
+  width: 100%;
+  max-width: 100%;
+}
+
+.location__title > .title {
+  color: #59acab;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 40px;
+}
+
+.location__list {
+  position: relative;
+  padding-left: 70px;
+  margin: 0 0 60px;
+}
+
+.location__list:last-child {
+  margin: 0;
+}
+
+.location__list .icon-country {
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.location__item {
+  margin: 0 0 10px;
+}
+
+.location__item > .title {
+  color: #59acab;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.location__item > .title::after {
+  display: none;
+}
+
+.location__item p {
+  color: #000000;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .location__title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .location__title > .title {
+    font-size: 30px;
+  }
+  .location__list {
+    padding-left: 0;
+  }
+  .location__list .icon-country {
+    position: relative;
+    top: 4px;
+    max-width: 33px;
+    max-height: 22px;
+    margin-right: 10px;
+  }
+  .location__item {
+    padding: 0;
+  }
 }

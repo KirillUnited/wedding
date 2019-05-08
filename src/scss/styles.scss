@@ -7,6 +7,10 @@
     margin-right: auto;
     margin-left: auto;
 }
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 input[name="selectedMarketNew"] {
     background: transparent;
@@ -30,3 +34,5 @@ input[name="selectedMarketNew"] {
 @import "./modal-search";
 @import "./vendor-link";
 @import "./Google";
+@import "./join";
+@import "./location";
