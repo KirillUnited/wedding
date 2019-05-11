@@ -1,0 +1,106 @@
+/*users contact*/
+%item50 {
+    width: 100%;
+    flex: 0 0 auto;
+    max-width: 50%;
+}
+
+.fixed-menu {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(32, 22, 0, 0.2);
+    z-index: 100;
+    box-sizing: border-box;
+
+    * {
+        box-sizing: inherit;
+    }
+
+    &__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        min-height: 55px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    &__nav {
+        flex: 1;
+        max-width: 100%;
+        padding: 0;
+        margin: 0 -15px;
+
+        &>li {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 0 15px;
+
+            &>a {
+                display: block;
+                font-family: 'Roboto';
+                font-size: 14px;
+                font-weight: 400;
+                color: #3a3a3a;
+                text-decoration: none;
+            }
+
+            &.active {
+                &>a {
+                    color: #aeaeae;
+                }
+            }
+        }
+    }
+
+    &__chat {
+        width: auto;
+        flex: 0 0 auto;
+        max-width: 100%;
+    }
+}
+
+/*block to contact*/
+.b-chat {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &>* {
+        margin-right: 30px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__btn {
+        display: inline-block;
+        width: 153px;
+        color: #fafafa;
+        font-family: "Champagne";
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        vertical-align: middle;
+        user-select: none;
+        background-color: #6ac8c7;
+        border: 1px solid #6ac8c7;
+        padding: 9px;
+        cursor: pointer;
+    }
+
+    &__link {
+        color: #2c8887;
+        font-family: "Champagne";
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+}
