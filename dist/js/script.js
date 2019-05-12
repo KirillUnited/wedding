@@ -1,10 +1,12 @@
 $(function () {
     /**add arrows to home slider */
-    $('.home-slider').data('owl.carousel').options.nav = true;
-    $('.home-slider').trigger('refresh.owl.carousel');
+    // if ($('.home-slider')) {
+    //     $('.home-slider').data('owl.carousel').options.nav = true;
+    //     $('.home-slider').trigger('refresh.owl.carousel');
 
-    $(".owl-prev").html('<div class="arrow arrow-left"></div>');
-    $(".owl-next").html('<div class="arrow arrow-right"></div>');
+    //     $(".owl-prev").html('<div class="arrow arrow-left"></div>');
+    //     $(".owl-next").html('<div class="arrow arrow-right"></div>');
+    // }
 
     /**search modal call */
     $('body').on('click', '.js-modal', function (event) {
@@ -13,8 +15,8 @@ $(function () {
         $('[data-id="' + modal + '"').fadeIn();
     });
     $(document).click(function (e) {
-        if ($('.modal-search').is(e.target) || $('.modal-search__close').is(e.target)) {
-            $('.modal-search').fadeOut();
+        if ($('.modal-search, .modal-message').is(e.target) || $('.modal-search__close, .js-close').is(e.target)) {
+            $('.modal-search, .modal-message').fadeOut();
         };
     });
 
@@ -53,5 +55,35 @@ $(function () {
         $(this).text($(this).attr('data-active-tab'));
         parent.find('.is_last').removeClass('is_last is_active');
         parent.parent().siblings().addClass('is_last');
+    });
+
+    /**
+     * Need better converting design for CONTACT ME options on vendor profile page
+     */
+
+    /*active link when scroll
+-----------------------------------------------*/
+    $(window).scroll(function () {
+        var $sections = $('section');
+        $sections.each(function (i, el) {
+            var top = $(el).offset().top - 140;
+            var bottom = top + $(el).height();
+            var scroll = $(window).scrollTop();
+            var id = $(el).attr('id');
+            if (scroll > top && scroll < bottom) {
+                $('li').removeClass('active');
+                $('a[href="#' + id + '"]').parent().addClass('active');
+            }
+        })
+    });
+
+    /*scroll to section
+    -----------------------------------------------*/
+    $('.js-anchor').bind('click', function (event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top - 100
+        }, 1000);
+        event.preventDefault();
     });
 }); 
