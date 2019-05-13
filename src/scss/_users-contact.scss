@@ -112,7 +112,7 @@
 }
 
 .modal-message {
-    // display: none;
+    display: none;
     position: fixed;
     z-index: 1000;
     padding-top: 90px;
@@ -189,16 +189,84 @@
             width: 100%;
         }
     }
+
     @media screen and (max-width: 767px) {
         &__img {
             display: none;
         }
+
         &__body {
             max-width: none;
             padding: 35px 23px;
         }
+
         &__title {
             margin: 0 0 20px;
         }
+    }
+}
+
+/* new checkbox for message vendor*/
+.signin-form {
+    box-sizing: border-box;
+
+    * {
+        box-sizing: inherit;
+    }
+
+    .signin-form {
+        &__input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            color: #0b8a89;
+            text-align: center;
+            border: 1px solid #0b8a89;
+            overflow: hidden;
+
+            svg {
+                display: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        &__label {
+            position: relative;
+            display: block;
+            color: #000101;
+            font-family: 'Roboto';
+            font-size: 18px;
+            font-weight: 500;
+            padding-left: 38px;
+            cursor: pointer;
+
+            input[type=checkbox] {
+                position: absolute;
+                clip: rect(0 0 0 0);
+                width: 1px;
+                height: 1px;
+                margin: -1px;
+                &:checked {
+                    &+.signin-form__input svg {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+
+        // input[type=checkbox]:checked:before {
+        //     content: ;
+        //     color: #068887;
+        //     font-family: Font Awesome\ 5 Free;
+        // }
     }
 }

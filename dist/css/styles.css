@@ -913,6 +913,7 @@ body, html {
 }
 
 .modal-message {
+  display: none;
   position: fixed;
   z-index: 1000;
   padding-top: 90px;
@@ -1008,4 +1009,63 @@ body, html {
   .modal-message__title {
     margin: 0 0 20px;
   }
+}
+
+/* new checkbox for message vendor*/
+.signin-form {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.signin-form * {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.signin-form .signin-form__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  color: #0b8a89;
+  text-align: center;
+  border: 1px solid #0b8a89;
+  overflow: hidden;
+}
+
+.signin-form .signin-form__input svg {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+}
+
+.signin-form .signin-form__label {
+  position: relative;
+  display: block;
+  color: #000101;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 500;
+  padding-left: 38px;
+  cursor: pointer;
+}
+
+.signin-form .signin-form__label input[type=checkbox] {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.signin-form .signin-form__label input[type=checkbox]:checked + .signin-form__input svg {
+  display: block;
 }
