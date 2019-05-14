@@ -14,5 +14,6 @@
             "extensionName": ".css",
             "savePath": "/dist/css"
         }
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

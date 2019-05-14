@@ -2192,8 +2192,91 @@
             <img src="img/bg-vendor-message.jpg" alt="bg-vendor-message">
         </div>
         <div class="modal-message__body">
-                <h2 class="modal-message__title">Message vendor</h2>
+            <h2 class="modal-message__title">Message vendor</h2>
+            <p class="modal-message__desc">Send Dasha a quote request. It costs you nothing!</p>
+            <form action="/Messages/SendMessage" class="messageForm b-form" id="" method="post" novalidate="novalidate">
+                <div class="row">
+                    <input data-val="true" data-val-number="The field VendorId must be a number."
+                        data-val-required="The VendorId field is required." name="VendorId" type="hidden" value="1586">
+                    <div class="text-danger text-error col-sm-12 mb-1"></div>
 
+                    <div class="b-form__input col-xs-12 col-sm-4 mb-1">
+                        <div class="input-group">
+                            <input class="name_field b-form__user" data-val="true" data-val-required="Please enter your name"
+                                name="FirstName" placeholder="Your name" type="text" value="">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        <span class="field-validation-valid text-danger text-small" data-valmsg-for="FirstName"
+                            data-valmsg-replace="true"></span>
+                    </div>
+
+                    <div class="b-form__input col-xs-12 col-sm-4 mb-1">
+                        <div class="input-group">
+                            <input class="email_field" data-val="true" data-val-email="Email is invalid"
+                                data-val-required="Please enter your e-mail" name="Email" placeholder="Your e-mail"
+                                type="text" value="">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </div>
+                        <span class="field-validation-valid text-danger text-small" data-valmsg-for="Email"
+                            data-valmsg-replace="true"></span>
+                    </div>
+
+                    <div class="b-form__input col-xs-12 col-sm-4 mb-1">
+                        <div class="input-group col-datepicker">
+                            <input data-val="true"
+                                data-val-required="Please enter the wedding date. Enter today's date if the wedding date is not yet set"
+                                name="WeddingDate" placeholder="Your wedding date" type="text" value="">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar fa fa-calendar"></span>
+                            </div>
+                        </div>
+                        <span class="field-validation-valid text-danger text-small" data-valmsg-for="WeddingDate"
+                            data-valmsg-replace="true"></span>
+                    </div>
+
+                    <div class="b-form__input col-xs-12 mb-1">
+                        <textarea class="form-control" cols="20" data-val="true"
+                            data-val-regex="Message cannot contain HTML tags" data-val-regex-pattern="^[^<>]*$"
+                            data-val-required="Please enter the detail of your inquiry" name="Message"
+                            placeholder="Your message" rows="2"></textarea>
+                        <span class="field-validation-valid text-danger text-small" data-valmsg-for="Message"
+                            data-valmsg-replace="true"></span>
+                    </div>
+                    <!-- <div class="col-xs-12 my-2">
+                        <button id="popUpMessageFormBtn" data-vendor-id="1586" data-message_type="message"
+                            data-ajax-action="logVendorProfileClick" type="submit" class="button button-green bordered"
+                            onclick="IsAllowed(event, '#popUpMessageForm'); track('Message Vendor Btn Clicked');">
+                            Send your question
+                            <i class="fa fa-angle-double-right"></i>
+                        </button>
+                    </div> -->
+                    <div class="col-xs-12 mb-1">
+                        <label class="b-form__label">
+                            <input type="checkbox" name="" id="" checked>
+                            <span class="b-form__checkbox">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="check" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-check fa-w-14 fa-7x">
+                                    <path fill="currentColor"
+                                        d="M413.505 91.951L133.49 371.966l-98.995-98.995c-4.686-4.686-12.284-4.686-16.971 0L6.211 284.284c-4.686 4.686-4.686 12.284 0 16.971l118.794 118.794c4.686 4.686 12.284 4.686 16.971 0l299.813-299.813c4.686-4.686 4.686-12.284 0-16.971l-11.314-11.314c-4.686-4.686-12.284-4.686-16.97 0z"
+                                        class=""></path>
+                                </svg>
+                            </span>
+                            Include other photographers
+                        </label>
+                    </div>
+                    <div class="b-chat col-xs-12 my-2">
+                        <button class="b-chat__btn">request quote</button>
+                        <a href="#" class="b-chat__link">
+                            <i class="fa fa-comment" aria-hidden="true"></i>
+                            chat
+                        </a>
+                        <a href="tel:1234567" class="b-chat__link">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            call
+                        </a>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

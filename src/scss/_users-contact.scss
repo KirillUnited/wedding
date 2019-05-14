@@ -112,10 +112,10 @@
 }
 
 .modal-message {
-    display: none;
+    // display: none;
     position: fixed;
     z-index: 1000;
-    padding-top: 90px;
+    padding: 90px 15px 0;
     left: 0;
     top: 0;
     width: 100%;
@@ -168,6 +168,14 @@
         text-align: center;
     }
 
+    &__desc {
+        color: black;
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+    }
+
     &__body {
         @extend %col50;
         background-color: white;
@@ -187,6 +195,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 100%;
+            min-height: 100%;
         }
     }
 
@@ -254,6 +263,7 @@
                 width: 1px;
                 height: 1px;
                 margin: -1px;
+
                 &:checked {
                     &+.signin-form__input svg {
                         display: block;

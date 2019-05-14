@@ -179,6 +179,92 @@ input[name="selectedMarketNew"] {
   }
 }
 
+/*new form*/
+.b-form {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.b-form * {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.messageForm .b-form__input input[type],
+.messageForm .b-form__input textarea {
+  width: 100%;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  padding: 12px 35px 12px 15px;
+  resize: none;
+}
+
+.messageForm .b-form__input .input-group {
+  position: relative;
+}
+
+.messageForm .b-form__input .input-group i {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 19px;
+  height: 19px;
+  color: #999;
+  font-size: 17px;
+  text-align: center;
+}
+
+.messageForm .b-form__checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  color: #0b8a89;
+  text-align: center;
+  border: 1px solid #0b8a89;
+  overflow: hidden;
+}
+
+.messageForm .b-form__checkbox svg {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+}
+
+.messageForm .b-form__label {
+  position: relative;
+  display: block;
+  color: #000101;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  padding-left: 24px;
+  cursor: pointer;
+}
+
+.messageForm .b-form__label input[type=checkbox] {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.messageForm .b-form__label input[type=checkbox]:checked + .b-form__checkbox svg {
+  display: block;
+}
+
 /* search modal*/
 .modal-search {
   position: fixed;
@@ -913,10 +999,9 @@ body, html {
 }
 
 .modal-message {
-  display: none;
   position: fixed;
   z-index: 1000;
-  padding-top: 90px;
+  padding: 90px 15px 0;
   left: 0;
   top: 0;
   width: 100%;
@@ -975,6 +1060,14 @@ body, html {
   text-align: center;
 }
 
+.modal-message__desc {
+  color: black;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
 .modal-message__body {
   background-color: white;
   -webkit-box-shadow: -0.3px 1px 13px rgba(32, 22, 0, 0.29);
@@ -996,6 +1089,7 @@ body, html {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 100%;
+  min-height: 100%;
 }
 
 @media screen and (max-width: 767px) {

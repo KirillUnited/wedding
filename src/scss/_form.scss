@@ -1,0 +1,94 @@
+/*new form*/
+.b-form {
+    box-sizing: border-box;
+
+    * {
+        box-sizing: inherit;
+    }
+
+    .messageForm & {
+        &__input {
+
+            input[type],
+            textarea {
+                @mixin input-placeholder {
+                    color: #999;
+                    font-family: 'Roboto';
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+
+                width: 100%;
+                font-family: 'Roboto';
+                font-size: 16px;
+                font-weight: 400;
+                border: 1px solid rgba(0, 0, 0, 0.18);
+                padding: 12px 35px 12px 15px;
+                resize: none;
+            }
+            .input-group {
+                position: relative;
+                i {
+                    position: absolute;
+                    top: 14px;
+                    right: 16px;
+                    width: 19px;
+                    height: 19px;
+                    color: #999;
+                    font-size: 17px;
+                    text-align: center;
+                }
+            }
+        }
+
+        &__checkbox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            color: #0b8a89;
+            text-align: center;
+            border: 1px solid #0b8a89;
+            overflow: hidden;
+
+            svg {
+                display: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        &__label {
+            position: relative;
+            display: block;
+            color: #000101;
+            font-family: 'Roboto';
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1;
+            padding-left: 24px;
+            cursor: pointer;
+
+            input[type=checkbox] {
+                position: absolute;
+                clip: rect(0 0 0 0);
+                width: 1px;
+                height: 1px;
+                margin: -1px;
+
+                &:checked {
+                    &+.b-form__checkbox svg {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+    }
+}
