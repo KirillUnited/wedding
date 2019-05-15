@@ -216,7 +216,7 @@
 }
 
 /* new checkbox for message vendor*/
-.signin-form {
+.messageForm .signin-form {
     box-sizing: border-box;
 
     * {
@@ -235,16 +235,11 @@
             text-align: center;
             border: 1px solid #0b8a89;
             overflow: hidden;
-
-            svg {
-                display: none;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 12px;
-                height: 12px;
-            }
+            appearance: none;
+            padding: 0;
+                &:checked {
+                    background: url(../img/tick.png) center no-repeat;
+                }
         }
 
         &__label {
@@ -256,27 +251,6 @@
             font-weight: 500;
             padding-left: 38px;
             cursor: pointer;
-
-            input[type=checkbox] {
-                position: absolute;
-                clip: rect(0 0 0 0);
-                width: 1px;
-                height: 1px;
-                margin: -1px;
-
-                &:checked {
-                    &+.signin-form__input svg {
-                        display: block;
-                    }
-                }
-            }
         }
-
-
-        // input[type=checkbox]:checked:before {
-        //     content: ;
-        //     color: #068887;
-        //     font-family: Font Awesome\ 5 Free;
-        // }
     }
 }

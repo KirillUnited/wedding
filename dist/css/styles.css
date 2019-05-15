@@ -1106,17 +1106,17 @@ body, html {
 }
 
 /* new checkbox for message vendor*/
-.signin-form {
+.messageForm .signin-form {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-.signin-form * {
+.messageForm .signin-form * {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
 }
 
-.signin-form .signin-form__input {
+.messageForm .signin-form .signin-form__input {
   position: absolute;
   top: 0;
   left: 0;
@@ -1127,21 +1127,17 @@ body, html {
   text-align: center;
   border: 1px solid #0b8a89;
   overflow: hidden;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0;
 }
 
-.signin-form .signin-form__input svg {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
+.messageForm .signin-form .signin-form__input:checked {
+  background: url(../img/tick.png) center no-repeat;
 }
 
-.signin-form .signin-form__label {
+.messageForm .signin-form .signin-form__label {
   position: relative;
   display: block;
   color: #000101;
@@ -1150,16 +1146,4 @@ body, html {
   font-weight: 500;
   padding-left: 38px;
   cursor: pointer;
-}
-
-.signin-form .signin-form__label input[type=checkbox] {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-}
-
-.signin-form .signin-form__label input[type=checkbox]:checked + .signin-form__input svg {
-  display: block;
 }
