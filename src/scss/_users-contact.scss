@@ -68,6 +68,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
 
     &>* {
         margin-right: 30px;
@@ -78,6 +79,7 @@
     }
 
     &__btn {
+        @include truncate(100%);
         display: inline-block;
         width: 153px;
         color: #fafafa;
@@ -158,23 +160,23 @@
         cursor: pointer;
     }
 
-    &__title {
-        color: #068b99;
-        font-family: "champagne";
-        font-size: 30px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 4px;
-        text-align: center;
-    }
+    // &__title {
+    //     color: #068b99;
+    //     font-family: "champagne";
+    //     font-size: 30px;
+    //     font-weight: 700;
+    //     text-transform: uppercase;
+    //     letter-spacing: 4px;
+    //     text-align: center;
+    // }
 
-    &__desc {
-        color: black;
-        font-family: 'Roboto';
-        font-size: 16px;
-        font-weight: 400;
-        text-align: center;
-    }
+    // &__desc {
+    //     color: black;
+    //     font-family: 'Roboto';
+    //     font-size: 16px;
+    //     font-weight: 400;
+    //     text-align: center;
+    // }
 
     &__body {
         @extend %col50;

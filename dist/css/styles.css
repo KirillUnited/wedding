@@ -180,7 +180,16 @@ input[name="selectedMarketNew"] {
 }
 
 /*new form*/
+.b-form__title, .b-form__desc, .b-form__footer, .messageForm .b-form__input {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .b-form {
+  background-color: white;
+  -webkit-box-shadow: 0 0 5px rgba(32, 22, 0, 0.2);
+          box-shadow: 0 0 5px rgba(32, 22, 0, 0.2);
+  padding: 20px 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -188,6 +197,46 @@ input[name="selectedMarketNew"] {
 .b-form * {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
+}
+
+.b-form__title {
+  color: #068b99;
+  font-family: "champagne";
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.b-form__desc {
+  color: black;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 15px;
+}
+
+.b-form__footer {
+  position: relative;
+  margin-top: 19px;
+  padding-top: 19px;
+}
+
+.b-form__footer::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  display: block;
+  width: 99%;
+  height: 1px;
+  background: #e8e8e8;
 }
 
 .messageForm .b-form__input input[type],
@@ -216,31 +265,6 @@ input[name="selectedMarketNew"] {
   text-align: center;
 }
 
-.messageForm .b-form__checkbox {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  color: #0b8a89;
-  text-align: center;
-  border: 1px solid #0b8a89;
-  overflow: hidden;
-}
-
-.messageForm .b-form__checkbox svg {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 8px;
-  height: 8px;
-}
-
 .messageForm .b-form__label {
   position: relative;
   display: block;
@@ -253,16 +277,37 @@ input[name="selectedMarketNew"] {
   cursor: pointer;
 }
 
-.messageForm .b-form__label input[type=checkbox] {
+.messageForm .b-form__label input[type="checkbox"] {
   position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  color: #0b8a89;
+  text-align: center;
+  border: 1px solid #0b8a89;
+  overflow: hidden;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0;
+  margin: 0;
 }
 
-.messageForm .b-form__label input[type=checkbox]:checked + .b-form__checkbox svg {
-  display: block;
+.messageForm .b-form__label input[type="checkbox"]:checked {
+  background: url(../img/tick.png) center no-repeat;
+  background-size: 8px 5px;
+}
+
+.messageForm .b-form__btn {
+  width: 100%;
+  max-width: 220px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 /* search modal*/
@@ -950,6 +995,9 @@ body, html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .b-chat > * {
@@ -961,6 +1009,11 @@ body, html {
 }
 
 .b-chat__btn {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   display: inline-block;
   width: 153px;
   color: #fafafa;
@@ -1048,24 +1101,6 @@ body, html {
 
 .modal-message__close:hover, .modal-message__close:focus {
   cursor: pointer;
-}
-
-.modal-message__title {
-  color: #068b99;
-  font-family: "champagne";
-  font-size: 30px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  text-align: center;
-}
-
-.modal-message__desc {
-  color: black;
-  font-family: 'Roboto';
-  font-size: 16px;
-  font-weight: 400;
-  text-align: center;
 }
 
 .modal-message__body {

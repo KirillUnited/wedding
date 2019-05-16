@@ -1,13 +1,63 @@
 /*new form*/
+%pad {
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .b-form {
+    background-color: white;
+    box-shadow: 0 0 5px rgba(32, 22, 0, 0.2);
+    padding: 20px 0;
     box-sizing: border-box;
 
     * {
         box-sizing: inherit;
     }
 
+    &__title {
+        @extend %pad;
+        color: #068b99;
+        font-family: "champagne";
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        text-align: center;
+        margin: 0 0 20px;
+    }
+
+    &__desc {
+        @extend %pad;
+        color: black;
+        font-family: 'Roboto';
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        margin: 0 0 15px;
+    }
+
+    &__footer {
+        @extend %pad;
+        position: relative;
+        margin-top: 19px;
+        padding-top: 19px;
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            display: block;
+            width: 99%;
+            height: 1px;
+            background: #e8e8e8;
+        }
+    }
+
     .messageForm & {
+
         &__input {
+            @extend %pad;
 
             input[type],
             textarea {
@@ -26,8 +76,10 @@
                 padding: 12px 35px 12px 15px;
                 resize: none;
             }
+
             .input-group {
                 position: relative;
+
                 i {
                     position: absolute;
                     top: 14px;
@@ -38,29 +90,6 @@
                     font-size: 17px;
                     text-align: center;
                 }
-            }
-        }
-
-        &__checkbox {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            color: #0b8a89;
-            text-align: center;
-            border: 1px solid #0b8a89;
-            overflow: hidden;
-
-            svg {
-                display: none;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 8px;
-                height: 8px;
             }
         }
 
@@ -75,20 +104,36 @@
             padding-left: 24px;
             cursor: pointer;
 
-            input[type=checkbox] {
+            input[type="checkbox"] {
                 position: absolute;
-                clip: rect(0 0 0 0);
-                width: 1px;
-                height: 1px;
-                margin: -1px;
+                top: 0;
+                left: 0;
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                color: #0b8a89;
+                text-align: center;
+                border: 1px solid #0b8a89;
+                overflow: hidden;
+                appearance: none;
+                padding: 0;
+                margin: 0;
 
                 &:checked {
-                    &+.b-form__checkbox svg {
-                        display: block;
-                    }
+                    background: url(../img/tick.png) center no-repeat;
+                    background-size: 8px 5px;
                 }
             }
         }
 
+        &__btn {
+            width: 100%;
+            max-width: 220px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
     }
 }
