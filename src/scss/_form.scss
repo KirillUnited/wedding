@@ -13,7 +13,7 @@
         box-sizing: inherit;
     }
 
-    &__title {
+    &-title {
         @extend %pad;
         color: #068b99;
         font-family: "champagne";
@@ -25,7 +25,7 @@
         margin: 0 0 20px;
     }
 
-    &__desc {
+    &-desc {
         @extend %pad;
         color: black;
         font-family: 'Roboto';
@@ -35,7 +35,7 @@
         margin: 0 0 15px;
     }
 
-    &__footer {
+    &-footer {
         @extend %pad;
         position: relative;
         margin-top: 19px;
@@ -56,7 +56,7 @@
 
     .messageForm & {
 
-        &__input {
+        &-input {
             @extend %pad;
 
             input[type],
@@ -93,7 +93,7 @@
             }
         }
 
-        &__label {
+        &-label {
             position: relative;
             display: block;
             color: #000101;
@@ -126,7 +126,7 @@
             }
         }
 
-        &__btn {
+        &-btn {
             width: 100%;
             max-width: 220px;
             font-size: 16px;

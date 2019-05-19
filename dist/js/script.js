@@ -8,15 +8,15 @@ $(function () {
     //     $(".owl-next").html('<div class="arrow arrow-right"></div>');
     // }
 
-    /**search modal call */
+    /** modal call */
     $('body').on('click', '.js-modal', function (event) {
         event.preventDefault();
         var modal = $(this).attr('data-target');
         $('[data-id="' + modal + '"').fadeIn();
     });
     $(document).click(function (e) {
-        if ($('.modal-search, .modal-message').is(e.target) || $('.modal-search__close, .js-close').is(e.target)) {
-            $('.modal-search, .modal-message').fadeOut();
+        if ($('.modal-search, .modal-msg').is(e.target) || $('.modal-search__close, .js-close').is(e.target)) {
+            $('.modal-search, .modal-msg').fadeOut();
         };
     });
 
