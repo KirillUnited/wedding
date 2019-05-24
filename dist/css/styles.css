@@ -1080,6 +1080,52 @@ body, html {
   background-color: #eb3c6d;
 }
 
+.b-chat-group {
+  position: relative;
+}
+
+.b-chat-window {
+  display: none;
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 0;
+  width: 360px;
+  height: 590px;
+  background-color: white;
+  -webkit-box-shadow: -0.3px 1px 54px rgba(32, 22, 0, 0.26);
+          box-shadow: -0.3px 1px 54px rgba(32, 22, 0, 0.26);
+  z-index: 10;
+}
+
+.b-chat-window-arrow {
+  position: absolute;
+  top: -10px;
+  right: 18px;
+  width: 20px;
+  height: 10px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.b-chat-window-arrow::before {
+  position: absolute;
+  content: '';
+  top: 4px;
+  left: 0px;
+  width: 20px;
+  height: 20px;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: #fff;
+  -webkit-box-shadow: -0.3px 1px 54px rgba(32, 22, 0, 0.26);
+          box-shadow: -0.3px 1px 54px rgba(32, 22, 0, 0.26);
+}
+
+.b-chat-window #webchat {
+  height: 100%;
+}
+
 /*modal vendor message*/
 .modal-msg-body, .modal-msg-img {
   width: 100%;
@@ -1090,6 +1136,7 @@ body, html {
 }
 
 .modal-msg {
+  display: none;
   position: fixed;
   z-index: 1000;
   padding: 90px 15px 0;

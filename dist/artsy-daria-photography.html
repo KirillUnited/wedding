@@ -43,7 +43,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./css/styles.css">
     <link href="https://weddingventure.com/bundle/css?v=iT4vEy0eSCG55EchQE5gJXPGJrNhitbFG0EUd4sxDy81" rel="stylesheet"/>
-
     
 </head>
 <body id="top">
@@ -198,15 +197,23 @@
             <div class="fixed-menu-chat">
                 <div class="b-chat">
                     <button class="b-chat-btn js-modal" data-target="MODAL_MESSAGE_VENDOR">request quote</button>
-                    <a href="#" class="b-chat-link">
-                        <i class="fa fa-comment" aria-hidden="true"></i>
-                        chat
-                        <span class="b-chat-badge">1</span>
-                    </a>
-                    <a href="tel:1234567" class="b-chat-link">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        call
-                    </a>
+                    <div class="b-chat-group">
+                        <a href="#" class="b-chat-link js-modal" data-target="WEBCHAT">
+                            <i class="fa fa-comment" aria-hidden="true"></i>
+                            chat
+                            <span class="b-chat-badge">1</span>
+                        </a>
+                        <div class="b-chat-window" data-id="WEBCHAT">
+                            <div class="b-chat-window-arrow"></div>
+                            <div id="webchat" role="main"></div>
+                        </div>
+                    </div>
+                    <div class="b-chat-group">
+                        <a href="tel:1234567" class="b-chat-link">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            call
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2382,7 +2389,19 @@
     <script src="https://weddingventure.com/bundle/scripts?v=sYr7oq0WfLwNT4nLB_cwuyIA-5aUYEBeny_4GtjMHuA1"></script>
     <script src="./js/script.js"></script>
 
-    
+    <!-- chat bot -->
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+    <script>
+            window.WebChat.renderWebChat({
+                directLine: window.WebChat.createDirectLine({ token: "" }),
+                userID: 'YOUR_USER_ID',
+                username: 'Web Chat User',
+                locale: 'en-US',
+                botAvatarInitials: 'WC',
+                userAvatarInitials: 'WW'
+            }, document.getElementById('webchat'));
+            document.querySelector('#webchat > *').focus();
+    </script>
 
 </body>
 

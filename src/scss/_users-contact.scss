@@ -136,6 +136,46 @@
         text-transform: uppercase;
         background-color: #eb3c6d;
     }
+    &-group {
+        position: relative;
+    }
+
+    &-window {
+        display: none;
+        position: absolute;
+        top: calc(100% + 15px);
+        right: 0;
+        width: 360px;
+        height: 590px;
+        background-color: white;
+        box-shadow: -0.3px 1px 54px rgba(32, 22, 0, 0.26);
+        z-index: 10;
+
+        &-arrow {
+            position: absolute;
+            top: -10px;
+            right: 18px;
+            width: 20px;
+            height: 10px;
+            overflow: hidden;
+            z-index: 1;
+            &::before {
+                position: absolute;
+                content: '';
+                top: 4px;
+                left: 0px;
+                width: 20px;
+                height: 20px;
+                transform: rotate(45deg);
+                background-color: #fff;
+                box-shadow: -0.3px 1px 54px rgba(32, 22, 0, 0.26);
+            }
+        }
+
+        #webchat {
+            height: 100%;
+        }
+    }
 }
 
 /*modal vendor message*/
@@ -146,7 +186,7 @@
 }
 
 .modal-msg {
-    // display: none;
+    display: none;
     position: fixed;
     z-index: 1000;
     padding: 90px 15px 0;
