@@ -61,6 +61,18 @@ $(function () {
      * Need better converting design for CONTACT ME options on vendor profile page
      */
 
+    /* show/hide fixed panel when the user has scrolled through the end of "MESSAGE VENDOR" form
+    -----------------------------------------------*/
+    $(window).scroll(function () {
+        var el = $('.b-form');
+        var panel = $('.fixed-menu');
+
+        var top = $(el).offset().top;
+        var bottom = top + $(el).height();
+        var scroll = $(window).scrollTop();
+        (scroll > bottom && scroll < $('.additional').offset().top) ? panel.addClass('is-shown') : panel.removeClass('is-shown');
+    });
+
     /*active link when scroll
 -----------------------------------------------*/
     $(window).scroll(function () {

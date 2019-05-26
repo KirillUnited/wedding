@@ -20,9 +20,9 @@
         font-size: 18px;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 4px;
         text-align: center;
         margin: 0 0 20px;
+        letter-spacing: 0.075em;
     }
 
     &-desc {
@@ -75,6 +75,10 @@
                 border: 1px solid rgba(0, 0, 0, 0.18);
                 padding: 12px 35px 12px 15px;
                 resize: none;
+                &:focus {
+                    border: 1px solid #0b8a89;
+                    outline: none;
+                }
             }
 
             .input-group {

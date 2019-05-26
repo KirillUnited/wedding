@@ -205,9 +205,9 @@ input[name="selectedMarketNew"] {
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 4px;
   text-align: center;
   margin: 0 0 20px;
+  letter-spacing: 0.075em;
 }
 
 .b-form-desc {
@@ -248,6 +248,12 @@ input[name="selectedMarketNew"] {
   border: 1px solid rgba(0, 0, 0, 0.18);
   padding: 12px 35px 12px 15px;
   resize: none;
+}
+
+.messageForm .b-form-input input[type]:focus,
+.messageForm .b-form-input textarea:focus {
+  border: 1px solid #0b8a89;
+  outline: none;
 }
 
 .messageForm .b-form-input .input-group {
@@ -929,11 +935,25 @@ body, html {
   z-index: 100;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-transform: translate(0, -100%);
+      -ms-transform: translate(0, -100%);
+          transform: translate(0, -100%);
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  -o-transition: transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
 }
 
 .fixed-menu * {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
+}
+
+.fixed-menu.is-shown {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 
 .fixed-menu-wrap {
@@ -971,6 +991,7 @@ body, html {
   font-weight: 400;
   color: #3a3a3a;
   text-decoration: none;
+  letter-spacing: 0.05em;
 }
 
 .fixed-menu-nav > li.active > a {
@@ -1044,9 +1065,11 @@ body, html {
   border: 1px solid #6ac8c7;
   padding: 9px;
   cursor: pointer;
+  letter-spacing: 0.05em;
 }
 
 .b-chat-link {
+  display: block;
   position: relative;
   color: #2c8887;
   font-family: "Champagne";
@@ -1054,6 +1077,21 @@ body, html {
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
+  letter-spacing: 0.075em;
+}
+
+.b-chat-link > i {
+  vertical-align: top;
+  margin-right: 6px;
+}
+
+.b-chat-link > i.fa-comment {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.b-chat-link > i.fa-phone {
+  font-size: 14px;
 }
 
 .b-chat-badge {
