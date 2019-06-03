@@ -1,0 +1,55 @@
+<!-- UPDATE_SEARCH_EXPERIENCE -->
+.block.b-search(style="background-image: url(img/BG-vendor-search.jpg);")
+    .container
+        h1.b-search-title Find A Great Vendor
+        p.b-search-desc Sometimes, a professional vendor can rank low on a wedding budget. This decision is something a couple invariably regrets. Wedding vendors are memories for generations to come. 
+        .row.hidden-xs
+            form.account-form.b-search-form(action='/Search/FindVendor', method='post')
+                .b-search-form-group
+                    label(for="vendorSearchId") Find
+                    input#vendorSearchId.ui-widget(type='text', placeholder='Find wedding venues, photographers, Artsy Daria Photography, etc.')
+                    .b-search-dropdown
+                        ul.b-search-list
+                            li(data-value='bartenders-waiters') 
+                                span Bartenders and waiters
+                            li(data-value='cakes') 
+                                span Cake
+                            li(data-value='catering') 
+                                span Catering
+                            li(data-value='decorations') 
+                                span Decorations 
+                            li(data-value='bartenders-waiters') 
+                                span Bartenders and waiters
+                            li(data-value='cakes') 
+                                span Cake
+                            li(data-value='catering') 
+                                span Catering
+                            li(data-value='decorations') 
+                                span Decorations 
+                            li(data-value='bartenders-waiters') 
+                                span Bartenders and waiters
+                .b-search-form-group
+                    label(for="locationSearchId") Near
+                    input#locationSearchId.ui-widget.ui-autocomplete-input(type='text', placeholder='Near city', autocomplete='off')
+                    .b-search-dropdown
+                input#vendorCategoryUrlId(name='vendorCategoryUrl', type='hidden', value='')
+                input#vendorCityUrlId(name='vendorCityUrl', type='hidden', value='')
+                input#vendorUrlId(name='vendorUrl', type='hidden', value='')
+                button(type='submit')
+                    i.fa.fa-search
+            .col-sm-12.col-md-3.col-lg-3.mt-0
+                i.fa.fa-chevron-down
+                select#vendorCategoryFormId.category-dropdown(name='selectedVendorCategory')
+                    option(value='bartenders-waiters') Bartenders and waiters
+                    option(value='cakes') Cake
+                    option(value='catering') Catering
+                    option(value='decorations') Decorations
+            .col-sm-12.col-md-3.col-lg-3.mt-0.city-list
+                i.fa.fa-chevron-down
+                select#vendorMarketFormId.country-dropdown(name='selectedMarket')
+                    option(value='akron-oh') Akron
+                    option(value='albuquerque-nm') Albuquerque
+                    option(value='amarillo-tx') Amarillo
+                    option(value='atlanta-ga') Atlanta
+                    option(value='austin-tx') Austin
+<!-- end UPDATE_SEARCH_EXPERIENCE -->

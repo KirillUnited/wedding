@@ -495,7 +495,60 @@
         </div>
       </div>
     </header>
-    <section id="content">
+    <section id="content"><!-- UPDATE_SEARCH_EXPERIENCE -->
+      <div class="block b-search" style="background-image: url(img/BG-vendor-search.jpg);">
+        <div class="container">
+          <h1 class="b-search-title">Find A Great Vendor</h1>
+          <p class="b-search-desc">Sometimes, a professional vendor can rank low on a wedding budget. This decision is something a couple invariably regrets. Wedding vendors are memories for generations to come. </p>
+          <div class="row hidden-xs">
+            <form class="account-form b-search-form" action="/Search/FindVendor" method="post">
+              <div class="b-search-form-group">
+                <label for="vendorSearchId">Find</label>
+                <input class="ui-widget" id="vendorSearchId" type="text" placeholder="Find wedding venues, photographers, Artsy Daria Photography, etc.">
+                <div class="b-search-dropdown">
+                  <ul class="b-search-list">
+                    <li data-value="bartenders-waiters"> <span>Bartenders and waiters</span></li>
+                    <li data-value="cakes"> <span>Cake</span></li>
+                    <li data-value="catering"> <span>Catering</span></li>
+                    <li data-value="decorations"> <span>Decorations </span></li>
+                    <li data-value="bartenders-waiters"> <span>Bartenders and waiters</span></li>
+                    <li data-value="cakes"> <span>Cake</span></li>
+                    <li data-value="catering"> <span>Catering</span></li>
+                    <li data-value="decorations"> <span>Decorations </span></li>
+                    <li data-value="bartenders-waiters"> <span>Bartenders and waiters</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="b-search-form-group">
+                <label for="locationSearchId">Near</label>
+                <input class="ui-widget ui-autocomplete-input" id="locationSearchId" type="text" placeholder="Near city" autocomplete="off">
+                <div class="b-search-dropdown"></div>
+              </div>
+              <input id="vendorCategoryUrlId" name="vendorCategoryUrl" type="hidden" value="">
+              <input id="vendorCityUrlId" name="vendorCityUrl" type="hidden" value="">
+              <input id="vendorUrlId" name="vendorUrl" type="hidden" value="">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <div class="col-sm-12 col-md-3 col-lg-3 mt-0"><i class="fa fa-chevron-down"></i>
+              <select class="category-dropdown" id="vendorCategoryFormId" name="selectedVendorCategory">
+                <option value="bartenders-waiters">Bartenders and waiters</option>
+                <option value="cakes">Cake</option>
+                <option value="catering">Catering</option>
+                <option value="decorations">Decorations</option>
+              </select>
+            </div>
+            <div class="col-sm-12 col-md-3 col-lg-3 mt-0 city-list"><i class="fa fa-chevron-down"></i>
+              <select class="country-dropdown" id="vendorMarketFormId" name="selectedMarket">
+                <option value="akron-oh">Akron</option>
+                <option value="albuquerque-nm">Albuquerque</option>
+                <option value="amarillo-tx">Amarillo</option>
+                <option value="atlanta-ga">Atlanta</option>
+                <option value="austin-tx">Austin</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div><!-- end UPDATE_SEARCH_EXPERIENCE -->
       <!-- edited-->
       <div class="home-slider owl-carousel">
         <div class="owl-slide" data-src="img/desert-wedding-314603.png">
