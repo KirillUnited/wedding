@@ -27,11 +27,53 @@
                             li(data-value='decorations') 
                                 span Decorations 
                             li(data-value='bartenders-waiters') 
+                                span Bartenders and waiters 
+                            li(data-value='bartenders-waiters') 
+                                span Bartenders and waiters
+                            li(data-value='cakes') 
+                                span Cake
+                            li(data-value='catering') 
+                                span Catering
+                            li(data-value='decorations') 
+                                span Decorations 
+                            li(data-value='bartenders-waiters') 
                                 span Bartenders and waiters
                 .b-search-form-group
                     label(for="locationSearchId") Near
                     input#locationSearchId.ui-widget.ui-autocomplete-input(type='text', placeholder='Near city', autocomplete='off')
-                    .b-search-dropdown
+                    .b-search-dropdown.b-search-dropdown-location
+                        .b-search-select
+                            p.b-search-select-title Country
+                            .dropdown
+                                button(class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") United States
+                                    i(class="fa fa-chevron-down")
+                                ul.b-search-list(class="dropdown-menu" aria-labelledby="dropdownMenu2")
+                                    li(data-value='United States') 
+                                        span United States
+                        .b-search-select
+                            p.b-search-select-title State
+                            .dropdown
+                                button(class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") California
+                                    i(class="fa fa-chevron-down")
+                                ul.b-search-list(class="dropdown-menu" aria-labelledby="dropdownMenu2")
+                                    li(data-value='California') 
+                                        span California
+                        .b-search-select
+                            p.b-search-select-title City
+                            .dropdown
+                                button(class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") San Francisco
+                                    i(class="fa fa-chevron-down")
+                                ul.b-search-list(class="dropdown-menu" aria-labelledby="dropdownMenu2")
+                                    li(data-value='akron-oh') 
+                                        span Akron
+                                    li(data-value='albuquerque-nm') 
+                                        span Albuquerque
+                                    li(data-value='amarillo-tx') 
+                                        span Amarillo
+                                    li(data-value='atlanta-ga') 
+                                        span Atlanta 
+                                    li(data-value='austin-tx') 
+                                        span Austin
                 input#vendorCategoryUrlId(name='vendorCategoryUrl', type='hidden', value='')
                 input#vendorCityUrlId(name='vendorCityUrl', type='hidden', value='')
                 input#vendorUrlId(name='vendorUrl', type='hidden', value='')

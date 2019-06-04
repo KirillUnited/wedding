@@ -1562,6 +1562,7 @@ body, html {
   font-family: 'SourceSansPro';
   font-size: 14px;
   font-weight: 400;
+  margin: 0;
 }
 
 .b-search-form input {
@@ -1634,7 +1635,7 @@ body, html {
   position: absolute;
   top: calc(100% + 15px);
   left: 0;
-  height: 337px;
+  max-height: 337px;
   width: 100%;
   max-width: 320px;
   background-color: #ffffff;
@@ -1658,6 +1659,88 @@ body, html {
   top: -7px;
   left: 64px;
   z-index: -1;
+}
+
+.b-search-dropdown.b-search-dropdown-location {
+  max-height: none;
+  padding: 15px 20px;
+}
+
+.b-search-select {
+  padding: 15px 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.b-search-select:last-child {
+  border-bottom: none;
+}
+
+.b-search-select-title {
+  color: #333;
+  font-family: 'Lora';
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 14px;
+}
+
+.b-search-select .dropdown-toggle {
+  position: relative;
+  width: 100%;
+  height: auto;
+  color: #000000;
+  font-family: 'SourceSansPro';
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 14px 12px;
+}
+
+.b-search-select .dropdown {
+  background-color: #ffffff;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+}
+
+.b-search-select .dropdown.open {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.b-search-select .dropdown.open .dropdown-toggle.btn-default {
+  color: #000000;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.b-search-select .dropdown.open i {
+  -webkit-transform: rotate(180deg) translate(0, -50%);
+      -ms-transform: rotate(180deg) translate(0, -50%);
+          transform: rotate(180deg) translate(0, -50%);
+}
+
+.b-search-select .dropdown-menu {
+  width: 100%;
+  height: auto;
+  max-height: 337px;
+  background-color: #ffffff;
+  border: 1px solid #dedede;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.b-search-select i {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  -webkit-transform-origin: 50% 0;
+      -ms-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+  color: #068887;
+  font-size: 8px;
 }
 
 .b-search-list {

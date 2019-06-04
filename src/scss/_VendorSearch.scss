@@ -79,6 +79,7 @@
             font-family: 'SourceSansPro';
             font-size: 14px;
             font-weight: 400;
+            margin: 0;
         }
 
         input {
@@ -120,7 +121,7 @@
         position: absolute;
         top: calc(100% + 15px);
         left: 0;
-        height: 337px;
+        max-height: 337px;
         width: 100%;
         max-width: 320px;
         background-color: #ffffff;
@@ -141,6 +142,78 @@
             left: 64px;
             z-index: -1;
         }
+
+        &.b-search-dropdown-location {
+            max-height: none;
+            padding: 15px 20px;
+        }
+    }
+
+    &-select {
+        padding: 15px 10px;
+        border-bottom: 1px solid #f0f0f0;
+        &:last-child {
+            border-bottom: none;
+        }
+        &-title {
+            color: #333;
+            font-family: 'Lora';
+            font-size: 16px;
+            font-weight: 400;
+            margin: 0 0 14px;
+        }
+
+        .dropdown-toggle {
+            position: relative;
+            width: 100%;
+            height: auto;
+            color: #000000;
+            font-family: 'SourceSansPro';
+            font-size: 16px;
+            font-weight: 400;
+            text-align: left;
+            border: none;
+            border-radius: 0;
+            background-color: transparent;
+            padding: 14px 12px;
+        }
+
+        .dropdown {
+            background-color: #ffffff;
+            border: 1px solid #dedede;
+            border-radius: 5px;
+
+            &.open {
+                border-radius: 5px 5px 0px 0px;
+
+                .dropdown-toggle.btn-default {
+                    color: #000000;
+                    background-color: transparent;
+                    border-color: transparent;
+                }
+                i {
+                    transform: rotate(180deg) translate(0, -50%);
+                }
+            }
+
+            &-menu {
+                width: 100%;
+                height: auto;
+                max-height: 337px;
+                background-color: #ffffff;
+                border: 1px solid #dedede;
+                border-radius: 0px 0px 5px 5px;
+            }
+        }
+        i {
+            position: absolute;
+            top: 50%;
+            right: 14px;
+            transform: translate(0, -50%);
+            transform-origin: 50% 0;
+            color: #068887;
+            font-size: 8px;
+        }
     }
 
     &-list {
@@ -158,11 +231,13 @@
             font-weight: 400;
             margin-bottom: 20px;
             cursor: pointer;
+
             &:last-child {
                 margin-bottom: 0;
             }
+
             span {
-                border-bottom: 1px solid rgba(#b2b2b2, 0.4) ;
+                border-bottom: 1px solid rgba(#b2b2b2, 0.4);
             }
         }
     }
