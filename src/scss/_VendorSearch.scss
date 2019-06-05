@@ -1,20 +1,15 @@
 /* UPDATE_SEARCH_EXPERIENCE */
 .b-search {
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;
+    width: 100%;
+    max-width: 830px;
     padding: 65px 0;
+    margin: 0 auto;
     box-sizing: border-box;
 
     *,
     *::after,
     *::before {
         box-sizing: inherit;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 830px;
     }
 
     &-title {
@@ -152,9 +147,11 @@
     &-select {
         padding: 15px 10px;
         border-bottom: 1px solid #f0f0f0;
+
         &:last-child {
             border-bottom: none;
         }
+
         &-title {
             color: #333;
             font-family: 'Lora';
@@ -176,6 +173,13 @@
             border-radius: 0;
             background-color: transparent;
             padding: 14px 12px;
+
+            img {
+                max-width: 21px;
+                max-height: 14px;
+                vertical-align: baseline;
+                margin-right: 10px;
+            }
         }
 
         .dropdown {
@@ -191,6 +195,7 @@
                     background-color: transparent;
                     border-color: transparent;
                 }
+
                 i {
                     transform: rotate(180deg) translate(0, -50%);
                 }
@@ -205,6 +210,7 @@
                 border-radius: 0px 0px 5px 5px;
             }
         }
+
         i {
             position: absolute;
             top: 50%;
@@ -238,6 +244,57 @@
 
             span {
                 border-bottom: 1px solid rgba(#b2b2b2, 0.4);
+            }
+        }
+    }
+
+    &-detect {
+        position: relative;
+        width: 21px;
+        height: 21px;
+        background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle/%3E%3Cg%3E%3Ctitle%3Ebackground%3C/title%3E%3Crect fill='none' id='canvas_background' height='402' width='582' y='-1' x='-1'/%3E%3C/g%3E%3Cg%3E%3Ctitle%3ELayer 1%3C/title%3E%3Ccircle stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' stroke='%23000000' fill='none' id='svg_1' r='24.5' cy='32.17' cx='32.5' class='cls-1'/%3E%3Ccircle stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' stroke='%23000000' fill='none' id='svg_2' r='10.07' cy='32.077407' cx='32.5' class='cls-1'/%3E%3Cline stroke='%23000000' stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' fill='none' id='svg_3' y2='1.04' y1='7.546667' x2='32' x1='32' class='cls-1'/%3E%3Cline stroke='%23000000' stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' fill='none' id='svg_4' y2='56.831112' y1='63.05' x2='32' x1='32' class='cls-1'/%3E%3Cline stroke='%23000000' stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' fill='none' id='svg_5' y2='32.05' y1='32.05' x2='63' x1='57.058888' class='cls-1'/%3E%3Cline stroke='%23000000' stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' fill='none' id='svg_6' y2='32.05' y1='32.05' x2='7.95963' x1='1' class='cls-1'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            transform: rotate(45deg);
+            width: 12px;
+            height: 12px;
+            top: calc(100% + 8px);
+            left: 5px;
+            background-color: #fa7a7b;
+            z-index: 10;
+        }
+
+        &::after {
+            @include truncate(173px);
+            content: 'Auto detect disabled';
+            display: block;
+            position: absolute;
+            top: calc(100% + 12px);
+            right: -5px;
+            width: 173px;
+            color: #ffffff;
+            font-family: 'SourceSansPro';
+            font-size: 16px;
+            font-weight: 400;
+            background-color: #fa7a7b;
+            border-radius: 5px;
+            box-shadow: 0.1px 1px 7px rgba(32, 22, 0, 0.11);
+            padding: 13px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        &:hover {
+
+            &::before,
+            &::after {
+                display: block;
             }
         }
     }

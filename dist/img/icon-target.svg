@@ -1,0 +1,17 @@
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+
+ <title/>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle stroke-width="NaN" stroke-linejoin="round" stroke-linecap="round" stroke="#000000" fill="none" id="svg_1" r="24.5" cy="32.17" cx="32.5" class="cls-1"/>
+  <circle stroke-width="NaN" stroke-linejoin="round" stroke-linecap="round" stroke="#000000" fill="none" id="svg_2" r="10.07" cy="32.077407" cx="32.5" class="cls-1"/>
+  <line stroke="#000000" stroke-width="NaN" stroke-linejoin="round" stroke-linecap="round" fill="none" id="svg_3" y2="1.04" y1="7.546667" x2="32" x1="32" class="cls-1"/>
+  <line stroke="#000000" stroke-width="NaN" stroke-linejoin="round" stroke-linecap="round" fill="none" id="svg_4" y2="56.831112" y1="63.05" x2="32" x1="32" class="cls-1"/>
+  <line stroke="#000000" stroke-width="NaN" stroke-linejoin="round" stroke-linecap="round" fill="none" id="svg_5" y2="32.05" y1="32.05" x2="63" x1="57.058888" class="cls-1"/>
+  <line stroke="#000000" stroke-width="NaN" stroke-linejoin="round" stroke-linecap="round" fill="none" id="svg_6" y2="32.05" y1="32.05" x2="7.95963" x1="1" class="cls-1"/>
+ </g>
+</svg>

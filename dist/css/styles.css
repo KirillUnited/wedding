@@ -1472,10 +1472,10 @@ body, html {
 
 /* UPDATE_SEARCH_EXPERIENCE */
 .b-search {
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
+  width: 100%;
+  max-width: 830px;
   padding: 65px 0;
+  margin: 0 auto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -1485,11 +1485,6 @@ body, html {
 .b-search *::before {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
-}
-
-.b-search .container {
-  width: 100%;
-  max-width: 830px;
 }
 
 .b-search-title {
@@ -1698,6 +1693,13 @@ body, html {
   padding: 14px 12px;
 }
 
+.b-search-select .dropdown-toggle img {
+  max-width: 21px;
+  max-height: 14px;
+  vertical-align: baseline;
+  margin-right: 10px;
+}
+
 .b-search-select .dropdown {
   background-color: #ffffff;
   border: 1px solid #dedede;
@@ -1767,4 +1769,58 @@ body, html {
 
 .b-search-list li span {
   border-bottom: 1px solid rgba(178, 178, 178, 0.4);
+}
+
+.b-search-detect {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle/%3E%3Cg%3E%3Ctitle%3Ebackground%3C/title%3E%3Crect fill='none' id='canvas_background' height='402' width='582' y='-1' x='-1'/%3E%3C/g%3E%3Cg%3E%3Ctitle%3ELayer 1%3C/title%3E%3Ccircle stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' stroke='%23000000' fill='none' id='svg_1' r='24.5' cy='32.17' cx='32.5' class='cls-1'/%3E%3Ccircle stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' stroke='%23000000' fill='none' id='svg_2' r='10.07' cy='32.077407' cx='32.5' class='cls-1'/%3E%3Cline stroke='%23000000' stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' fill='none' id='svg_3' y2='1.04' y1='7.546667' x2='32' x1='32' class='cls-1'/%3E%3Cline stroke='%23000000' stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' fill='none' id='svg_4' y2='56.831112' y1='63.05' x2='32' x1='32' class='cls-1'/%3E%3Cline stroke='%23000000' stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' fill='none' id='svg_5' y2='32.05' y1='32.05' x2='63' x1='57.058888' class='cls-1'/%3E%3Cline stroke='%23000000' stroke-width='NaN' stroke-linejoin='round' stroke-linecap='round' fill='none' id='svg_6' y2='32.05' y1='32.05' x2='7.95963' x1='1' class='cls-1'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.b-search-detect::before {
+  content: '';
+  display: block;
+  position: absolute;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  width: 12px;
+  height: 12px;
+  top: calc(100% + 8px);
+  left: 5px;
+  background-color: #fa7a7b;
+  z-index: 10;
+}
+
+.b-search-detect::after {
+  max-width: 173px;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  content: 'Auto detect disabled';
+  display: block;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: -5px;
+  width: 173px;
+  color: #ffffff;
+  font-family: 'SourceSansPro';
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #fa7a7b;
+  border-radius: 5px;
+  -webkit-box-shadow: 0.1px 1px 7px rgba(32, 22, 0, 0.11);
+          box-shadow: 0.1px 1px 7px rgba(32, 22, 0, 0.11);
+  padding: 13px;
+  text-align: center;
+  z-index: 10;
+}
+
+.b-search-detect:hover::before, .b-search-detect:hover::after {
+  display: block;
 }
