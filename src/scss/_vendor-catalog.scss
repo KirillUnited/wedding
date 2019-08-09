@@ -1,0 +1,143 @@
+/*modify vendor catalog*/
+
+@mixin font-Lora {
+    font-family: 'Lora', serif;
+}
+
+@mixin font-Source {
+    font-family: 'Source Sans Pro', arial;
+}
+
+.is-modified {
+    &.content {
+        h1 {
+            @include font-Lora();
+            color: #000000;
+            font-size: 24px;
+            font-weight: 400;
+            text-transform: capitalize;
+            letter-spacing: 0.05em;
+        }
+
+        .filters-section {
+            .footer {
+                background: #ffffff;
+            }
+        }
+
+        .banner-vendors-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 21 / 19 * 1;
+            max-width: 300px;
+            opacity: 0.8;
+            background-color: #6ac8c7;
+            margin: 0 10px;
+        }
+
+        .banner-visual-search {
+            justify-content: center;
+        }
+
+        .banner-map {
+            justify-content: center;
+        }
+
+        .content {
+            &-header {
+                margin-bottom: 40px;
+                margin-top: 30px;
+
+                p {
+                    @include font-Source();
+                    color: #333;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 24 / 16 * 1;
+                    letter-spacing: 0;
+                }
+            }
+
+            &-banner-vendors {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &.mobile-banner-visual-search {
+        color: #ffffff;
+        @include font-Lora();
+        font-size: 14px;
+        font-weight: 400;
+        background-color: #fa7a7b;
+        padding: 15px;
+
+        a {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        i {
+            font-size: 26px;
+        }
+
+        .flexCC {
+            align-items: flex-start;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        &.content {
+            .content {
+                &-header {
+                    margin-bottom: 40px;
+
+                    p {
+                        @include font-Source();
+                        color: #333;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 24 / 16 * 1;
+                        letter-spacing: 0;
+                    }
+                }
+
+                &-banner-vendors {
+                    margin-bottom: 0;
+                }
+            }
+
+            .pageTop {
+                display: flex;
+                align-items: center;
+                margin-bottom: 30px;
+                padding: 5px 0;
+                border-bottom: 1px solid #f0f0f0;
+
+                &>*,
+                #top-filters-button {
+                    flex: 1;
+                    max-width: 100%;
+                    color: #068887;
+                    @include font-Lora();
+                    font-size: 12px;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    text-align: center;
+                    background-color: #ffffff;
+                    cursor: pointer;
+                    padding: 19px;
+                    border-right: 1px solid #f0f0f0;
+                    &:last-child {
+                        border-right: none;
+                    }
+                }
+            }
+        }
+    }
+}

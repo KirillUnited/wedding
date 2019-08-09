@@ -38,6 +38,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="images/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     
 
@@ -52,7 +54,7 @@
 <link href="images/commonsitecss.css" rel="stylesheet"/>
 
     <link href="images/store.css" rel="stylesheet"/>
-
+<link rel="stylesheet" href="../css/styles.css">
     
 </head>
 <body id="top">
@@ -653,25 +655,6 @@
 </div>
     </div>
 </div>
-<div class="container-fluid px-0">   
-    
-    <div class="mobile-banner-visual-search visible-xs">
-        <div class="flexCC flex-no-wrap">
-            <i class="fa fa-bullhorn"></i>
-            <div>
-                Select photos you like; we'll recommend wedding photographers in Seattle
-                <a href="https://localhost:44373/photo-search/photographers"
-                    title="Find Seattle photographers"
-                    onclick="track('Catalog Page: Visual Button', 'photographers');"
-                    data-market-lat="47,6204986572266"
-                    data-market-lon="-122,350898742676"
-                    data-category-id="69">
-                    Try now!
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <div id="filters-map" class="row m-0">
@@ -896,7 +879,7 @@
     </div>
 </div>
 
-<section id="content">
+<section id="content" class="content is-modified">
     <div class="container px-0 mobile_filters">
         <div class="row">
             <div class="sidebar col-sm-12 col-md-3">
@@ -1087,48 +1070,66 @@
             </div>
 
             <div class="col-sm-12 col-md-9 main">
-                <div class="flexBE flex-no-wrap mb-1">
-                    <h1 class="m-0">Wedding photographers in the Seattle area</h1>
-                    <span class="no-wrap visible-xs" onclick="OpenFiltersMap(true)">show on map</span>
+                <div class="content-header">
+                    <div class="flexBE flex-no-wrap mb-1">
+                        <h1 class="m-0">Wedding photographers in the Seattle area</h1>
+                    </div>
+                    <p>Sometimes, a professional photographer can rank low on a wedding budget. This decision is
+                        something a couple invariably regrets. Wedding photographs are memories for generations to come.
+                        Putting a camera into the hands of a friend can turn into a disaster. With wedding photos, there
+                        are no second chances, so make the first one count.
+                    </p>
                 </div>
 
+                <div class="row">    
+                    <div class="mobile-banner-visual-search visible-xs is-modified">
+                        <div class="flexCC flex-no-wrap">
+                            <i class="fa fa-picture-o"></i>
+                            <div>
+                                Select photos you like;<br> we'll recommend vendors.
+                                <a href="https://localhost:44373/photo-search/photographers"
+                                    title="Find Seattle photographers"
+                                    onclick="track('Catalog Page: Visual Button', 'photographers');"
+                                    data-market-lat="47,6204986572266"
+                                    data-market-lon="-122,350898742676"
+                                    data-category-id="69">
+                                    Try now!
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                
-                <div class="flexSC col-sm-12 col-md-6 p-0 banner-visual-search hidden-xs">
-                    <div class="row shadow-frame">
-                        <p class="col-12 banner-vendors-text">Find photographers by choosing the photographs you like</p>
-                        <a href="https://localhost:44373/photo-search/photographers"
-                            class="button bordered banner-btn"
-                            title="Search Seattle photographers"
+                <div class="content-banner-vendors clearfix row">
+                    <div class="col-xs-12 col-md-6 hidden-xs">
+                        <a href="https://localhost:44373/photo-search/photographers" class=" flexSC banner-visual-search " title="Search Seattle photographers"
                             onclick="track('Catalog Page: Visual Button', 'photographers');"
-                            data-market-lat="47,6204986572266"
-                            data-market-lon="-122,350898742676"
-                            data-category-id="69">
-                            Try Visual Search
-                            <i class="fa fa-angle-double-right"></i>
+                            data-market-lat="47,6204986572266" data-market-lon="-122,350898742676" data-category-id="69">
+                                <p class="banner-vendors-text">Find photographers by choosing the photographs you
+                                    like</p>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-md-6 hidden-xs">
+                        <a href="#" id="map-show-btn" title="Map Seattle photographers"
+                            class="flexSC  banner-map "
+                            onclick="track('Top Nav: Map Button');return false;" data-market-lat="47,6204986572266"
+                            data-market-lon="-122,350898742676" data-category-id="69">
+                                <p class="banner-vendors-text">
+                                    View these vendors on the map
+                                </p>
                         </a>
                     </div>
                 </div>
-                <div class="flexSC col-xs-12 col-md-6 p-0 banner-map hidden-xs">
-                    <div class="row shadow-frame">
-                        <p class="col-12 banner-vendors-text">
-                            View these vendors on the map
-                            <a href="#" id="map-show-btn" title="Map Seattle photographers" class="button bordered banner-btn" onclick="track('Top Nav: Map Button');return false;"
-                                data-market-lat="47,6204986572266"
-                                data-market-lon="-122,350898742676"
-                                data-category-id="69">
-                                Show on a map  <i class="fa fa-angle-double-right"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>     
 
 
-                <div class="flexBE flex-no-wrap my-1 pageTop">
-                    
-                    <div id="top-filters-button" class="flexBC" onclick="OpenFiltersMap(false)">
-                        <i class="fa fa-filter"></i>
+                <div class="flex-no-wrap pageTop">                    
+                    <span class="no-wrap visible-xs" onclick="OpenFiltersMap(true)">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <span>map</span>
+                    </span>
+                    <div id="top-filters-button" class="top-filters-button" onclick="OpenFiltersMap(false)">
+                        <i class="fa fa-sliders"></i>
                         <span>filters</span>
-                        <i class=" fa fa-angle-down"></i>
                     </div>
                 </div>
 

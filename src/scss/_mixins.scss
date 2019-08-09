@@ -93,7 +93,26 @@
     $remSize: $size / $base;
     @return #{$remSize}rem;
 }
+// functions
+@function strip-unit($number) {
+    @if type-of($number)=='number'and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
 
+    @warn '#{ $number } is in wrong format';
+    @return $number;
+}
+
+@function getrem($size, $base: 16px) {
+    $remSize: $size / $base;
+    @return #{$remSize}rem;
+}
+
+@function getvw($xs-size, $w-max: 320px) {
+    $xs-size: strip-unit($xs-size);
+    $w-max: strip-unit($w-max);
+    @return $xs-size * 100vw / $w-max;
+}
 // line clamp
 @mixin line-clamp($line) {
     display: -webkit-box;
