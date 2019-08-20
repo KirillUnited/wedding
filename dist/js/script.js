@@ -117,7 +117,16 @@ function initFeatProdSlider() {
             margin: 15,
             center: false,
             loop: false,
-            navText: ["", ""]
+            navText: ["", ""],
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                767:{
+                    items:4
+                }
+            }
         });
     }
 }

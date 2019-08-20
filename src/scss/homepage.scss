@@ -164,6 +164,10 @@
             margin-left: getrem(5px);
         }
     }
+
+    .vendor-status {
+        margin-bottom: getrem(35px);
+    }
 }
 
 .vendor-category-link {
@@ -478,4 +482,218 @@
 
 @media screen and (max-width: 991px) {}
 
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
+    .section {
+        h2 {
+            font-size: getvw(30px);
+            margin: 0 0 getvw(15px);
+        }
+
+        p {
+            font-size: getvw(18px);
+            margin: 0 0 getvw(25px);
+        }
+
+        &-header {
+            padding-top: getvw(80px);
+            padding-bottom: getvw(30px);
+        }
+
+        &-body {
+            padding-top: getvw(30px);
+            padding-bottom: getvw(35px);
+        }
+    }
+
+    .card {
+        padding-bottom: getvw(45px);
+
+        &-img-icon {
+            max-width: none;
+            max-height: none;
+            width: getvw(79px);
+            height: getvw(79px);
+            margin-bottom: getvw(30px);
+        }
+
+        &-title {
+            font-size: getvw(16px);
+            margin: 0 0 getvw(10px);
+        }
+
+        p {
+            font-size: getvw(14px);
+        }
+    }
+
+
+    .home-slider {
+        ul {
+            margin-bottom: getvw(20px);
+
+            &>li {
+                font-size: getvw(18px);
+                padding-left: getvw(25px);
+                margin-bottom: getvw(20px);
+            }
+        }
+
+        .container {
+            padding: getvw(50px) getvw(15px);
+        }
+
+        &-item {
+            max-width: getvw(490px);
+            padding: getvw(5px);
+        }
+
+        &-content {
+            padding: getvw(35px) getvw(20px);
+        }
+
+        &-link {
+            font-size: getvw(16px);
+
+            i {
+                margin-left: getvw(5px);
+            }
+        }
+
+        .vendor-status {
+            margin-bottom: getvw(35px);
+        }
+
+        .owl-slide,
+        .owl-item {
+            height: getvw(560px);
+        }
+    }
+
+    .featured-categories {
+        padding-bottom: 0;
+
+        .row {
+            margin-left: getvw(-10px);
+            margin-right: getvw(-10px);
+        }
+
+        &-item {
+            padding-left: getvw(10px);
+            padding-right: getvw(10px);
+            padding-bottom: getvw(15px);
+
+            .card {
+                padding-bottom: percentage(400 / 245);
+
+                &-body {
+                    margin: 0 getvw(5px) getvw(15px);
+                    padding: getvw(20px) getvw(30px);
+                }
+            }
+        }
+    }
+
+    .see-all {
+        max-width: getvw(205px);
+        font-size: getvw(16px);
+        margin-bottom: getvw(90px);
+        padding: getvw(11px);
+    }
+
+    .vendor-category-link {
+        font-size: getvw(12px);
+        margin-bottom: getvw(20px);
+    }
+
+    .featured-products {
+        &-prize {
+            font-size: getvw(24px);
+
+            .is-old {
+                font-size: getvw(18px);
+                margin-left: getvw(8px);
+            }
+        }
+
+        &-slider {
+            &.owl-carousel {
+                .owl-nav {
+                    top: getvw(131px);
+                    z-index: 1;
+
+                    button {
+                        width: getvw(40px);
+                        height: getvw(40px);
+                        font-size: getvw(7px);
+
+                        &[role=presentation] {
+                            transform: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-btn {
+            max-width: getvw(219px);
+
+
+            &>a {
+                font-size: getvw(14px);
+                padding: getvw(12px);
+            }
+        }
+
+        &-discount {
+            top: getvw(10px);
+            width: getvw(59px);
+            height: getvw(59px);
+            font-size: getvw(14px);
+        }
+
+        .card {
+            padding-bottom: 0;
+
+            .featured-products-btn {
+                bottom: getvw(20px);
+            }
+
+            &-img {
+                padding-bottom: percentage(280 / 290);
+            }
+
+            &-body {
+                padding: getvw(20px);
+            }
+        }
+
+        .rating {
+            margin-bottom: getvw(10px);
+        }
+    }
+
+    .featured-articles {
+        .section-body {
+            padding-bottom: 0;
+        }
+        .post-item {
+            margin: 0;
+        }
+        .row {
+            margin-right: getvw(-15px / 2);
+            margin-left: getvw(-15px / 2);
+        }
+
+        &-item {
+            padding-right: getvw(15px / 2);
+            padding-left: getvw(15px / 2);
+        }
+
+        .card {
+            &-img {
+                padding-bottom: percentage(245 / 290);
+                margin-bottom: getvw(29px);
+            }
+        }
+    }
+}

@@ -178,6 +178,10 @@
   margin-left: 0.5rem;
 }
 
+.home-slider .vendor-status {
+  margin-bottom: 3.5rem;
+}
+
 .vendor-category-link {
   display: inline-block;
   color: #5e5e5e;
@@ -496,4 +500,167 @@
 
 .featured-products .rating {
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .section h2 {
+    font-size: 9.375vw;
+    margin: 0 0 4.6875vw;
+  }
+  .section p {
+    font-size: 5.625vw;
+    margin: 0 0 7.8125vw;
+  }
+  .section-header {
+    padding-top: 25vw;
+    padding-bottom: 9.375vw;
+  }
+  .section-body {
+    padding-top: 9.375vw;
+    padding-bottom: 10.9375vw;
+  }
+  .card {
+    padding-bottom: 14.0625vw;
+  }
+  .card-img-icon {
+    max-width: none;
+    max-height: none;
+    width: 24.6875vw;
+    height: 24.6875vw;
+    margin-bottom: 9.375vw;
+  }
+  .card-title {
+    font-size: 5vw;
+    margin: 0 0 3.125vw;
+  }
+  .card p {
+    font-size: 4.375vw;
+  }
+  .home-slider ul {
+    margin-bottom: 6.25vw;
+  }
+  .home-slider ul > li {
+    font-size: 5.625vw;
+    padding-left: 7.8125vw;
+    margin-bottom: 6.25vw;
+  }
+  .home-slider .container {
+    padding: 15.625vw 4.6875vw;
+  }
+  .home-slider-item {
+    max-width: 153.125vw;
+    padding: 1.5625vw;
+  }
+  .home-slider-content {
+    padding: 10.9375vw 6.25vw;
+  }
+  .home-slider-link {
+    font-size: 5vw;
+  }
+  .home-slider-link i {
+    margin-left: 1.5625vw;
+  }
+  .home-slider .vendor-status {
+    margin-bottom: 10.9375vw;
+  }
+  .home-slider .owl-slide,
+  .home-slider .owl-item {
+    height: 175vw;
+  }
+  .featured-categories {
+    padding-bottom: 0;
+  }
+  .featured-categories .row {
+    margin-left: -3.125vw;
+    margin-right: -3.125vw;
+  }
+  .featured-categories-item {
+    padding-left: 3.125vw;
+    padding-right: 3.125vw;
+    padding-bottom: 4.6875vw;
+  }
+  .featured-categories-item .card {
+    padding-bottom: 163.26531%;
+  }
+  .featured-categories-item .card-body {
+    margin: 0 1.5625vw 4.6875vw;
+    padding: 6.25vw 9.375vw;
+  }
+  .see-all {
+    max-width: 64.0625vw;
+    font-size: 5vw;
+    margin-bottom: 28.125vw;
+    padding: 3.4375vw;
+  }
+  .vendor-category-link {
+    font-size: 3.75vw;
+    margin-bottom: 6.25vw;
+  }
+  .featured-products-prize {
+    font-size: 7.5vw;
+  }
+  .featured-products-prize .is-old {
+    font-size: 5.625vw;
+    margin-left: 2.5vw;
+  }
+  .featured-products-slider.owl-carousel .owl-nav {
+    top: 40.9375vw;
+    z-index: 1;
+  }
+  .featured-products-slider.owl-carousel .owl-nav button {
+    width: 12.5vw;
+    height: 12.5vw;
+    font-size: 2.1875vw;
+  }
+  .featured-products-slider.owl-carousel .owl-nav button[role=presentation] {
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
+  .featured-products-btn {
+    max-width: 68.4375vw;
+  }
+  .featured-products-btn > a {
+    font-size: 4.375vw;
+    padding: 3.75vw;
+  }
+  .featured-products-discount {
+    top: 3.125vw;
+    width: 18.4375vw;
+    height: 18.4375vw;
+    font-size: 4.375vw;
+  }
+  .featured-products .card {
+    padding-bottom: 0;
+  }
+  .featured-products .card .featured-products-btn {
+    bottom: 6.25vw;
+  }
+  .featured-products .card-img {
+    padding-bottom: 96.55172%;
+  }
+  .featured-products .card-body {
+    padding: 6.25vw;
+  }
+  .featured-products .rating {
+    margin-bottom: 3.125vw;
+  }
+  .featured-articles .section-body {
+    padding-bottom: 0;
+  }
+  .featured-articles .post-item {
+    margin: 0;
+  }
+  .featured-articles .row {
+    margin-right: -2.34375vw;
+    margin-left: -2.34375vw;
+  }
+  .featured-articles-item {
+    padding-right: 2.34375vw;
+    padding-left: 2.34375vw;
+  }
+  .featured-articles .card-img {
+    padding-bottom: 84.48276%;
+    margin-bottom: 9.0625vw;
+  }
 }
