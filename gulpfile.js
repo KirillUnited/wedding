@@ -3,7 +3,9 @@ const pug = require('gulp-pug');
 var spritesmith = require('gulp.spritesmith');
 var gulpif = require('gulp-if');
 var imagemin = require('gulp-imagemin'),
-    imgCompress = require('imagemin-jpeg-recompress');
+    imgCompress = require('imagemin-jpeg-recompress'),
+    webp = require("imagemin-webp"),
+    extReplace = require("gulp-ext-replace");
 
 gulp.task('sprite', function () {
     var spriteData = gulp.src('src/img/*.{png,jpg}').pipe(spritesmith({
@@ -13,6 +15,7 @@ gulp.task('sprite', function () {
     return spriteData.pipe(gulpif('*.png', gulp.dest('dist/img/'), gulp.dest('src/scss/')));
 });
 
+/* minify tinypng settings */
 gulp.task('imagemin', function () {
     return gulp.src('src/img/**/*')
         .pipe(imagemin([
@@ -27,6 +30,18 @@ gulp.task('imagemin', function () {
             imagemin.svgo()
         ]))
         .pipe(gulp.dest('dist/img/'));
+});
+
+/* convert-to-webp.js */
+gulp.task('webp', function () {
+    return gulp.src('src/img/**/*.{jpg,png}')
+        .pipe(imagemin([
+            webp({
+                quality: 75
+            })
+        ]))
+        .pipe(extReplace(".webp"))
+        .pipe(gulp.dest('dist/img/webp/'));
 });
 
 gulp.task('pug', function () {
