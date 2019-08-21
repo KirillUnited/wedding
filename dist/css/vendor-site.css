@@ -53,6 +53,19 @@
   margin-bottom: 2.33333rem;
 }
 
+.vendor-profile .details-form label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: 'RobotoCondensed';
+  font-size: 1.06667rem;
+  line-height: 1.5;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
 .vendor-profile .details-form input, .vendor-profile .details-form .select-outer select, .vendor-profile .details-form textarea {
   color: #000000;
   font-family: 'RobotoCondensed';
@@ -62,6 +75,9 @@
   border: 1px solid rgba(0, 0, 0, 0.18);
   background-color: transparent;
   border-radius: 0;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .vendor-profile .details-form input.placeholder, .vendor-profile .details-form .select-outer select.placeholder, .vendor-profile .details-form textarea.placeholder {
@@ -145,6 +161,9 @@
 }
 
 .vendor-profile .details-form_checkouts > label {
+  position: relative;
+  top: auto;
+  left: auto;
   color: #000000;
   font-family: 'RobotoCondensed';
   font-size: 1.06667rem;
@@ -154,6 +173,19 @@
 
 .vendor-profile .details-form_packages-close {
   color: #0d8b8a;
+}
+
+.vendor-profile .details-form-group {
+  position: relative;
+}
+
+.vendor-profile .details-form-group input.is-filled, .vendor-profile .details-form-group .details-form .select-outer select.is-filled, .vendor-profile .details-form .select-outer .details-form-group select.is-filled, .vendor-profile .details-form-group .details-form textarea.is-filled, .vendor-profile .details-form .details-form-group textarea.is-filled, .vendor-profile .details-form-group input:focus, .vendor-profile .details-form-group .details-form .select-outer select:focus, .vendor-profile .details-form .select-outer .details-form-group select:focus, .vendor-profile .details-form-group .details-form textarea:focus, .vendor-profile .details-form .details-form-group textarea:focus {
+  padding: 1.46667rem 1rem 0.53333rem;
+}
+
+.vendor-profile .details-form-group input.is-filled + label, .vendor-profile .details-form-group .details-form .select-outer select.is-filled + label, .vendor-profile .details-form .select-outer .details-form-group select.is-filled + label, .vendor-profile .details-form-group .details-form textarea.is-filled + label, .vendor-profile .details-form .details-form-group textarea.is-filled + label, .vendor-profile .details-form-group input:focus + label, .vendor-profile .details-form-group .details-form .select-outer select:focus + label, .vendor-profile .details-form .select-outer .details-form-group select:focus + label, .vendor-profile .details-form-group .details-form textarea:focus + label, .vendor-profile .details-form .details-form-group textarea:focus + label {
+  top: 0.53333rem;
+  font-size: 0.8rem;
 }
 
 .vendor-profile .details_add-package {
@@ -184,4 +216,65 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+  .vendor-profile .details-group {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    padding: 0;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  .vendor-profile .title-block {
+    font-size: 7.5vw;
+    margin-top: 10.9375vw;
+    margin-bottom: 10.9375vw;
+  }
+  .vendor-profile .details-form input, .vendor-profile .details-form .select-outer select, .vendor-profile .details-form textarea {
+    font-size: 5vw;
+    padding: 4.6875vw;
+  }
+  .vendor-profile .details-form input[type=checkbox], .vendor-profile .details-form .select-outer select[type=checkbox], .vendor-profile .details-form textarea[type=checkbox] {
+    width: 5.625vw;
+    height: 5.625vw;
+  }
+  .vendor-profile .details-form .select-outer select {
+    font-size: 5vw;
+    padding: 4.6875vw;
+  }
+  .vendor-profile .details-form .select-outer > i {
+    right: 4.6875vw;
+    font-size: 4.0625vw;
+  }
+  .vendor-profile .details-form textarea {
+    font-size: 5vw;
+    padding: 4.6875vw;
+  }
+  .vendor-profile .details-form .button {
+    max-width: 75vw;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 5.625vw;
+    padding: 3.125vw;
+    margin-top: 12.5vw;
+  }
+  .vendor-profile .details-form_checkouts > label {
+    font-size: 5vw;
+    padding-left: 0;
+  }
+  .vendor-profile .details_add-package {
+    max-width: 90.625vw;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    font-size: 5.625vw;
+    padding: 4.6875vw;
+    margin-bottom: 9.375vw;
+  }
 }

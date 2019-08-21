@@ -29,6 +29,17 @@
     }
 
     .details-form {
+        label {
+            position: absolute;
+            top: getrem(15px);
+            left: getrem(15px);
+            color: rgba($color: #000000, $alpha: 0.7);
+            font-family: 'RobotoCondensed';
+            font-size: getrem(16px);
+            line-height: 24 / 16 * 1;
+            transition: 0.3s;
+        }
+
         input {
             @include input-placeholder {
                 color: rgba(0, 0, 0, 0.7);
@@ -42,6 +53,7 @@
             border: 1px solid rgba(0, 0, 0, 0.18);
             background-color: transparent;
             border-radius: 0;
+            transition: 0.3s;
 
             &[type=checkbox] {
                 vertical-align: middle;
@@ -105,6 +117,9 @@
 
         &_checkouts {
             &>label {
+                position: relative;
+                top: auto;
+                left: auto;
                 color: #000000;
                 font-family: 'RobotoCondensed';
                 font-size: getrem(16px);
@@ -116,6 +131,23 @@
         &_packages {
             &-close {
                 color: #0d8b8a;
+            }
+        }
+
+        &-group {
+            position: relative;
+
+            input {
+
+                &.is-filled,
+                &:focus {
+                    padding: getrem(22px) getrem(15px) getrem(8px);
+
+                    &+label {
+                        top: getrem(8px);
+                        font-size: getrem(12px);
+                    }
+                }
             }
         }
     }
@@ -138,5 +170,75 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    @media screen and (max-width: 767px) {
+        .details {
+            &-group {
+                box-shadow: none;
+                padding: 0;
+                border-bottom: 1px solid#e1e1e1;
+            }
+        }
+
+        .title-block {
+            font-size: getvw(24px);
+            margin-top: getvw(35px);
+            margin-bottom: getvw(35px);
+        }
+
+        .details-form {
+            input {
+                font-size: getvw(16px);
+                padding: getvw(15px);
+
+                &[type=checkbox] {
+                    width: getvw(18px);
+                    height: getvw(18px);
+                }
+            }
+
+            .select-outer {
+
+                select {
+                    font-size: getvw(16px);
+                    padding: getvw(15px);
+                }
+
+                &>i {
+                    right: getvw(15px);
+                    font-size: getvw(13px);
+                }
+            }
+
+            textarea {
+                font-size: getvw(16px);
+                padding: getvw(15px);
+            }
+
+            .button {
+                @include truncate(getvw(240px));
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: getvw(18px);
+                padding: getvw(10px);
+                margin-top: getvw(40px);
+            }
+
+            &_checkouts {
+                &>label {
+                    font-size: getvw(16px);
+                    padding-left: 0;
+                }
+            }
+        }
+
+        .details_add-package {
+            @include truncate(getvw(290px));
+            font-size: getvw(18px);
+            padding: getvw(15px);
+            margin-bottom: getvw(30px);
+        }
     }
 }

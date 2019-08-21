@@ -103,7 +103,16 @@ $(function () {
      * homepage
      */
     initFeatProdSlider();
-}); 
+
+    /** 
+     * vendor site
+    */
+    $('body').on('change', '.details-form-group input', function () {
+        var inp = $(this);
+
+        inp.val() != "" ? inp.addClass('is-filled') : inp.removeClass('is-filled');
+    });
+});
 
 function initFeatProdSlider() {
     var slider = $('.featured-products-slider');
@@ -118,13 +127,13 @@ function initFeatProdSlider() {
             center: false,
             loop: false,
             navText: ["", ""],
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:1
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1
                 },
-                767:{
-                    items:4
+                767: {
+                    items: 4
                 }
             }
         });
