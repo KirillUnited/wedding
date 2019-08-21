@@ -103,7 +103,7 @@
     @return $number;
 }
 
-@function getrem($size, $base: 16px) {
+@function getrem($size, $base: 10px) {
     $remSize: $size / $base;
     @return #{$remSize}rem;
 }

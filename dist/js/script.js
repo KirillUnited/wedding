@@ -98,4 +98,35 @@ $(function () {
         }, 1000);
         event.preventDefault();
     });
+
+    /**
+     * homepage
+     */
+    initFeatProdSlider();
 }); 
+
+function initFeatProdSlider() {
+    var slider = $('.featured-products-slider');
+
+    if (slider.length > 0) {
+        slider.owlCarousel({
+            items: 4,
+            dots: false,
+            nav: true,
+            autoplay: false,
+            margin: 15,
+            center: false,
+            loop: false,
+            navText: ["", ""],
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                767:{
+                    items:4
+                }
+            }
+        });
+    }
+}
