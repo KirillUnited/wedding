@@ -23,23 +23,20 @@
         color: #000000;
         font-size: getrem(24px);
         font-weight: 700;
+        line-height: 31 / 24 * 1;
         text-transform: capitalize;
         margin-top: getrem(35px);
         margin-bottom: getrem(35px);
     }
 
-    .details-form {
-        label {
-            position: absolute;
-            top: getrem(15px);
-            left: getrem(15px);
-            color: rgba($color: #000000, $alpha: 0.7);
-            font-family: 'RobotoCondensed';
-            font-size: getrem(16px);
-            line-height: 24 / 16 * 1;
-            transition: 0.3s;
-        }
+    p {
+        color: rgba($color: #000000, $alpha: 0.7);
+        font-family: 'RobotoCondensed';
+        font-size: getrem(16px);
+        line-height: 24 / 16 * 1;
+    }
 
+    .details-form {
         input {
             @include input-placeholder {
                 color: rgba(0, 0, 0, 0.7);
@@ -53,7 +50,13 @@
             border: 1px solid rgba(0, 0, 0, 0.18);
             background-color: transparent;
             border-radius: 0;
-            transition: 0.3s;
+            // transition: 0.3s;
+
+            &:focus {
+                @include input-placeholder {
+                    color: transparent;
+                }
+            }
 
             &[type=checkbox] {
                 vertical-align: middle;
@@ -113,6 +116,7 @@
             text-transform: none;
             padding: getrem(10px);
             margin-top: getrem(40px);
+            filter: none;
         }
 
         &_checkouts {
@@ -125,6 +129,7 @@
                 font-size: getrem(16px);
                 line-height: 24 / 16 * 1;
                 letter-spacing: normal;
+                padding-left: 0;
             }
         }
 
@@ -137,15 +142,29 @@
         &-group {
             position: relative;
 
-            input {
+            label {
+                @include truncate(90%);
+                position: absolute;
+                top: getrem(16px);
+                left: getrem(15px);
+                color: rgba($color: #000000, $alpha: 0.7);
+                font-family: 'RobotoCondensed';
+                font-size: getrem(16px);
+                line-height: 24 / 16 * 1;
+                clip: rect(0 0 0 0);
+                transition: 0.3s;
+            }
+
+            .has-label-animation {
 
                 &.is-filled,
                 &:focus {
-                    padding: getrem(22px) getrem(15px) getrem(8px);
+                    padding: getrem(23px) getrem(15px) getrem(7px);
 
                     &+label {
-                        top: getrem(8px);
+                        top: getrem(7px);
                         font-size: getrem(12px);
+                        clip: auto;
                     }
                 }
             }
@@ -170,9 +189,42 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: getrem(16px);
+        padding-left: getrem(15px);
+        padding-right: getrem(15px);
+        border: 1px solid rgba(0, 0, 0, 0.18);
+    }
+
+    .col-datepicker {
+        flex-wrap: nowrap;
+
+        input {
+            border-right: none;
+        }
+        
+        .input-group-addon {
+            color: rgba($color: #000000, $alpha: 0.5);
+            border-left: none;
+            background: transparent;
+        }
     }
 
     @media screen and (max-width: 767px) {
+        .container {
+            padding-left: getvw(15px);
+            padding-right: getvw(15px);
+        }
+
+        .row {
+            margin-left: getvw(-15px);
+            margin-right: getvw(-15px);
+        }
+
+        [class*="col-"] {
+            padding-left: getvw(15px);
+            padding-right: getvw(15px);
+        }
+
         .details {
             &-group {
                 box-shadow: none;
@@ -187,10 +239,16 @@
             margin-bottom: getvw(35px);
         }
 
+        p {
+            font-size: getvw(16px);
+            margin-bottom: getvw(20px);
+        }
+
         .details-form {
             input {
                 font-size: getvw(16px);
                 padding: getvw(15px);
+                margin-bottom: getvw(33px);
 
                 &[type=checkbox] {
                     width: getvw(18px);
@@ -203,6 +261,7 @@
                 select {
                     font-size: getvw(16px);
                     padding: getvw(15px);
+                    margin-bottom: getvw(33px);
                 }
 
                 &>i {
@@ -214,6 +273,7 @@
             textarea {
                 font-size: getvw(16px);
                 padding: getvw(15px);
+                margin-bottom: getvw(33px);
             }
 
             .button {
@@ -227,9 +287,35 @@
             }
 
             &_checkouts {
+                input {
+                    margin-bottom: 0;
+                }
                 &>label {
+                    top: auto;
+                    left: auto;
                     font-size: getvw(16px);
-                    padding-left: 0;
+                    margin-bottom: getvw(9px);
+                }
+            }
+
+            &-group {
+                label {
+                    top: getvw(16px);
+                    left: getvw(15px);
+                    font-size: getvw(16px);
+                }
+
+                .has-label-animation {
+
+                    &.is-filled,
+                    &:focus {
+                        padding: getvw(23px) getvw(15px) getvw(7px);
+
+                        &+label {
+                            top: getvw(7px);
+                            font-size: getvw(12px);
+                        }
+                    }
                 }
             }
         }
@@ -240,5 +326,11 @@
             padding: getvw(15px);
             margin-bottom: getvw(30px);
         }
+
+        .input-group-addon {
+            font-size: getvw(16px);
+            padding-left: getvw(15px);
+            padding-right: getvw(15px);
+        }    
     }
 }

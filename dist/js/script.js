@@ -103,15 +103,6 @@ $(function () {
      * homepage
      */
     initFeatProdSlider();
-
-    /** 
-     * vendor site
-    */
-    $('body').on('change', '.details-form-group input', function () {
-        var inp = $(this);
-
-        inp.val() != "" ? inp.addClass('is-filled') : inp.removeClass('is-filled');
-    });
 });
 
 function initFeatProdSlider() {
