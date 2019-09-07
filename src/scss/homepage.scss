@@ -89,10 +89,17 @@
 
         .card {
             position: relative;
-            background-position: top center;
-            background-repeat: no-repeat;
-            background-size: cover;
             padding-bottom: percentage(400 / 400);
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+                height: 100%;
+                max-width: none;
+            }
 
             &-body {
                 position: absolute;
@@ -133,6 +140,26 @@
 
     .container {
         padding: getrem(60px) getrem(85px);
+    }
+
+    &-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);            
+            // width: auto !important;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+        }
     }
 
     &-item {
@@ -480,7 +507,9 @@
     }
 }
 
-@media screen and (max-width: 991px) {}
+// @media screen and (max-width: 991px) {
+
+// }
 
 @media screen and (max-width: 767px) {
     .section {
@@ -676,9 +705,11 @@
         .section-body {
             padding-bottom: 0;
         }
+
         .post-item {
             margin: 0;
         }
+
         .row {
             margin-right: getvw(-15px / 2);
             margin-left: getvw(-15px / 2);

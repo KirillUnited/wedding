@@ -37,11 +37,11 @@ gulp.task('webp', function () {
     return gulp.src('src/img/**/*.{jpg,png}')
         .pipe(imagemin([
             webp({
-                quality: 75
+                quality: 90
             })
         ]))
         .pipe(extReplace(".webp"))
-        .pipe(gulp.dest('dist/img/webp/'));
+        .pipe(gulp.dest('dist/img/'));
 });
 
 gulp.task('pug', function () {
