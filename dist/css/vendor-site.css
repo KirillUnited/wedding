@@ -1,0 +1,375 @@
+/* VENDORE SITE STYLING */
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/webfonts/fa-brands-400.eot");
+  src: url("../fonts/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../fonts/webfonts/fa-brands-400.woff") format("woff"), url("../fonts/webfonts/fa-brands-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/webfonts/fa-regular-400.eot");
+  src: url("../fonts/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../fonts/webfonts/fa-regular-400.woff") format("woff"), url("../fonts/webfonts/fa-regular-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-style: normal;
+  src: url("../fonts/webfonts/fa-solid-900.eot");
+  src: url("../fonts/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../fonts/webfonts/fa-solid-900.woff") format("woff"), url("../fonts/webfonts/fa-solid-900.ttf") format("truetype");
+}
+
+/* Business Details */
+.vendor-profile .validation-summary-valid ul {
+  margin: 0;
+}
+
+.vendor-profile .details {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.vendor-profile .details-group {
+  -webkit-box-shadow: 0.5px 0.9px 9px rgba(32, 22, 0, 0.1);
+          box-shadow: 0.5px 0.9px 9px rgba(32, 22, 0, 0.1);
+  padding: 0 1rem;
+}
+
+.vendor-profile .user-menu_list {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.vendor-profile .title-block {
+  color: #000000;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.29167;
+  text-transform: capitalize;
+  margin-top: 2.33333rem;
+  margin-bottom: 2.33333rem;
+}
+
+.vendor-profile p {
+  color: rgba(0, 0, 0, 0.7);
+  font-family: 'RobotoCondensed';
+  font-size: 1.06667rem;
+  line-height: 1.5;
+}
+
+.vendor-profile .details-form input, .vendor-profile .details-form .select-outer select, .vendor-profile .details-form textarea {
+  color: #000000;
+  font-family: 'RobotoCondensed';
+  font-size: 1.06667rem;
+  line-height: 1.5;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.vendor-profile .details-form input.placeholder, .vendor-profile .details-form .select-outer select.placeholder, .vendor-profile .details-form textarea.placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.vendor-profile .details-form input:-moz-placeholder, .vendor-profile .details-form .select-outer select:-moz-placeholder, .vendor-profile .details-form textarea:-moz-placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.vendor-profile .details-form input::-moz-placeholder, .vendor-profile .details-form .select-outer select::-moz-placeholder, .vendor-profile .details-form textarea::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.vendor-profile .details-form input:-ms-input-placeholder, .vendor-profile .details-form .select-outer select:-ms-input-placeholder, .vendor-profile .details-form textarea:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.vendor-profile .details-form input::-webkit-input-placeholder, .vendor-profile .details-form .select-outer select::-webkit-input-placeholder, .vendor-profile .details-form textarea::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.vendor-profile .details-form input:focus.placeholder, .vendor-profile .details-form .select-outer select:focus.placeholder, .vendor-profile .details-form textarea:focus.placeholder {
+  color: transparent;
+}
+
+.vendor-profile .details-form input:focus:-moz-placeholder, .vendor-profile .details-form .select-outer select:focus:-moz-placeholder, .vendor-profile .details-form textarea:focus:-moz-placeholder {
+  color: transparent;
+}
+
+.vendor-profile .details-form input:focus::-moz-placeholder, .vendor-profile .details-form .select-outer select:focus::-moz-placeholder, .vendor-profile .details-form textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+
+.vendor-profile .details-form input:focus:-ms-input-placeholder, .vendor-profile .details-form .select-outer select:focus:-ms-input-placeholder, .vendor-profile .details-form textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.vendor-profile .details-form input:focus::-webkit-input-placeholder, .vendor-profile .details-form .select-outer select:focus::-webkit-input-placeholder, .vendor-profile .details-form textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.vendor-profile .details-form input[type=checkbox], .vendor-profile .details-form .select-outer select[type=checkbox], .vendor-profile .details-form textarea[type=checkbox] {
+  vertical-align: middle;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  padding: 0;
+}
+
+.vendor-profile .details-form input[type=checkbox]::before, .vendor-profile .details-form .select-outer select[type=checkbox]::before, .vendor-profile .details-form textarea[type=checkbox]::before {
+  display: none;
+}
+
+.vendor-profile .details-form input[type=checkbox]:checked, .vendor-profile .details-form .select-outer select[type=checkbox]:checked, .vendor-profile .details-form textarea[type=checkbox]:checked {
+  background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='check' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' class='svg-inline--fa fa-check fa-w-16 fa-2x'%3E%3Cpath fill='%23068887' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z' class=''%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.vendor-profile .details-form input[type=checkbox]:checked::before, .vendor-profile .details-form .select-outer select[type=checkbox]:checked::before, .vendor-profile .details-form textarea[type=checkbox]:checked::before {
+  display: none;
+}
+
+.vendor-profile .details-form .select-outer {
+  background: #ffffff;
+}
+
+.vendor-profile .details-form .select-outer > i {
+  right: 1rem;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.vendor-profile .details-form textarea {
+  resize: none;
+}
+
+.vendor-profile .details-form .button {
+  max-width: 16rem;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  display: inline-block;
+  width: 100%;
+  color: #ffffff;
+  font-family: 'ChampagneBold';
+  font-size: 1.2rem;
+  font-weight: 700;
+  background-color: #068887;
+  border: none;
+  text-transform: none;
+  padding: 0.66667rem;
+  margin-top: 2.66667rem;
+  -webkit-filter: none;
+          filter: none;
+}
+
+.vendor-profile .details-form_checkouts > label {
+  position: relative;
+  top: auto;
+  left: auto;
+  color: #000000;
+  font-family: 'RobotoCondensed';
+  font-size: 1.06667rem;
+  line-height: 1.5;
+  letter-spacing: normal;
+  padding-left: 0;
+}
+
+.vendor-profile .details-form_packages-close {
+  color: #0d8b8a;
+}
+
+.vendor-profile .details-form-group {
+  position: relative;
+}
+
+.vendor-profile .details-form-group label {
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  position: absolute;
+  top: 1.06667rem;
+  left: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: 'RobotoCondensed';
+  font-size: 1.06667rem;
+  line-height: 1.5;
+  clip: rect(0 0 0 0);
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.vendor-profile .details-form-group .has-label-animation.is-filled, .vendor-profile .details-form-group .has-label-animation:focus {
+  padding: 1.53333rem 1rem 0.46667rem;
+}
+
+.vendor-profile .details-form-group .has-label-animation.is-filled + label, .vendor-profile .details-form-group .has-label-animation:focus + label {
+  top: 0.46667rem;
+  font-size: 0.8rem;
+  clip: auto;
+}
+
+.vendor-profile .details_add-package {
+  max-width: 16rem;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  color: #000000;
+  font-family: 'ChampagneBold';
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.33333;
+  text-transform: none;
+  background-color: white;
+  border: 1px solid #068887;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.vendor-profile .input-group-addon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.06667rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.vendor-profile .col-datepicker {
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.vendor-profile .col-datepicker input, .vendor-profile .col-datepicker .details-form .select-outer select, .vendor-profile .details-form .select-outer .col-datepicker select, .vendor-profile .col-datepicker .details-form textarea, .vendor-profile .details-form .col-datepicker textarea {
+  border-right: none;
+}
+
+.vendor-profile .col-datepicker .input-group-addon {
+  color: rgba(0, 0, 0, 0.5);
+  border-left: none;
+  background: transparent;
+}
+
+@media screen and (max-width: 767px) {
+  .vendor-profile .container {
+    padding-left: 4.6875vw;
+    padding-right: 4.6875vw;
+  }
+  .vendor-profile .row {
+    margin-left: -4.6875vw;
+    margin-right: -4.6875vw;
+  }
+  .vendor-profile [class*="col-"] {
+    padding-left: 4.6875vw;
+    padding-right: 4.6875vw;
+  }
+  .vendor-profile .details-group {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    padding: 0;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  .vendor-profile .title-block {
+    font-size: 7.5vw;
+    margin-top: 10.9375vw;
+    margin-bottom: 10.9375vw;
+  }
+  .vendor-profile p {
+    font-size: 5vw;
+    margin-bottom: 6.25vw;
+  }
+  .vendor-profile .details-form input, .vendor-profile .details-form .select-outer select, .vendor-profile .details-form textarea {
+    font-size: 5vw;
+    padding: 4.6875vw;
+    margin-bottom: 10.3125vw;
+  }
+  .vendor-profile .details-form input[type=checkbox], .vendor-profile .details-form .select-outer select[type=checkbox], .vendor-profile .details-form textarea[type=checkbox] {
+    width: 5.625vw;
+    height: 5.625vw;
+  }
+  .vendor-profile .details-form .select-outer select {
+    font-size: 5vw;
+    padding: 4.6875vw;
+    margin-bottom: 10.3125vw;
+  }
+  .vendor-profile .details-form .select-outer > i {
+    right: 4.6875vw;
+    font-size: 4.0625vw;
+  }
+  .vendor-profile .details-form textarea {
+    font-size: 5vw;
+    padding: 4.6875vw;
+    margin-bottom: 10.3125vw;
+  }
+  .vendor-profile .details-form .button {
+    max-width: 75vw;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 5.625vw;
+    padding: 3.125vw;
+    margin-top: 12.5vw;
+  }
+  .vendor-profile .details-form_checkouts input, .vendor-profile .details-form_checkouts .details-form .select-outer select, .vendor-profile .details-form .select-outer .details-form_checkouts select, .vendor-profile .details-form_checkouts .details-form textarea, .vendor-profile .details-form .details-form_checkouts textarea {
+    margin-bottom: 0;
+  }
+  .vendor-profile .details-form_checkouts > label {
+    top: auto;
+    left: auto;
+    font-size: 5vw;
+    margin-bottom: 2.8125vw;
+  }
+  .vendor-profile .details-form-group label {
+    top: 5vw;
+    left: 4.6875vw;
+    font-size: 5vw;
+  }
+  .vendor-profile .details-form-group .has-label-animation.is-filled, .vendor-profile .details-form-group .has-label-animation:focus {
+    padding: 7.1875vw 4.6875vw 2.1875vw;
+  }
+  .vendor-profile .details-form-group .has-label-animation.is-filled + label, .vendor-profile .details-form-group .has-label-animation:focus + label {
+    top: 2.1875vw;
+    font-size: 3.75vw;
+  }
+  .vendor-profile .details_add-package {
+    max-width: 90.625vw;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    font-size: 5.625vw;
+    padding: 4.6875vw;
+    margin-bottom: 9.375vw;
+  }
+  .vendor-profile .input-group-addon {
+    font-size: 5vw;
+    padding-left: 4.6875vw;
+    padding-right: 4.6875vw;
+  }
+}

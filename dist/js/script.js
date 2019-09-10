@@ -103,7 +103,7 @@ $(function () {
      * homepage
      */
     initFeatProdSlider();
-}); 
+});
 
 function initFeatProdSlider() {
     var slider = $('.featured-products-slider');
@@ -118,13 +118,13 @@ function initFeatProdSlider() {
             center: false,
             loop: false,
             navText: ["", ""],
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:1
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1
                 },
-                767:{
-                    items:4
+                767: {
+                    items: 4
                 }
             }
         });
