@@ -1,0 +1,99 @@
+/* --- VENDOR DETAILS --- */
+@import "./ui-kit";
+
+$gallery-gap: 9px;
+
+.menu-nav {
+    &>ul {
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+        margin: getrem(10px) 0 getrem(40px);
+        border-bottom: 1px solid #f0f0f0;
+
+        &>li {
+            margin-bottom: getrem(-1px);
+
+            a {
+                display: block;
+                color: #000000e6;
+                font-family: 'SourceSansPro';
+                font-size: getrem(14px);
+                font-weight: 400;
+                text-transform: uppercase;
+                padding: getrem(15px) 0;
+                transition: .3s;
+                border-bottom: 1px solid transparent;
+
+                &:hover {
+                    color: #33333380;
+                    text-decoration: none;
+                    border-bottom: 1px solid #606060;
+                }
+
+                &.is-active {
+                    @extend a:hover;
+                }
+            }
+        }
+    }
+}
+
+.menu-contacts {
+    &>ul {
+        align-items: center;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+
+        &>li {
+            &>a {
+                display: block;
+                color: #333;
+                line-height: 1;
+                text-decoration: underline;
+                transition: .3s;
+                padding-left: getrem(20px);
+                padding-right: getrem(20px);
+                border-right: 1px solid rgba($color: #333, $alpha: 0.1);
+            }
+        }
+    }
+    .btn {
+        width: getrem(224px);
+    }
+}
+
+.vendor-gallery {
+    border-bottom: 1px solid#f1f1f1;
+
+    &>* {
+        margin-bottom: getrem(40px);
+    }
+
+    &-list {
+        margin-left: getrem(-$gallery-gap / 2);
+        margin-right: getrem(-$gallery-gap / 2);
+    }
+
+    &-item {
+        padding: getrem($gallery-gap / 2);
+        border-radius: 5px;
+    }
+
+    &-img {
+        position: relative;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .btn {
+        width: 100%;
+        max-width: getrem(258px);
+    }
+}

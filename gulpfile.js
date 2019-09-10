@@ -8,11 +8,11 @@ var imagemin = require('gulp-imagemin'),
     extReplace = require("gulp-ext-replace");
 
 gulp.task('sprite', function () {
-    var spriteData = gulp.src('src/img/*.{png,jpg}').pipe(spritesmith({
+    var spriteData = gulp.src('src/img/pages/icons/*.{png,jpg}').pipe(spritesmith({
         imgName: 'sprite.png',
-        cssName: 'sprite.css'
+        cssName: '_sprite.scss'
     }));
-    return spriteData.pipe(gulpif('*.png', gulp.dest('dist/img/'), gulp.dest('src/scss/')));
+    return spriteData.pipe(gulpif('*.png', gulp.dest('dist/img/pages/icons/'), gulp.dest('src/scss/')));
 });
 
 /* minify tinypng settings */

@@ -7,6 +7,22 @@
 }
 
 @font-face {
+  font-family: "Lora";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/Lora-Bold.eot");
+  src: url("../fonts/Lora-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Lora-Bold.woff") format("woff"), url("../fonts/Lora-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lora";
+  font-weight: 700;
+  font-style: italic;
+  src: url("../fonts/Lora-BoldItalic.eot");
+  src: url("../fonts/Lora-BoldItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Lora-BoldItalic.woff") format("woff"), url("../fonts/Lora-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "SourceSansPro";
   font-weight: 400;
   font-style: normal;
@@ -46,6 +62,32 @@ input[name="selectedMarketNew"] {
   .container {
     width: 1170px;
   }
+}
+
+.icon-badge {
+  display: inline-block;
+  width: 3.1rem;
+  height: 3.1rem;
+}
+
+.field {
+  background-image: url(sprite.png);
+  background-position: 0px 0px;
+}
+
+.fire {
+  background-image: url(sprite.png);
+  background-position: -31px 0px;
+}
+
+.love {
+  background-image: url(sprite.png);
+  background-position: 0px -31px;
+}
+
+.trophy {
+  background-image: url(sprite.png);
+  background-position: -31px -31px;
 }
 
 /*slider*/
@@ -2025,4 +2067,218 @@ body, html {
   .is-modified.content .pageTop #top-filters-button:last-child {
     border-right: none;
   }
+}
+
+/* --- VENDOR DETAILS --- */
+.vendor-details {
+  color: #333;
+  font-family: 'SourceSansPro', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.88889;
+}
+
+.vendor-details h1,
+.vendor-details h2 {
+  color: #1a1a1a;
+  font-family: 'Lora';
+  font-size: 3rem;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: none;
+  line-height: 1.33333;
+  letter-spacing: normal;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.vendor-details p {
+  color: #333;
+  line-height: 1.88889;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+}
+
+.vendor-details ul {
+  padding-left: 2rem;
+}
+
+.vendor-details blockquote {
+  font-size: 1.8rem;
+  background-color: #f9f9f9;
+  background-image: url(data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAARCAQAAABtcaS7AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjCQoOKikZ7jjXAAABzklEQVQoz13RS0jUURTH8c/8ldIks0AXN9I20dM22sOKiAQhsBZRyxAKbq9F0D6QFhNEUJtCrtQqiCIqA2kRPQh6ILVqoHfSRA8q2oVk6bRIp5nO8nfO93d/59xcP1Kv82DMwvhTRaVBO8FQ7Pur1IJj5oCR/8YX2yMHHk5rGWmjFV47jtuq64CcE17hTgVgL85Yg3tV/nX6cMEin+OLMpBm6FVy0RIUqvy7zfFAfbWeWavRo/hRszHdqaUC6MFlzahPm9PMaWDdVMKn6l3xKZ1Ns6eALtxVULLeLR/T3r9AOx5jh7wrxu12J80i5bQbV4ivbXXKffMMpKPkwohVlsVnU4u2GbbcyXg4LVD0PC4tn2CbS2bakGlBcVqO72w3IaY6zXj3b6F43REcyjQSf1Q0XrqvwUqNGKu62jl0ZZByVY1vmK0Wv6r072jIFNFR8V2ZDrz1BqtTVgF0oJi5inyqKcv7tSnE0TiqoM3+slGNPK4KTeF9KIWboTPUhtaQDxOhFHr69Qs9oRQmQj60htrQGW6GUngfmnL9Ursb5pdfmHQwDky57nPav1AfbIlPazbp+PLknN+azPDVkL44XA79+Mk1Deaa9MqgXbHIH0RqiiCU8IyCAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  background-position: 21px 35px;
+  border-radius: 5px;
+  padding: 1.38889em;
+  padding-left: 3.61111em;
+  border: none;
+}
+
+.vendor-details .icon-badge {
+  background-image: url(../../img/pages/icons/sprite.png);
+}
+
+.vendor-details .main__head {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.vendor-details .main__head > * {
+  margin-right: 2rem;
+}
+
+.vendor-details .rating-stars {
+  margin-bottom: 3rem;
+}
+
+.vendor-details .rating-stars ul {
+  line-height: 1;
+  padding-left: 0;
+}
+
+.vendor-details .rating-stars ul > li.star {
+  width: 2rem;
+  height: 2rem;
+}
+
+.vendor-details .rating-stars ul > li.star > i.fa {
+  font-size: 1.7rem;
+}
+
+.vendor-details .rating-stars ul > li.star.selected > i.fa {
+  color: #fa7a7b;
+}
+
+.btn-prime {
+  color: #ffffff;
+  font-family: 'Lora';
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.91667;
+  text-transform: uppercase;
+  background-color: #098988;
+  border: 1px solid #068887;
+  border-radius: 5px;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.btn-prime:hover, .btn-prime:focus {
+  color: #098988;
+  background-color: #ffffff;
+  border: 1px solid #068887;
+}
+
+.icons-group,
+ul.icons-group {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 -0.5rem 2rem;
+}
+
+.icons-group > *,
+ul.icons-group > * {
+  line-height: 1;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.menu-nav > ul {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 4rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-nav > ul > li {
+  margin-bottom: -0.1rem;
+}
+
+.menu-nav > ul > li a {
+  display: block;
+  color: #000000e6;
+  font-family: 'SourceSansPro';
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 1.5rem 0;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  border-bottom: 1px solid transparent;
+}
+
+.menu-nav > ul > li a:hover, .menu-nav > ul > li .btn-prime-invert, .menu-nav > ul > li a.is-active {
+  color: #33333380;
+  text-decoration: none;
+  border-bottom: 1px solid #606060;
+}
+
+.menu-contacts > ul {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.menu-contacts > ul > li > a {
+  display: block;
+  color: #333;
+  line-height: 1;
+  text-decoration: underline;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-right: 1px solid rgba(51, 51, 51, 0.1);
+}
+
+.menu-contacts .btn {
+  width: 22.4rem;
+}
+
+.vendor-gallery {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.vendor-gallery > * {
+  margin-bottom: 4rem;
+}
+
+.vendor-gallery-list {
+  margin-left: -0.45rem;
+  margin-right: -0.45rem;
+}
+
+.vendor-gallery-item {
+  padding: 0.45rem;
+  border-radius: 5px;
+}
+
+.vendor-gallery-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.vendor-gallery-img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.vendor-gallery .btn {
+  width: 100%;
+  max-width: 25.8rem;
 }
