@@ -101,8 +101,12 @@ $(function () {
 
     /**
      * homepage
-     */
+     ----------------------------------------------*/
     initFeatProdSlider();
+
+    /**
+     * inner pages
+     ----------------------------------------------*/
 });
 
 function initFeatProdSlider() {
