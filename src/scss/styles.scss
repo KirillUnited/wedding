@@ -8,6 +8,7 @@
     margin-right: auto;
     margin-left: auto;
 }
+
 .flex {
     display: flex;
     flex-wrap: wrap;
@@ -31,6 +32,16 @@ input[name="selectedMarketNew"] {
     }
 }
 
+@import "./sprite";
+
+.icon-badge {
+    display: inline-block;
+    width: getrem(31px);
+    height: getrem(31px);
+}
+
+@include sprites($spritesheet-sprites);
+// home
 @import "./slider";
 @import "./form";
 @import "./modal-search";
@@ -41,3 +52,5 @@ input[name="selectedMarketNew"] {
 @import "./users-contact";
 @import "./VendorSearch";
 @import "./vendor-catalog";
+// vendor details
+@import "./vendor-details/index";

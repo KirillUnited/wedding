@@ -5,30 +5,32 @@ var gulpif = require('gulp-if');
 var imagemin = require('gulp-imagemin'),
     imgCompress = require('imagemin-jpeg-recompress'),
     webp = require("imagemin-webp"),
-    extReplace = require("gulp-ext-replace");
+    extReplace = require("gulp-ext-replace"),
+    cache = require('gulp-cache');
 
 gulp.task('sprite', function () {
-    var spriteData = gulp.src('src/img/*.{png,jpg}').pipe(spritesmith({
+    var spriteData = gulp.src('src/img/pages/icons/*.{png,jpg}').pipe(spritesmith({
         imgName: 'sprite.png',
-        cssName: 'sprite.css'
+        cssName: '_sprite.scss'
     }));
-    return spriteData.pipe(gulpif('*.png', gulp.dest('dist/img/'), gulp.dest('src/scss/')));
+    return spriteData.pipe(gulpif('*.png', gulp.dest('dist/img/pages/icons/'), gulp.dest('src/scss/')));
 });
 
 /* minify tinypng settings */
 gulp.task('imagemin', function () {
     return gulp.src('src/img/**/*')
-        .pipe(imagemin([
+        .pipe(cache(imagemin([
             imgCompress({
-                loops: 4,
-                min: 70,
-                max: 80,
-                quality: 'high'
+                progressive: true,
+                loops: 5,
+                min: 65,
+                max: 70,
+                quality: 'medium'
             }),
             imagemin.gifsicle(),
             imagemin.optipng(),
-            imagemin.svgo()
-        ]))
+            imagemin.svgo({ plugins: [{ removeViewBox: true }] })
+        ])))
         .pipe(gulp.dest('dist/img/'));
 });
 
@@ -37,7 +39,7 @@ gulp.task('webp', function () {
     return gulp.src('src/img/**/*.{jpg,png}')
         .pipe(imagemin([
             webp({
-                quality: 90
+                lossless: true
             })
         ]))
         .pipe(extReplace(".webp"))
