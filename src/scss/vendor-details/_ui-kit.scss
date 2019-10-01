@@ -141,6 +141,12 @@
         }
     }
 
+    &-faq {
+        h2 {
+            margin-bottom: rem(25px);
+        }
+    }
+
     &-group {
         border-bottom: 1px solid#f1f1f1;
         margin-bottom: getrem(40px);
@@ -158,6 +164,9 @@
     }
 
     &-accordion {
+        margin-top: getrem(30px);
+        margin-bottom: getrem(40px);
+
         [data-toggle="collapse"] {
             position: relative;
             display: inline-block;
@@ -238,6 +247,12 @@
             @extend a:hover;
         }
     }
+
+    .vendor-details-section & {
+        width: 100%;
+        max-width: getrem(223px);
+        margin-bottom: getrem(30px);
+    }
 }
 
 .icons-group,
@@ -297,6 +312,12 @@ ul.icons-group {
             }
         }
 
+        &-faq {
+            h2 {
+                margin-bottom: getvw(25px);
+            }
+        }
+
         .main__head {
             text-align: center;
 
@@ -314,6 +335,9 @@ ul.icons-group {
         }
 
         &-accordion {
+            margin-top: getvw(30px);
+            margin-bottom: getvw(40px);
+
             [data-toggle="collapse"] {
                 padding-left: getvw(43px);
 
@@ -403,6 +427,10 @@ ul.icons-group {
             font-size: getvw(12px);
             padding-top: getvw(10px);
             padding-bottom: getvw(10px);
+        }
+        .vendor-details-section & {
+            max-width: none;
+            margin-bottom: getvw(30px);
         }
     }
 
