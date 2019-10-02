@@ -107,6 +107,7 @@ $(function () {
     /**
      * inner pages
      ----------------------------------------------*/
+    customersPhotosSlider();
 });
 
 function initFeatProdSlider() {
@@ -129,8 +130,37 @@ function initFeatProdSlider() {
                 },
                 767: {
                     items: 4
+                },
+                991: {
+                    items: 6
                 }
             }
         });
     }
 }
+
+function customersPhotosSlider() {
+    var slider = $('.customer-photos-list');
+
+    if (slider.length > 0) {
+        slider.owlCarousel({
+            items: 6,
+            dots: false,
+            nav: false,
+            autoplay: false,
+            margin: 15,
+            center: false,
+            loop: false,
+            navText: ["", ""],
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                767: {
+                    items: 4
+                }
+            }
+        });
+    }
+};
