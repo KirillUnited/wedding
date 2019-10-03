@@ -44,7 +44,6 @@
     }
 
     ul {
-        padding-left: getrem(20px);
         margin-bottom: getrem(25px);
     }
 
@@ -69,6 +68,21 @@
 
         &>* {
             margin-right: getrem(20px);
+        }
+
+        .rating {
+            &-widget {
+                width: auto;
+            }
+
+            &-stars {
+                min-width: auto;
+            }
+        }
+
+        .featured-vendors-location {
+            font-size: getrem(18px);
+            margin-bottom: getrem(35px);
         }
     }
 
@@ -661,7 +675,6 @@ ul.icons-group {
         }
 
         ul {
-            padding-left: getvw(20px);
             margin-bottom: getvw(25px);
         }
 
@@ -695,6 +708,23 @@ ul.icons-group {
 
             .icons {
                 display: none;
+            }
+
+
+            .rating {
+                &-widget {
+                    width: 100%;
+                }
+
+                &-stars {
+                    min-width: auto;
+                }
+            }
+
+            .featured-vendors-location {
+                width: 100%;
+                font-size: getvw(18px);
+                margin-bottom: getvw(35px);
             }
         }
 
@@ -950,17 +980,17 @@ ul.icons-group {
         &-item {
             margin-bottom: getvw(40px);
         }
-    
+
         &-img {
             padding-bottom: percentage(248 / 289);
             margin-bottom: getvw(20px);
         }
-    
+
         h3 {
             font-size: getvw(18px);
             margin-bottom: getvw(5px);
         }
-    
+
         h4 {
             font-size: getvw(10px);
             margin-bottom: getvw(10px);
@@ -969,12 +999,13 @@ ul.icons-group {
         .rating {
             font-size: getvw(14px);
         }
+
         .rating-widget,
         .rating-stars,
         .stars {
             height: getvw(32px);
         }
-    
+
         &-location {
             font-size: getvw(14px);
         }

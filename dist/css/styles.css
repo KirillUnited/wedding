@@ -2264,7 +2264,6 @@ body, html {
 }
 
 .vendor-details ul {
-  padding-left: 2rem;
   margin-bottom: 2.5rem;
 }
 
@@ -2292,6 +2291,19 @@ body, html {
 
 .vendor-details .main__head > * {
   margin-right: 2rem;
+}
+
+.vendor-details .main__head .rating-widget {
+  width: auto;
+}
+
+.vendor-details .main__head .rating-stars {
+  min-width: auto;
+}
+
+.vendor-details .main__head .featured-vendors-location {
+  font-size: 1.8rem;
+  margin-bottom: 3.5rem;
 }
 
 .vendor-details .rating-widget {
@@ -2841,7 +2853,6 @@ ul.icons-group > * {
     margin-bottom: 7.8125vw;
   }
   .vendor-details ul {
-    padding-left: 6.25vw;
     margin-bottom: 7.8125vw;
   }
   .vendor-details blockquote {
@@ -2867,6 +2878,17 @@ ul.icons-group > * {
   }
   .vendor-details .main__head .icons {
     display: none;
+  }
+  .vendor-details .main__head .rating-widget {
+    width: 100%;
+  }
+  .vendor-details .main__head .rating-stars {
+    min-width: auto;
+  }
+  .vendor-details .main__head .featured-vendors-location {
+    width: 100%;
+    font-size: 5.625vw;
+    margin-bottom: 10.9375vw;
   }
   .vendor-details-group {
     margin-bottom: 12.5vw;
