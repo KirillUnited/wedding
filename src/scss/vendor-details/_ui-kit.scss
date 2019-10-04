@@ -641,6 +641,21 @@ ul.icons-group {
     }
 }
 
+.local-vendors {
+    &-list {
+        &>* {
+            line-height: normal;
+            a {
+                color: #333;
+                font-family: 'SourceSansPro';
+                font-size: getrem(14px);
+                font-weight: 400;
+                line-height: 24 / 14 * 1;
+                text-decoration: underline;
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 991px) {
     .vendor-statistic {
@@ -1008,6 +1023,16 @@ ul.icons-group {
 
         &-location {
             font-size: getvw(14px);
+        }
+    }
+
+    .local-vendors {
+        &-list {
+            &>* {
+                a {
+                    font-size: getvw(14px);
+                }
+            }
         }
     }
 }
