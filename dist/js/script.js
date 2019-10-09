@@ -108,6 +108,43 @@ $(function () {
      * inner pages
      ----------------------------------------------*/
     customersPhotosSlider();
+
+    if ($(".vendor-details-accordion") != null) {
+        var interview = $(".vendor-details-accordion");
+        var question = interview.find(".panel-collapse h5");
+        var arr = [];
+
+        $(question).each(function (indx, element) {
+            var answerArr = $(element).nextUntil("blockquote");
+            var answer = $("<p></p>");
+
+            answerArr.each(function (i, el) {
+                $(el).appendTo(answer);
+            });
+
+            arr.push({
+                title: $(element).text(),
+                text: answer.html()
+            });
+        });
+
+        interview.html("");
+
+        arr.forEach(function (element, indx) {
+            var q = element.title;
+            var a = element.text;
+            var tmpl = `<div class="vendor-details-group panel">
+                            <h5 class="panel-title">
+                                <a href="#${indx}" data-toggle="collapse" class="collapsed">${q}</a>\
+                                    </h5>\
+                            <div id="${indx}" class="panel-collapse collapse" style="height: 0px;">\
+                                ${a}
+                            </div>
+                        </div>`;
+
+            interview.append(tmpl);
+        });
+    }
 });
 
 function initFeatProdSlider() {
