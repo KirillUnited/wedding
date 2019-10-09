@@ -2738,8 +2738,26 @@ ul.icons-group > * {
   margin-bottom: 3rem;
 }
 
+.featured-label {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'SourceSansPro';
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.83333;
+  text-transform: uppercase;
+  background-color: #fa7a7b;
+  border-radius: 0px 5px 5px 0px;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+}
+
 .featured-vendors-item {
   margin-bottom: 4rem;
+}
+
+.featured-vendors-item .post-link {
+  position: relative;
 }
 
 .featured-vendors-item .post-link:hover {
@@ -2748,6 +2766,12 @@ ul.icons-group > * {
 
 .featured-vendors-item .post-link:hover h3 {
   color: #098988;
+}
+
+.featured-vendors-item .featured-label {
+  position: absolute;
+  top: 1.5rem;
+  left: 0;
 }
 
 .featured-vendors-img {
@@ -3073,6 +3097,11 @@ ul.icons-group > * {
   .customer-photos-list {
     margin-bottom: 9.375vw;
   }
+  .featured-label {
+    font-size: 3.75vw;
+    padding-left: 2.8125vw;
+    padding-right: 2.8125vw;
+  }
   .featured-vendors-item {
     margin-bottom: 12.5vw;
   }
@@ -3098,6 +3127,9 @@ ul.icons-group > * {
   }
   .featured-vendors-location {
     font-size: 4.375vw;
+  }
+  .featured-vendors .featured-label {
+    top: 4.6875vw;
   }
   .local-vendors-list > * a {
     font-size: 4.375vw;

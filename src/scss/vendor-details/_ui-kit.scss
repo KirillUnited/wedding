@@ -551,11 +551,27 @@ ul.icons-group {
     }
 }
 
+.featured-label {
+    display: inline-block;
+    color: rgba($color: #ffffff, $alpha: 0.9);
+    font-family: 'SourceSansPro';
+    font-size: getrem(12px);
+    font-weight: 700;
+    line-height: 22 / 12 * 1;
+    text-transform: uppercase;
+    background-color: #fa7a7b;
+    border-radius: 0px 5px 5px 0px;
+    padding-left: getrem(9px);
+    padding-right: getrem(9px);
+}
+
 .featured-vendors {
     &-item {
         margin-bottom: getrem(40px);
 
         .post-link {
+            position: relative;
+
             &:hover {
                 text-decoration: none;
 
@@ -563,6 +579,12 @@ ul.icons-group {
                     color: #098988;
                 }
             }
+        }
+
+        .featured-label {
+            position: absolute;
+            top: getrem(15px);
+            left: 0;
         }
     }
 
@@ -645,6 +667,7 @@ ul.icons-group {
     &-list {
         &>* {
             line-height: normal;
+
             a {
                 color: #333;
                 font-family: 'SourceSansPro';
@@ -991,6 +1014,12 @@ ul.icons-group {
         }
     }
 
+    .featured-label {
+        font-size: getvw(12px);
+        padding-left: getvw(9px);
+        padding-right: getvw(9px);
+    }
+
     .featured-vendors {
         &-item {
             margin-bottom: getvw(40px);
@@ -1023,6 +1052,10 @@ ul.icons-group {
 
         &-location {
             font-size: getvw(14px);
+        }
+
+        .featured-label {
+            top: getvw(15px);
         }
     }
 
