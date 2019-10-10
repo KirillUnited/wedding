@@ -69,9 +69,68 @@ input[name="selectedMarketNew"] {
 }
 
 .icon-badge {
+  position: relative;
   display: inline-block;
   width: 3.1rem;
   height: 3.1rem;
+  text-align: left;
+}
+
+.icon-badge::before {
+  content: '';
+  display: none;
+  position: absolute;
+  -webkit-transform: rotate(45deg) translate(-50%, 0);
+      -ms-transform: rotate(45deg) translate(-50%, 0);
+          transform: rotate(45deg) translate(-50%, 0);
+  width: 1rem;
+  height: 1rem;
+  background-color: #ffffff;
+  top: 125%;
+  left: 50%;
+  z-index: 11;
+}
+
+.icon-badge::after {
+  content: attr(data-title);
+  display: none;
+  position: absolute;
+  top: 130%;
+  right: -2rem;
+  width: auto;
+  white-space: nowrap;
+  color: #1a1a1a;
+  font-family: 'SourceSansPro';
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.42857;
+  font-style: normal;
+  background: #FFFFFF;
+  padding: 1.5rem 2rem;
+  z-index: 10;
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+  -webkit-box-shadow: 0.5px 0.9px 7px rgba(32, 22, 0, 0.1);
+          box-shadow: 0.5px 0.9px 7px rgba(32, 22, 0, 0.1);
+}
+
+.icon-badge:hover::before, .icon-badge:hover::after {
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
+  .icon-badge::before {
+    width: 3.125vw;
+    height: 3.125vw;
+  }
+  .icon-badge::after {
+    right: -45.3125vw;
+    width: 90.625vw;
+    white-space: normal;
+    font-size: 4.375vw;
+    font-weight: 400;
+    padding: 4.6875vw 6.25vw;
+  }
 }
 
 .field {
@@ -797,6 +856,10 @@ input[name="selectedMarketNew"] {
 .desktop-account > li.desktop-account__vendor a.desktop-account__link i {
   color: inherit;
   margin-left: 20px;
+}
+
+.desktop-account .button {
+  font-family: 'SourceSansPro';
 }
 
 /*[MOBILE USABILITY] Google*/
