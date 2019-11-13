@@ -1,5 +1,6 @@
-@import "./mixins";
+@import "./mixins/mixins";
 @import "./fonts";
+@import "./mixins/sprite";
 
 /*base styles*/
 .container {
@@ -32,7 +33,6 @@ input[name="selectedMarketNew"] {
     }
 }
 
-@import "./sprite";
 
 .icon-badge {
     position: relative;
@@ -115,4 +115,6 @@ input[name="selectedMarketNew"] {
 @import "./VendorSearch";
 @import "./vendor-catalog";
 // vendor details
-@import "./vendor-details/index";
+@import "./pages/vendor-details/index";
+// write the review page
+@import "./pages/vendor-review/vendor-review";

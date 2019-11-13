@@ -145,6 +145,48 @@ $(function () {
             interview.append(tmpl);
         });
     }
+
+    // details page hero slider
+    if ($('.vendor-thumbs') != null) {
+        $('.vendor-thumbs').data('owl.carousel').options.margin = 5;
+        $('.vendor-thumbs').trigger('refresh.owl.carousel');
+    }
+
+    // Expanded block (read more/less)
+    var expandedBlock = $('[data-attr="expanded"]');
+    if (expandedBlock) {
+        var ellipsestext = "...";
+        var moretext = "Read More";
+        var lesstext = "Read Less";
+
+        // Will Shorten Text and Add Addtional HTML Tags
+        $(expandedBlock).each(function () {
+            var showChar = $(this).data("char-count");
+            var content = $(this).html();
+            if (content.length > showChar) {
+                var show_content = content.substr(0, showChar);
+                var hide_content = content.substr(showChar, content.length - showChar);
+                var html = show_content + '<span class="moreelipses">' + ellipsestext + '</span><span class="hidden">' + hide_content + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a>';
+
+                $(this).html(html);
+            }
+        });
+
+        // Less and More Button Functions
+        $(".morelink").click(function () {
+            if ($(this).hasClass("less")) {
+                $(this).removeClass("less");
+                $(this).html(moretext);
+            } else {
+                $(this).addClass("less");
+                $(this).html(lesstext);
+            }
+            $(this).parent().find(".moreelipses").toggle();
+            $(this).prev().toggleClass("hidden");
+            return false;
+        });
+    }
+
 });
 
 function initFeatProdSlider() {

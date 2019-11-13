@@ -1,0 +1,125 @@
+/* write the review page */
+.page-vendor-review {
+    h1 {
+        color: #1a1a1a;
+        font-family: 'Lora';
+        font-size: getrem(30px);
+        font-weight: 700;
+        font-style: italic;
+        line-height: 1;
+        margin-top: 0;
+        margin-bottom: getrem(20px);
+    }
+
+    h5 {
+        color: #1a1a1a;
+        font-family: 'Lora';
+        font-size: getrem(18px);
+        font-weight: 700;
+        margin-top: getrem(45px);
+        margin-bottom: getrem(8px);
+        clear: both;
+    }
+
+    p {
+        color: #333;
+        font-family: 'SourceSansPro';
+        font-size: getrem(18px);
+        font-weight: 400;
+        line-height: 34 / 18 * 1;
+    }
+
+    .col-img img {
+        width: 100%;
+        max-width: none;
+    }
+
+    .rating {
+        display: block;
+
+        &-stars.control ul>li.star.hover>i.fa {
+            color: #098988;
+        }
+
+        [class*="col-"] {
+            @include truncate(100%);
+        }
+    }
+
+    input,
+    .input-group .form-control,
+    .input-group-addon {
+        width: auto;
+    }
+
+    label {
+        display: block;
+    }
+
+    textarea {
+        width: 100%;
+        resize: none;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: getrem(400px);
+    }
+
+    .gallery-item-add {
+        max-width: getrem(100px);
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        h1 {
+            font-size: getvw(30px);
+            margin-bottom: getvw(20px);
+        }
+
+        h5 {
+            font-size: getvw(18px);
+            margin-top: getvw(45px);
+            margin-bottom: getvw(8px);
+        }
+
+        p {
+            font-size: getvw(18px);
+        }
+
+        .rating {
+            font-size: getvw(16px);
+
+            &-stars ul>li.star {
+                width: getvw(17px);
+                height: getvw(17px);
+
+                &>i.fa {
+                    font-size: getvw(17px);
+                }
+            }
+        }
+
+        input,
+        .input-group .form-control {
+            width: 100%;
+            height: getvw(34px);
+        }
+
+        .form-control {
+            padding: getvw(6px) getvw(12px);
+            font-size: getvw(14px);
+        }
+
+        .btn {
+            max-width: getvw(400px);
+        }
+
+        .gallery-item-add {
+            max-width: getvw(100px);
+        }
+    }
+}

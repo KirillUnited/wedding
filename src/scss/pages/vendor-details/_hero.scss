@@ -1,0 +1,368 @@
+$gallery-gap: 9px;
+
+.menu-nav {
+    &>ul {
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+        margin: getrem(10px) 0 getrem(40px);
+        border-bottom: 1px solid #f0f0f0;
+
+        &>li {
+            margin-bottom: getrem(-1px);
+
+            a {
+                display: block;
+                color: #000000e6;
+                font-family: 'SourceSansPro';
+                font-size: getrem(14px);
+                font-weight: 400;
+                text-transform: uppercase;
+                padding: getrem(15px) 0;
+                transition: .3s;
+                border-bottom: 1px solid transparent;
+
+                &:hover,
+                &:focus {
+                    color: #33333380;
+                    text-decoration: none;
+                    border-bottom: 1px solid #606060;
+                }
+
+                &.is-active {
+                    @extend a:hover;
+                }
+            }
+        }
+    }
+}
+
+.menu-contacts {
+    &>ul {
+        align-items: center;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+
+        &>li {
+            &>a {
+                display: block;
+                color: #333;
+                line-height: 1;
+                text-decoration: underline;
+                transition: .3s;
+                padding-left: getrem(20px);
+                padding-right: getrem(20px);
+                border-right: 1px solid rgba($color: #333, $alpha: 0.1);
+            }
+        }
+    }
+
+    .btn {
+        width: getrem(224px);
+    }
+
+    // Contact Vendor Sidebar
+    &-sm {
+        text-align: center;
+        background-color: #f9f9f9;
+        border: 1px solid #f1f1f1;
+        border-radius: 5px;
+        padding: getrem(25px) getrem(25px) getrem(10px);
+
+        .heading {
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: getrem(20px);
+
+            h5 {
+                margin-top: 0;
+                margin-bottom: getrem(10px);
+            }
+
+            p {
+                color: #333;
+                font-family: 'SourceSansPro';
+                font-size: getrem(14px);
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+
+        .btn {
+            width: 100%;
+            max-width: none;
+            margin-bottom: getrem(20px);
+        }
+
+        .inner {
+            ul {
+                list-style: none;
+                line-height: 1;
+                padding-left: 0;
+                margin-top: 0;
+                margin-bottom: 0;
+                margin-left: - getrem(10px / 2);
+                margin-right: - getrem(10px / 2);
+
+                &>li {
+                    width: 25%;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    padding-left: getrem(10px / 2);
+                    padding-right: getrem(10px / 2);
+                    margin-bottom: getrem(10px);
+
+                    a {
+                        display: block;
+                        height: 100%;
+                        background-color: white;
+                        border: 1px solid #e3e3e3;
+                        border-radius: 5px;
+                        padding: getrem(10px);
+
+                        img {
+                            display: block;
+                            max-width: getrem(15px);
+                            max-height: getrem(15px);
+                            margin: 0 auto;
+                        }
+
+                        .sr-only {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.vendor-slider {
+    margin-bottom: getrem(5px);
+    border-radius: 5px;
+    overflow: hidden;
+
+    &-block {
+        position: relative;
+    }
+
+    &-desc {
+        position: absolute;
+        left: getrem(30px);
+        bottom: getrem(25px);
+        z-index: 1;
+        line-height: 1;
+
+        &>a {
+            color: #ffffff;
+            font-family: 'Lora';
+            font-size: getrem(12px);
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    }
+
+    .vendor-slider__owl-nav {
+        text-align: right;
+
+        div {
+            &::before {
+                font-size: getrem(30px);
+                color: #ffffff;
+            }
+
+            span {
+                display: none;
+            }
+        }
+    }
+}
+
+.vendor-thumbs-block {
+
+    .total-thumbs {
+        display: none;
+    }
+
+    .owl-item {
+        height: auto;
+
+        img {
+            width: auto;
+        }
+    }
+}
+
+.vendor-thumbs-img {
+    position: relative;
+    padding-bottom: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: rgba($color: #000000, $alpha: 1.0);
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: 100%;
+    }
+}
+
+.vendor-gallery {
+    border-bottom: 1px solid#f1f1f1;
+
+    &>* {
+        margin-bottom: getrem(40px);
+    }
+
+    &-list {
+        margin-left: getrem(-$gallery-gap / 2);
+        margin-right: getrem(-$gallery-gap / 2);
+    }
+
+    &-item {
+        padding: getrem($gallery-gap / 2);
+        border-radius: 5px;
+    }
+
+    &-img {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 100%;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .btn {
+        width: 100%;
+        max-width: getrem(258px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .menu-contacts {
+        text-align: center;
+
+        &>ul {
+
+            &>li {
+                width: 100%;
+                margin-bottom: getvw(25px);
+
+                &>a {
+                    padding-left: getvw(20px);
+                    padding-right: getvw(20px);
+                }
+            }
+        }
+
+        .btn {
+            width: 100%;
+        }
+
+        // Contact Vendor Sidebar
+        &-sm {
+            background-color: transparent;
+            padding: getvw(25px) getvw(25px) getvw(10px);
+            border: none;
+
+            .heading {
+                margin-bottom: getvw(20px);
+
+                h5 {
+                    margin-bottom: getvw(10px);
+                }
+
+                p {
+                    font-size: getvw(14px);
+                }
+            }
+
+            .btn {
+                margin-bottom: getvw(20px);
+            }
+
+            .inner {
+                ul {
+                    margin-left: - getvw(10px / 2);
+                    margin-right: - getvw(10px / 2);
+
+                    &>li {
+                        padding-left: getvw(10px / 2);
+                        padding-right: getvw(10px / 2);
+                        margin-bottom: getvw(10px);
+
+                        a {
+                            padding: getvw(10px);
+
+                            img {
+                                max-width: getvw(15px);
+                                max-height: getvw(15px);
+                            }
+                        }
+                    }
+                }
+
+                .socials {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .menu-nav {
+        display: none;
+    }
+
+    .vendor-slider {
+        margin-bottom: getvw(5px);
+
+        &-desc {
+            left: getvw(20px);
+            bottom: getvw(20px);
+
+            &>a {
+                font-size: getvw(12px);
+            }
+        }
+
+        .vendor-slider__owl-nav {
+            div {
+                &::before {
+                    font-size: getvw(15px);
+                }
+            }
+        }
+    }
+
+    .vendor-gallery {
+
+        &>* {
+            margin-bottom: getvw(40px);
+        }
+
+        &-list {
+            margin-left: getvw(-$gallery-gap / 2);
+            margin-right: getvw(-$gallery-gap / 2);
+        }
+
+        &-item {
+            padding: getvw($gallery-gap / 2);
+            border-radius: 5px;
+        }
+
+        .btn {
+            max-width: none;
+        }
+    }
+}
