@@ -104,6 +104,11 @@ $(function () {
      ----------------------------------------------*/
     initFeatProdSlider();
 
+    initDefaultSlider();
+    $(window).resize(function () {
+        initDefaultSlider();
+    });
+
     /**
      * inner pages
      ----------------------------------------------*/
@@ -241,5 +246,21 @@ function customersPhotosSlider() {
                 }
             }
         });
+    }
+};
+
+function initDefaultSlider() {
+    if (!$('.js-slider-default').hasClass("slick-initialized") && $(window).width() < 768) {
+        $('.js-slider-default').slick({
+            dots: false,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            prevArrow: '<button type="button" class="slick-prev"></button>',
+            nextArrow: '<button type="button" class="slick-next"></button>'
+        });
+    } else if ($('.js-slider-default').hasClass("slick-initialized") && $(window).width() >= 768) {
+        $('.js-slider-default').slick('unslick');
     }
 };

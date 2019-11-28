@@ -1,5 +1,6 @@
 @import "./_fonts.sass";
 @import "./mixins/mixins";
+@import "slider";
 
 /*homepage*/
 .flex {
@@ -59,6 +60,7 @@
     }
 
     &-title {
+        @include truncate(100%);
         color: #333;
         font-family: 'Lora';
         font-size: getrem(16px);
@@ -543,6 +545,8 @@
             width: getvw(79px);
             height: getvw(79px);
             margin-bottom: getvw(30px);
+            margin-left: auto;
+            margin-right: auto;
         }
 
         &-title {
