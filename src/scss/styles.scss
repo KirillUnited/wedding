@@ -15,6 +15,10 @@
     flex-wrap: wrap;
 }
 
+.absolute-center {
+    @include absolute-center();
+}
+
 input[name="selectedMarketNew"] {
     background: transparent;
     border: 0;
@@ -102,7 +106,15 @@ input[name="selectedMarketNew"] {
     }
 }
 
+@media screen and (min-width: 768px) {
+    .hidden-gt-xs {
+        display: none !important;
+    }
+}
+
 @include sprites($spritesheet-sprites);
+// icons
+@import "./icons";
 // home
 @import "./slider";
 @import "./form";
@@ -118,3 +130,6 @@ input[name="selectedMarketNew"] {
 @import "./pages/vendor-details/index";
 // write the review page
 @import "./pages/vendor-review/vendor-review";
+// select photos, we show recommended vendors
+@import "./pages/photo-search/photo-search-ui-kit";
+@import "./pages/photo-search/photo-search";

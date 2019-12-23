@@ -1,0 +1,180 @@
+/* BASE */
+.page-photosearch {
+    h1 {
+        color: #1a1a1a;
+        font-family: "Lora";
+        font-size: getrem(36px);
+        font-weight: 700;
+        font-style: italic;
+        line-height: 40 / 36 * 1;
+        text-transform: none;
+    }
+
+    h4 {
+        font-family: "SourceSansPro";
+        font-size: getrem(16px);
+        font-weight: 600;
+        line-height: 34 / 16 * 1;
+    }
+
+    @include less-sm() {
+        h1 {
+            font-size: getvw(36px);
+        }
+
+        h4 {
+            font-size: getvw(16px);
+        }
+    }
+}
+
+%form-control {
+    width: 100%;
+    color: inherit;
+    font-family: "SourceSansPro";
+    font-size: inherit;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+    background-color: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    transition: border .25s linear, color .25s linear, background-color .25s linear;
+    user-select: none;
+}
+
+%form-control-icon {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+$form-control-fs: 16;
+
+.photo-search {
+    &-input {
+        position: relative;
+        font-size: getrem(16px);
+        color: #333;
+
+        input {
+            @extend %form-control;
+            padding: 12 / $form-control-fs * 1em 30 / $form-control-fs * 1em 12 / $form-control-fs * 1em 48 / $form-control-fs * 1em;
+
+            &:focus {
+                @include input-placeholder {
+                    color: transparent;
+                }
+            }
+        }
+
+        &>i,
+        &>[class*="icon"] {
+            @extend %form-control-icon;
+
+            &.search {
+                left: 21 / 15 * 1em;
+                font-size: 15 / $form-control-fs * 1em;
+                width: 15 / 15 * 1em;
+                height: 15 / 15 * 1em;
+            }
+
+            &.clear {
+                right: 21 / 10 * 1em;
+                font-size: 10 / $form-control-fs * 1em;
+                width: 10 / 10 * 1em;
+                height: 10 / 10 * 1em;
+            }
+        }
+
+        &.has-select {
+            cursor: pointer;
+
+            input {
+                padding: 12 / $form-control-fs * 1em 30 / $form-control-fs * 1em 12 / $form-control-fs * 1em 20 / $form-control-fs * 1em;
+            }
+
+            &>i,
+            &>[class*="icon"] {
+                &.fa-angle-down {
+                    right: 21 / 10 * 1em;
+                    font-size: 10 / $form-control-fs * 1em;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    @include less-sm() {
+        &-input {
+            font-size: getvw(16px);
+
+            &.has-select {
+                width: getvw(50px);
+                height: 100%;
+                background-color: #ffffff;
+                border: 1px solid #f0f0f0;
+                border-radius: 5px;
+                padding: getvw(19px);
+
+                &>i,
+                &>[class*="icon"] {
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    right: auto;
+                    font-size: getvw(11px);
+                }
+            }
+        }
+    }
+}
+
+.tags {
+    padding: getrem(30px) getrem(20px) getrem(15px);
+
+    &-title {
+        color: #1a1a1a;
+        font-family: 'SourceSansPro';
+        font-size: getrem(14px);
+        font-weight: 600;
+        line-height: 1;
+        margin: 0 0 getrem(12px);
+    }
+
+    &-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &-item {
+        display: inline-block;
+        vertical-align: top;
+        color: #333;
+        font-family: 'SourceSansPro';
+        font-size: getrem(16px);
+        font-weight: 400;
+        line-height: 1;
+        margin: 0 getrem(5px) getrem(10px) 0;
+        padding: 8 / 16 * 1em 16 / 16 * 1em;
+        background-color: #f9f9f9;
+        border: 1px solid #f1f1f1;
+        border-radius: 5px;
+    }
+
+    @include less-sm() {
+        padding: getvw(20px) getvw(20px) getvw(15px);
+
+        &-title {
+            font-size: getvw(14px);
+            margin: 0 0 getvw(12px);
+        }
+
+        &-item {
+            font-size: getvw(16px);
+            margin: 0 getvw(5px) getvw(10px) 0;
+        }
+    }
+}

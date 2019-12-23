@@ -22,10 +22,10 @@ gulp.task('imagemin', function () {
         .pipe(cache(imagemin([
             imgCompress({
                 progressive: true,
-                loops: 5,
-                min: 65,
-                max: 70,
-                quality: 'medium'
+                loops: 4,
+                min: 70,
+                max: 80,
+                quality: 'high'
             }),
             imagemin.gifsicle(),
             imagemin.optipng(),
