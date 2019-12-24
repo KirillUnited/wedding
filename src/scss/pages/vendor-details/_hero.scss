@@ -149,10 +149,13 @@ $gallery-gap: 9px;
 
     &-desc {
         position: absolute;
-        left: getrem(30px);
-        bottom: getrem(25px);
         z-index: 1;
         line-height: 1;
+        padding: getrem(25px) getrem(30px);
+        background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+        bottom: 0;
+        left: 0;
+        width: 100%;
 
         &>a {
             color: #ffffff;
@@ -168,6 +171,8 @@ $gallery-gap: 9px;
         text-align: right;
 
         div {
+            padding: getrem(10px);
+
             &::before {
                 font-size: getrem(30px);
                 color: #ffffff;
@@ -328,8 +333,7 @@ $gallery-gap: 9px;
         margin-bottom: getvw(5px);
 
         &-desc {
-            left: getvw(20px);
-            bottom: getvw(20px);
+            padding: getvw(20px);
 
             &>a {
                 font-size: getvw(12px);
@@ -338,6 +342,8 @@ $gallery-gap: 9px;
 
         .vendor-slider__owl-nav {
             div {
+                padding: getvw(10px);
+
                 &::before {
                     font-size: getvw(15px);
                 }
