@@ -17,37 +17,43 @@
     }
 
     &.modal-msg {
-        padding: 10px;
+        padding: 0;
     }
 
     .modal-msg {
         &-content {
             max-width: none;
             height: 100%;
+            border: none;
+            box-shadow: none;
         }
 
         &-body {
             max-width: percentage(500 / 1920);
             box-shadow: none;
+            border-left: 1px solid #f0f0f0;
         }
 
         &-img {
+            position: relative;
             height: 100%;
             max-width: 100%;
             flex: 1;
             padding: 40px;
             overflow: auto;
-            margin: -5px;
 
-            &>* {
-                padding: 5px;
+            &>.row {
+                margin: -5px;
+
+                &>* {
+                    padding: 5px;
+                }
             }
         }
     }
 
     @media screen and (max-width: 767px) {
         &.modal-msg {
-            padding: 0;
 
             .comment-body {
                 margin-bottom: 0;
@@ -55,7 +61,14 @@
         }
 
         .modal-msg {
+            &-close {
+                top: getvw(10px);
+                right: getvw(10px);
+                width: getvw(15px);
+                height: getvw(15px);
+            }
             &-body {
+                display: none;
                 max-width: 100%;
                 padding: getvw(34px) getvw(15px) getvw(15px);
             }
@@ -64,7 +77,141 @@
                 display: block;
                 order: 1;
                 padding: getvw(10px);
-                margin: 0;
+                padding-top: getvw(25px);
+
+                &>.row {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.fancybox-custom-layout {
+    &.fancybox-container {
+        position: absolute;
+    }
+
+    .fancybox-bg {
+        background: hsl(0, 0%, 100%);
+    }
+
+    &.fancybox-is-open .fancybox-bg {
+        opacity: 1;
+    }
+
+    .fancybox-button--arrow_right {
+        // right: percentage(500 / 1920);
+    }
+
+    .fancybox-stage {
+        // right: percentage(500 / 1920);
+    }
+
+    .fancybox-inner {
+        right: 40px;
+        left: 40px;
+        top: 40px;
+        bottom: 40px;
+    }
+
+    .fancybox-caption {
+        display: none;
+        background: hsl(0, 0%, 100%);
+        bottom: 0;
+        color: #6c6f73;
+        left: auto;
+        padding: 30px 20px;
+        right: 0;
+        top: 0;
+        width: percentage(500 / 1920);
+        border-left: 1px solid #f0f0f0;
+    }
+
+    .fancybox-thumbs {
+        top: auto;
+        left: 70px;
+        right: 70px;
+        width: auto;
+        overflow: hidden;
+    }
+
+    .fancybox-slide {
+        padding-top: 0;
+        padding-bottom: 115px;
+    }
+
+    .fancybox-navigation .fancybox-button {
+        top: auto;
+        bottom: 0;
+    }
+
+    .fancybox-toolbar {
+        right: auto;
+        top: 20px;
+        left: 20px;
+    }
+
+    .fancybox-button--close {
+        display: flex;
+        align-items: center;
+        vertical-align: top;
+        width: auto;
+        height: auto;
+        color: white;
+        font-family: 'Lora';
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        text-transform: uppercase;
+        background-color: hsl(180, 88%, 29%);
+        border-radius: 5px;
+        padding: 18 / 12 * 1em 30 / 12 * 1em;
+
+        svg {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 10px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+
+        .fancybox-inner {
+            right: getvw(15px);
+            left: getvw(15px);
+            top: getvw(15px);
+            bottom: getvw(15px);
+        }
+
+        .fancybox-thumbs {
+            left: getvw(70px);
+            right: getvw(70px);
+        }
+
+        .fancybox-slide {
+            padding-bottom: getvw(100px);
+        }
+
+        .fancybox-toolbar {
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .fancybox-button--close {
+            width: 100%;
+            color: hsl(180, 88%, 29%);
+            background-color: hsl(0, 0%, 100%);
+            font-size: getvw(12px);
+            padding: 9 / 12 * 1em;
+            border-radius: 0;
+
+            svg {
+                width: getvw(15px);
+                height: getvw(15px);
+                margin-right: getvw(10px);
             }
         }
     }

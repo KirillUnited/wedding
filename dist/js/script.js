@@ -192,6 +192,54 @@ $(function () {
         });
     }
 
+    // customize fancybox gallery
+    $('[data-fancybox="gallery"]').fancybox({
+        parentEl: '.modal-gallery .modal-msg-img',
+        baseClass: "fancybox-custom-layout",
+        infobar: false,
+        touch: {
+            vertical: false
+        },
+        buttons: ["close"],
+        animationEffect: "fade",
+        transitionEffect: "fade",
+        preventCaptionOverlap: false,
+        idleTime: false,
+        gutter: 0,
+        thumbs: {
+            autoStart: true,
+            parentEl: ".fancybox-stage",
+            axis: "x"
+        },
+        btnTpl: {
+            close:
+            '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="{{CLOSE}}">'+
+            '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 416 448">'+
+            '<title></title>'+
+            '<g id="icomoon-ignore">'+
+            '</g>'+
+            '<path d="M192 272v96c0 17.5-14.5 32-32 32h-128c-17.5 0-32-14.5-32-32v-96c0-17.5 14.5-32 32-32h128c17.5 0 32 14.5 32 32zM192 80v96c0 17.5-14.5 32-32 32h-128c-17.5 0-32-14.5-32-32v-96c0-17.5 14.5-32 32-32h128c17.5 0 32 14.5 32 32zM416 272v96c0 17.5-14.5 32-32 32h-128c-17.5 0-32-14.5-32-32v-96c0-17.5 14.5-32 32-32h128c17.5 0 32 14.5 32 32zM416 80v96c0 17.5-14.5 32-32 32h-128c-17.5 0-32-14.5-32-32v-96c0-17.5 14.5-32 32-32h128c17.5 0 32 14.5 32 32z"></path>'+
+            '</svg>'+
+            '<span>Gallery</span>'+
+            '</button>',
+        },
+        //Customize caption area
+        caption: function (instance) {
+            return '<h3>Caption</h3>';
+        },
+        afterShow: function (instance, slide) {
+            $('.modal-gallery .modal-msg-img > .row').hide();
+            $('html').css("overflow", "hidden");
+        },
+        afterClose: function () {
+            $('.modal-gallery .modal-msg-img > .row').fadeIn("fast");
+            $('html').removeAttr("style");
+        }
+    });
+
+    $('.modal-gallery .modal-msg-close').on('click', function () {
+        $.fancybox.close();
+    });
 });
 
 function initFeatProdSlider() {
