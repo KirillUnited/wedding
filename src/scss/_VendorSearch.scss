@@ -67,6 +67,25 @@
                     background-color: #f0f0f0;
                 }
             }
+
+            &>.icon-close {
+                display: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 45px;
+                z-index: 1;
+
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 10px;
+                    height: 10px;
+                }
+            }
         }
 
         label {
@@ -299,6 +318,140 @@
         }
     }
 
+    &.b-search-narrow {
+        .b-search {
+            &-form {
+                flex-wrap: nowrap;
+                margin-left: - 5px;
+                margin-right: - 5px;
+
+                [type=submit] {
+                    font-size: 16px;
+                    font-family: 'Lora';
+                    font-weight: bold;
+                    width: 50px;
+                    height: 45px;
+                    background-color: #098988;
+                    text-transform: uppercase;
+
+                    i {
+                        font-size: 11px;
+                        line-height: 2;
+                    }
+                }
+
+                &-group {
+                    flex: 0 0 auto;
+                    padding: 0 7px;
+
+                    &+.b-search-form-group::before {
+                        display: none;
+                    }
+
+                    &>input {
+                        border-bottom: 2px solid transparent;
+                        transition: .3s;
+
+                        &:focus {
+                            border-bottom: 2px solid #098988;
+                        }
+                    }
+
+                    &>label {
+                        position: absolute;
+                        clip: rect(0 0 0 0);
+                        width: 1px;
+                        height: 1px;
+                        margin: -1px;
+                    }
+                }
+
+                [type=submit],
+                &-group {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    border-radius: 5px;
+                }
+
+                &-category {
+                    width: percentage(585 / 860);
+                }
+
+                &-location {
+                    width: percentage(185 / 860);
+                }
+            }
+
+            @media screen and (min-width: 768px) {
+                &-dropdown {
+                    top: calc(100% + 4px);
+                    left: 7px;
+
+                    &::before {
+                        width: 10px;
+                        height: 10px;
+                        top: -5px;
+                        left: 14px;
+                    }
+                }
+
+                &-form-category {
+                    .b-search-dropdown {
+                        max-height: none;
+                        width: 688px;
+                        max-width: none;
+                        padding-left: 0;
+                    }
+
+                    .b-search-list {
+                        height: auto;
+                        display: flex;
+                        flex-wrap: wrap;
+                        padding: 20px;
+                        padding-bottom: 5px;
+
+                        &>li {
+                            width: percentage(1 / 3);
+                            margin-bottom: 15px;
+
+                            &>span {
+                                border-bottom: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: 767px) {
+                &-form {
+                    flex-direction: column;
+                    padding: 0;
+                    background-color: transparent;
+                    margin-left: 0;
+                    margin-right: 0;
+
+                    [type=submit],
+                    &-group {
+                        width: 100%;
+                        height: 50px;
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+
+                    &-group {
+                        border-bottom: none;
+                        margin-bottom: 5px;
+                    }
+
+                    [type=submit] {
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+        }
+    }
+
     @media screen and (max-width: 767px) {
         padding-left: 15px;
         padding-right: 15px;
@@ -336,6 +489,7 @@
                 height: 50px;
                 border-bottom: 1px solid #f0f0f0;
                 padding: 0 15px;
+
                 &:last-child {
                     border-bottom: none;
                 }
@@ -345,6 +499,7 @@
                 width: 100%;
                 height: 50px;
                 font-size: 22px;
+
                 &:last-child {
                     border-radius: 5px;
                 }
