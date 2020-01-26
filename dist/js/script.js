@@ -18,6 +18,89 @@ $(function () {
         if ($('.modal-search, .modal-msg').is(e.target) || $('.modal-search__close, .js-close').is(e.target)) {
             $('.modal-search, .modal-msg').fadeOut();
         };
+        // popoverOptions.hide(e);
+        popover(null, 'hide', e);
+    });
+
+    /** popover toggle */
+    const popover = function (options, method, e) {
+        const defaultOptions = {
+            popoverToggleSelector: '[data-toggle="popover"]',
+            getProps: function () {
+                const popoverToggle = $(this.popoverToggleSelector);
+                const popoverID = popoverToggle.attr('data-target');
+                const popover = $('[data-id="' + popoverID + '"');
+                const popoverCloseButton = $('[data-dismiss="' + popoverID + '"');
+
+                return { popover, popoverCloseButton, popoverToggle };
+            },
+        }
+
+        const model = (options && typeof (options) === "object") ? $.extend(true, {}, defaultOptions, options) : defaultOptions;
+        const popover = model.getProps().popover;
+        const popoverCloseButton = model.getProps().popoverCloseButton;
+        const popoverToggle = model.getProps().popoverToggle;
+
+        const show = function () {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (popoverCloseButton.is(e.target) || popoverCloseButton.has(e.target).length > 0) {
+                popover.fadeOut(200);
+            } else {
+                popover.fadeIn(200);
+            }
+        }
+
+        const hide = function () {
+            if (!popoverToggle.is(e.target)) {
+                popover.fadeOut(200);
+            }
+        }
+
+        if (method === 'show') show();
+        if (method === 'hide') hide();
+    };
+
+    // const popoverToggleSelector = '[data-toggle="popover"]';
+    // const popoverOptions = {
+    //     popoverToggleSelector: popoverToggleSelector,
+    //     getProps: function () {
+    //         const popoverToggle = $(this.popoverToggleSelector);
+    //         const popoverID = popoverToggle.attr('data-target');
+    //         const popover = $('[data-id="' + popoverID + '"');
+    //         const popoverCloseButton = $('[data-dismiss="' + popoverID + '"');
+
+    //         return { popover, popoverCloseButton, popoverToggle };
+    //     },
+    //     show: function (e) {
+    //         e.preventDefault();
+    //         e.stopPropagation();
+
+    //         const popover = this.getProps().popover;
+    //         const popoverCloseButton = this.getProps().popoverCloseButton;
+
+    //         if (popoverCloseButton.is(e.target) || popoverCloseButton.has(e.target).length > 0) {
+    //             popover.fadeOut(200);
+    //         } else {
+    //             popover.fadeIn(200);
+    //         }
+    //     },
+    //     hide: function (e) {
+    //         const popoverToggle = this.getProps().popoverToggle;
+    //         const popover = this.getProps().popover;
+
+    //         if (!popoverToggle.is(e.target)) {
+    //             popover.fadeOut(200);
+    //         }
+    //     }
+    // }
+
+    $('body').on('click', '[data-toggle="popover"]', function (e) {
+        // popoverOptions.show(e);
+        if ($(window).width() >= 768){
+            popover(null, 'show', e);
+        }
     });
 
     /**search modal select block */

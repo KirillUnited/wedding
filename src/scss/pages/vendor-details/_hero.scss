@@ -65,7 +65,7 @@ $gallery-gap: 9px;
 
     // Contact Vendor Sidebar
     &-sm {
-        text-align: center;
+        text-align: left;
         background-color: #f9f9f9;
         border: 1px solid #f1f1f1;
         border-radius: 5px;
@@ -81,17 +81,51 @@ $gallery-gap: 9px;
             }
 
             p {
-                color: #333;
+                color: rgba($color: #333333, $alpha: 0.7);
                 font-family: 'SourceSansPro';
                 font-size: getrem(14px);
-                font-weight: 400;
+                font-weight: 600;
                 line-height: normal;
+            }
+
+            &-content {
+                margin: - getrem(7px);
+            }
+
+            &-img,
+            &-info,
+            .socials {
+                margin: getrem(7px);
+            }
+
+            &-img {
+                position: relative;
+                width: getrem(60px);
+                height: getrem(60px);
+                background-color: white;
+                border-radius: 100%;
+                overflow: hidden;
+
+                img {
+                    @include o-fit-absolute();
+
+                    &[src=""] {
+                        display: none;
+                    }
+                }
+            }
+
+            &-info {
+                position: relative;
+                flex: 1 1 0%;
+                max-width: 100%;
             }
         }
 
         .btn {
             width: 100%;
             max-width: none;
+            margin-top: getrem(8px);
             margin-bottom: getrem(20px);
         }
 
@@ -106,30 +140,47 @@ $gallery-gap: 9px;
                 margin-right: - getrem(10px / 2);
 
                 &>li {
-                    width: 25%;
+                    position: relative;
+                    width: auto;
                     padding-top: 0;
                     padding-bottom: 0;
                     padding-left: getrem(10px / 2);
                     padding-right: getrem(10px / 2);
                     margin-bottom: getrem(10px);
+                    max-width: 100%;
 
                     a {
+                        position: relative;
                         display: block;
                         height: 100%;
+                        width: 100%;
+                        font-family: "SourceSansPro";
                         background-color: white;
                         border: 1px solid #e3e3e3;
                         border-radius: 5px;
-                        padding: getrem(10px);
+                        padding: getrem(14px);
+                        transition: 0.3s;
+                        white-space: nowrap;
 
-                        img {
-                            display: block;
-                            max-width: getrem(15px);
-                            max-height: getrem(15px);
-                            margin: 0 auto;
+                        &:hover,
+                        &:focus {
+                            text-decoration: none;
+                            border: 1px solid darkgrey;
                         }
 
-                        .sr-only {
-                            margin-left: 0;
+                        span {
+                            @include truncate(100%);
+                            display: inline-block;
+                            vertical-align: baseline;
+                            color: #333;
+                            font-size: getrem(16px);
+                            font-weight: 400;
+                        }
+
+                        .icon {
+                            width: getrem(15px);
+                            height: getrem(15px);
+                            margin-right: getrem(1px);
                         }
                     }
                 }
@@ -277,12 +328,21 @@ $gallery-gap: 9px;
 
         // Contact Vendor Sidebar
         &-sm {
-            background-color: transparent;
-            padding: getvw(25px) getvw(25px) getvw(10px);
-            border: none;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            padding: getvw(13px);
+            // border: none;
+            z-index: 1000;
 
             .heading {
-                margin-bottom: getvw(20px);
+                @include truncate(100%);
+                flex: 1 1 0%;
+                order: 1;
+                border-bottom: none;
+                margin: getvw(2px);
 
                 h5 {
                     margin-bottom: getvw(10px);
@@ -291,28 +351,48 @@ $gallery-gap: 9px;
                 p {
                     font-size: getvw(14px);
                 }
+
+                &-content {
+                    margin: - getvw(7px);
+                }
+
+                &-img,
+                &-info,
+                .socials {
+                    margin: getvw(7px);
+                }
+
+                &-img {
+                    width: getvw(60px);
+                    height: getvw(60px);
+                }
             }
 
             .btn {
-                margin-bottom: getvw(20px);
+                @include truncate(100%);                
+                line-height: 1;
+                padding: getvw(13px);
+                margin: 0;
             }
 
             .inner {
                 ul {
-                    margin-left: - getvw(10px / 2);
-                    margin-right: - getvw(10px / 2);
+                    height: 100%;
+                    margin: 0;
+                    flex-wrap: nowrap;
 
                     &>li {
-                        padding-left: getvw(10px / 2);
-                        padding-right: getvw(10px / 2);
-                        margin-bottom: getvw(10px);
+                        margin: getvw(2px);
+                        padding: 0;
 
                         a {
-                            padding: getvw(10px);
+                            font-size: 0;
+                            padding: getvw(11px) getvw(14px);
 
-                            img {
-                                max-width: getvw(15px);
-                                max-height: getvw(15px);
+                            .icon {
+                                width: getvw(15px);
+                                height: getvw(15px);
+                                margin-right: 0;
                             }
                         }
                     }

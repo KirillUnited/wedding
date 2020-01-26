@@ -363,6 +363,21 @@
     .vendor-profile-photo {
         margin-bottom: getrem(20px);
     }
+
+    .popover-info {
+        p {
+            color: inherit;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+            margin-bottom: getrem(10px);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
 }
 
 %btn-prime-invert {
