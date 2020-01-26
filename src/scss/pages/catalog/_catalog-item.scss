@@ -1,0 +1,41 @@
+/* Catalog Item */
+.catalog-item {
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+    margin-left: - getrem(20px);
+    margin-right: - getrem(20px);
+
+    .catalog-item-slider {
+        position: relative;
+        padding-left: getrem(20px);
+        padding-right: getrem(20px);
+    }
+
+    .catalog-item-content {
+        padding-left: getrem(20px);
+        padding-right: getrem(20px);
+    }
+
+    .featured-label {
+        position: absolute;
+        top: getrem(10px);
+        left: getrem(10px);
+        color: white;
+        font-family: 'Lora';
+        font-size: getrem(10px);
+        font-weight: 700;
+        line-height: 1;
+        text-transform: uppercase;
+        background-color: #89090a;
+        border-radius: 5px;
+        padding: getrem(6px) getrem(12px);
+    }
+
+    .featured-vendors-img {
+        padding-bottom: 100%;
+        img {
+            @include o-fit-absolute();
+            transform: none;
+        }
+    }
+}

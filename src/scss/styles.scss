@@ -134,7 +134,6 @@ input[name="selectedMarketNew"] {
 @import "./location";
 @import "./users-contact";
 @import "./VendorSearch";
-@import "./vendor-catalog";
 // vendor details
 @import "./pages/vendor-details/index";
 // write the review page
@@ -142,3 +141,5 @@ input[name="selectedMarketNew"] {
 // select photos, we show recommended vendors
 @import "./pages/photo-search/photo-search-ui-kit";
 @import "./pages/photo-search/photo-search";
+// vedor catalog page
+@import "./pages/catalog/catalog";
