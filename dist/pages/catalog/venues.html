@@ -1904,31 +1904,34 @@
                         </div>
                     </div>
 
-                    <div class="content-banner-vendors clearfix row">
-                        <div class="col-xs-12 col-sm-6 col-md-6 hidden-xs">
-                            <a href="https://localhost:44373/photo-search/venues" class=" flexSC banner-visual-search "
-                                title="Search Seattle venues" onclick="track('Catalog Page: Visual Button', 'venues');"
-                                data-market-lat="47,6204986572266" data-market-lon="-122,350898742676"
-                                data-category-id="72">
-                                <p class="banner-vendors-text">
-                                    Find venues by choosing the photographs you like
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 hidden-xs">
-                            <a href="#" id="map-show-btn" title="Map Seattle venues" class="flexSC  banner-map "
-                                onclick="track('Top Nav: Map Button');return false;" data-market-lat="47,6204986572266"
-                                data-market-lon="-122,350898742676" data-category-id="72">
-                                <p class="banner-vendors-text">
-                                    View these vendors<br> on the map
-                                </p>
-                            </a>
-                        </div>
-                    </div>
+                    
 
-
-                    <div class="flex-no-wrap pageTop">
+                    <div class="flex flex-no-wrap pageTop">
                         <h3>1 Results</h3>
+                        <ul class="content-banner-vendors hidden-xs">
+                            <li>
+                                <a href="https://localhost:44373/photo-search/venues"
+                                    title="Search Seattle venues" onclick="track('Catalog Page: Visual Button', 'venues');"
+                                    data-market-lat="47,6204986572266" data-market-lon="-122,350898742676"
+                                    data-category-id="72">
+                                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                    <span>
+                                        Photo Search
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" id="map-show-btn" title="Map Seattle venues"
+                                    onclick="track('Top Nav: Map Button');return false;" data-market-lat="47,6204986572266"
+                                    data-market-lon="-122,350898742676" data-category-id="72">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <span>
+                                        Show on Map
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+    
                         <span class="no-wrap visible-xs" onclick="OpenFiltersMap(true)">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <span>map</span>
@@ -1945,8 +1948,8 @@
                             <a class="catalog-item-slider"
                                 href="https://localhost:44373/vendors/tacoma-wa/venues/jane-young-test-seattle-wa"
                                 title="Jane Young Test, a wedding venue in Tacoma">
-                                <div class="featured-label">featured</div>
                                 <div class="featured-vendors-img">
+                                    <div class="featured-label">featured</div>
                                     <img src="images/photo.jpg"
                                         alt="Photo of Jane Young Test, a wedding venue in Tacoma" />
                                 </div>
@@ -1963,53 +1966,76 @@
                                     </a>
                                 </h2>
 
-                                <div class='rating-widget'>
-                                    <div class='rating-stars'>
-                                        <ul class="stars">
-                                            <li class="star selected" data-value="1">
-                                                <i class="fa fa-star"></i>
+                                <div class="catalog-item-meta">
+                                    <div class='rating-widget'>
+                                        <div class='rating-stars'>
+                                            <ul class="stars">
+                                                <li class="star selected" data-value="1">
+                                                    <i class="fa fa-star"></i>
+                                                </li>
+                                                <li class="star selected" data-value="2">
+                                                    <i class="fa fa-star"></i>
+                                                </li>
+                                                <li class="star selected" data-value="3">
+                                                    <i class="fa fa-star"></i>
+                                                </li>
+                                                <li class="star selected" data-value="4">
+                                                    <i class="fa fa-star"></i>
+                                                </li>
+                                                <li class="star " data-value="5">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star half" style="width:13px"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+    
+                                    <div class="featured-vendors-location">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        Seattle
+                                    </div>
+                                    <div class="icons badges">
+                                        <ul class="icons-group flex">
+                                            <li><i class="icon-badge field" data-title="Verified and trusted vendor."></i></li>
+                                            <li>
+            
+                                                <i class="icon-badge fire" data-title="Popular! Likely to be booked first."></i>
                                             </li>
-                                            <li class="star selected" data-value="2">
-                                                <i class="fa fa-star"></i>
+            
+            
+                                            <li>
+            
+                                                <i class="icon-badge love" data-title="Published in-depth interviews answering top questions from Wedding Venture users."></i>
                                             </li>
-                                            <li class="star selected" data-value="3">
-                                                <i class="fa fa-star"></i>
+            
+                                            <li>
+            
+                                                <i class="icon-badge trophy" data-title="Highly rated."></i>
                                             </li>
-                                            <li class="star selected" data-value="4">
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="star " data-value="5">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star half" style="width:13px"></i>
-                                            </li>
+            
                                         </ul>
                                     </div>
-                                </div>
-
-                                <div class="featured-vendors-location">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    Seattle
                                 </div>
 
                                 <p>Jane Young Test is a wedding venues in Tacoma. Jane Young Test offers wedding venues
                                     services. Click View Details to learn more about Jane Young Test and to contact them
                                     for a free quote.</p>
 
-
+<!-- 
 
                                 <div class="color-dark-green">
                                     <h4><i class="fa fa-shield"></i> Verified and trusted vendor</h4>
 
                                     <h4><i class="fa fa-trophy"></i> Highly rated </h4>
-                                </div>
+                                </div> -->
 
 
                                 <div class="row">
-                                    <div class="col-md-5 col-lg-5 my-20">
+                                    <div class="col-md-5 col-lg-5">
                                         <a href="https://localhost:44373/vendors/tacoma-wa/venues/jane-young-test-seattle-wa"
                                             title="Learn more about Jane Young Test: read reviews, browse wedding venues packages and prices, request a free quote."
                                             class="btn btn-prime">
-                                            view details
+                                            Read more
                                         </a>
                                     </div>
                                 </div>

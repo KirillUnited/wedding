@@ -1,17 +1,18 @@
 /* ICONS */
 @font-face {
     font-family: 'icomoon';
-    src:  url('../fonts/icomoon/icomoon.eot?fpvlag');
-    src:  url('../fonts/icomoon/icomoon.eot?fpvlag#iefix') format('embedded-opentype'),
-      url('../fonts/icomoon/icomoon.ttf?fpvlag') format('truetype'),
-      url('../fonts/icomoon/icomoon.woff?fpvlag') format('woff'),
-      url('../fonts/icomoon/icomoon.svg?fpvlag#icomoon') format('svg');
+    src: url('../fonts/icomoon/icomoon.eot?fpvlag');
+    src: url('../fonts/icomoon/icomoon.eot?fpvlag#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon/icomoon.ttf?fpvlag') format('truetype'),
+        url('../fonts/icomoon/icomoon.woff?fpvlag') format('woff'),
+        url('../fonts/icomoon/icomoon.svg?fpvlag#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
-  }
-  
-  [class^="icon-"], [class*=" icon-"] {
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
     speak: none;
@@ -20,16 +21,69 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-  
+
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .icon-icomoon-close:before {
+}
+
+.icon-icomoon-close:before {
     content: "\e900";
-  }
-  .icon-icomoon-search:before {
+}
+
+.icon-icomoon-search:before {
     content: "\e901";
-  }
-  
+}
+
+.icons {
+    &.badges {
+        .icon-badge {
+            width: getrem(20px);
+            height: getrem(20px);
+            background-color: #89090a;
+            background-position: center;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            border-radius: 100%;
+        }
+
+        .clock {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAUCAMAAABVlYYBAAAAyVBMVEWJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqqTU6sUlO1ZmbGh4jas7PbtLTgvr/iwsLmy8v48PD8+Pj///+b4tnUAAAANnRSTlMAAwYMEBEcHSMkJigtLjA6RFFYYGFrcXiCg4SNkp2vxMXGx8vM0dLZ2t/g4+fo6+zt7u/y8/1musSUAAAAvUlEQVR42mWQ5xKCMAyAAyrixI177z0rMhT6/g9lm9ID9PuR5L7LpU1AUOrOruQ4MnWI0IYk5DFIS2nsScQqL2TxRuLsNC5TG5JkrDDbxtLyfN+zhK4DqCde2JQGAaU22gVABTsppa7LgujWweTJY8JxWPDQ1qDPky+tj7YV2ffz9QltU05A5ISqfI0Te009i58x5M+WAND526LBN96SJFMFr3P/vQ5iHGJyXYCQbOzqGYgo9+Y3cpl0c4B8ATIkRO71OdF2AAAAAElFTkSuQmCC);
+        }
+
+        .flask {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAMCAQAAADxYuQrAAAAiUlEQVQI143MoQ6BYRgF4PcXuQLFLSiqzSWYhugGVO2dy7DZFBtTviqIppnkCkwW9Edh+6Nz2rOdExkZWoqi2GZkZERGhsrC1MKkhhnmhuaGf+BGz8iy/tmzy1A56XxR5eyiKG52Pxyrp58Rmh7ujl7a3rhqhAR73HHALJzB8zt+YBsG1ja1rnQ/UjuXUQK0dbwAAAAASUVORK5CYII=);
+        }
+
+        .info {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAUCAMAAABVlYYBAAAA5FBMVEWJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqmRUasUVK4amu+d3i/eXm/enrNl5fSoKHSoaLWqanas7Pct7fgvr/lycno0NDr1dXz5eXz5ub8+Pj8+fn+/Pz////nEk4CAAAANXRSTlMAAQIEBgkKDhFKS01RVVtfYGFoamtsgYeMmp2eoaSlpqiqsbzQ1dbX2Nnd4uPq8PT1+Pn7/hAqUtQAAADLSURBVHgBdZDnUoUwEIVPvPdaxN57LwqCRYNi0QgYxfP+7+NkJxmw+P3J7jc7WwKhN7ERX56f7k4N0DJ+pD3JdHBq6Ua3rPYhLOtvbConx/QP5tygQwlzY63JJUxHgEiigqwqspBkAViTSvLp4f6ZlOp94MS9hnz5fL8jjcsuhpC515L8uH0jrXaMIg329ZHBDuPAd2Bd03fIgHU/jWXJMK2zWdOEzRb/u+L3xfN//c62EqtWunKrD090HNzZDFp6kzvx1XWyNzuA8AW9BkWJ8FafvwAAAABJRU5ErkJggg==);
+        }
+
+        .plus {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAIVBMVEWAgID///////////////////////////////////////9DN+/gAAAACnRSTlMAPmRyoLDBytPk7GVf2QAAADhJREFUCNdNjTESwCAMgIgmavj/gzs2GwMHQFR3BcBW1Q2hvqcGpWaqRXtzrbz2xCGEeo4aM/YvPofIAnUZysa4AAAAAElFTkSuQmCC);
+        }
+
+        .shield {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAALCAQAAAAHUG+QAAAAe0lEQVQI12XOOwrCUBhE4b/XBWQZ4l5SBwUrXcRtsom0giuwSy8ElxFJESxSC+GzuCl8nGo4MMNEihQplB7KnEOl1sl0alX441vNWU2YvcwObpjCgLu9nQsYQgvOrku5Daef9WNY6z9EbxUpbI2LGG1S5O+FxlOjSJHiDWeFo2j4PWL2AAAAAElFTkSuQmCC);
+        }
+
+        .star {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAUCAMAAABVlYYBAAAA21BMVEWJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqJCQqMDxCMEBGOExSQFxiRGhubLy+hOjuhOzylREWmRUa9dnfMlJTPm5vWqqrduLjjxMTu29vv3t7w39/w4OD8+fn+/f3//v7////pJ050AAAAMHRSTlMAAQIFBgkLDVFSVFlaW1xdYGRla4eIlZaYmaSpqq67vNne3+Dh4ufs7/Dy+Pn6+/5jZ4VUAAAAwklEQVR42l2RRRYCMRBEC3d3d7fgzuD0/U8ESZo3MH+Tqr9I0gk0rkChMRzU8n4nTMJtwTS9YBxpYTJJ2rTNij+SSsaEBbmJp8PleOTQcgIJzqvXa8UxCJR1mp2ITjOdi0BXrofbkz48bwfZ6nALiUGMIduA7fys5XkuWx/oKb14SPlYqFIFKiosSbHk0/hmW6L7nWinSug7xeayn0731/V3CsSFBR8kOevrKByZX5myg4mYr+6DiStaao5H9WJI/9Ab4Os/JeKYCnYAAAAASUVORK5CYII=);
+        }
+
+        .fire {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAMCAQAAADxYuQrAAAAl0lEQVQI11XOPWqCURAF0FHQDVikcBlBEHEBtgErK5uU4gYsnqVbsRUUQd2AgriLtGn8RY/F+5TkNjOc4s5EihQplE318p6iGMbo/0Mt94yqBSo7gJGWnVLGrlce+Mo4L+jsF/MUoeJS4ETVwlEl1HE08OPb0Az18IGFtY6NuwdqkcLe32zzofa7lZPm6/mGlZurpc8UKZ6bcqOUct70MQAAAABJRU5ErkJggg==);
+        }
+
+        .trophy {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAdElEQVQI11XMsQ2CABRF0e8Wxl4dxYaGTViA5G8AnXtBYSMJhXEBKkLIsSBBfd07xQ2V9LtUBe5/eCdMLqDXg7MpNJ54OTp546EJB6UVtRqr0iEyMnR7scvI2PBmBrPbjhmuRqPr9jYqtBaLVvHFYW8OGRkfn2GTd5F+S3wAAAAASUVORK5CYII=);
+        }
+
+        @include less-sm() {
+            .icon-badge {
+                width: getvw(20px);
+                height: getvw(20px);
+            }
+        }
+    }
+}

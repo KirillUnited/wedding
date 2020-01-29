@@ -1,19 +1,91 @@
 /* Catalog Item */
 .catalog-item {
+    display: flex;
+    flex-wrap: wrap;
     border: none;
     border-bottom: 1px solid #f1f1f1;
     margin-left: - getrem(20px);
     margin-right: - getrem(20px);
 
+    .btn {
+        padding-left: getrem(24px);
+        padding-right: getrem(24px);
+    }
+
     .catalog-item-slider {
+        flex: 0 0 auto;
+        width: auto;
         position: relative;
         padding-left: getrem(20px);
         padding-right: getrem(20px);
+        max-width: 100%;
     }
 
     .catalog-item-content {
+        flex: 1 1 0%;
+        width: 100%;
         padding-left: getrem(20px);
         padding-right: getrem(20px);
+        max-width: 100%;
+        margin-bottom: getrem(20px);
+
+        h2 {
+            color: #1a1a1a;
+            font-family: 'Lora';
+            font-size: getrem(22px);
+            font-weight: 700;
+        }
+
+        p {
+            @include line-clamp(3);
+            color: #333;
+            font-family: 'SourceSansPro';
+            font-size: getrem(16px);
+            font-weight: 400;
+            line-height: 24 / 16 * 1;
+            margin-top: 0;
+            margin-right: 0;
+        }
+
+        .rating-widget {
+            vertical-align: middle;
+        }
+
+        .rating-stars ul>li.star.selected>i.fa {
+            color: #098988;
+        }
+
+        .featured-vendors-location {
+            opacity: 0.8;
+            color: #333;
+            font-family: 'SourceSansPro';
+            font-size: getrem(14px);
+            font-weight: 400;
+
+            &>i {
+                margin-right: getrem(6px);
+            }
+        }
+    }
+
+    &-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-left: - getrem(10px);
+        margin-right: - getrem(10px);
+
+        &>* {
+            padding-left: getrem(10px);
+            padding-right: getrem(10px);
+        }
+
+        .icons-group,
+        ul.icons-group {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 
     .featured-label {
@@ -32,10 +104,90 @@
     }
 
     .featured-vendors-img {
+        width: getrem(260px);
         padding-bottom: 100%;
+        background-color: #333;
+
         img {
             @include o-fit-absolute();
             transform: none;
         }
+    }
+
+    .vendor-category-link {
+        color: rgba($color: #5e5e5e, $alpha: 0.5);
+        font-family: 'Lora';
+        font-size: getrem(10px);
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: getrem(20px);
+    }   
+
+    @include less-sm() {
+        margin-left: 0;
+        margin-right: 0;
+        padding-bottom: getvw(25px);
+
+        .btn {
+            padding-left: getvw(24px);
+            padding-right: getvw(24px);
+        }
+
+        &-meta {
+            margin-left: - getvw(10px);
+            margin-right: - getvw(10px);
+            margin-bottom: getvw(10px);
+    
+            &>* {
+                padding-left: getvw(10px);
+                padding-right: getvw(10px);
+            }
+        }
+
+        .catalog-item-slider {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .catalog-item-content {
+            flex: 1 1 0%;
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            max-width: 100%;
+            margin-bottom: 0;
+
+            h2 {
+                font-size: getvw(18px);
+            }
+
+            p {
+                @include line-clamp(2);
+                font-size: getvw(16px);
+            }
+
+            .featured-vendors-location {
+                font-size: getvw(14px);
+            }
+        }
+
+        .featured-label {
+            top: getvw(10px);
+            left: getvw(10px);
+            font-size: getvw(10px);
+            padding: getvw(6px) getvw(12px);
+        }
+
+        .featured-vendors-img {
+            width: 100%;
+            padding-bottom: percentage(266 / 400);
+        }
+
+        .vendor-category-link {
+            font-size: getvw(10px);
+            margin-bottom: getvw(25px);
+        }
+
     }
 }

@@ -133,10 +133,58 @@
                     cursor: pointer;
                     padding: 19px;
                     border-right: 1px solid #f0f0f0;
+
                     &:last-child {
                         border-right: none;
                     }
                 }
+            }
+        }
+    }
+}
+
+.page-catalog {
+
+    .content-banner-vendors {
+        list-style: none;
+        padding: 0;
+        margin-left: - getrem(10px);
+        margin-right: - getrem(10px);
+        margin-bottom: 0;
+
+        &>li {
+            display: inline-block;
+            vertical-align: top;
+            padding: getrem(10px);
+
+            &>a {
+                color: #098988;
+                font-family: 'Lora';
+                font-size: getrem(12px);
+                font-weight: 700;
+                line-height: 23 / 12 * 1;
+                text-transform: uppercase;
+
+                &>i {
+                    margin-right: getrem(6px);
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .pageTop {
+            align-items: center;
+            margin-bottom: getrem(50px);
+
+            h3 {
+                flex: 1 0 auto;
+                max-width: 100%;
+                color: #333;
+                font-family: 'Lora';
+                font-size: getrem(16px);
+                font-weight: 700;
+                margin: 0;
             }
         }
     }
