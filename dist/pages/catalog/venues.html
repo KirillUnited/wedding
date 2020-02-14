@@ -1237,7 +1237,7 @@
         <div class="container px-0 mobile_filters">
             <div class="row">
                 <div class="sidebar col-sm-12 col-md-3">
-                    <div id="lg-filters">
+                    <!-- <div id="lg-filters">
                         <div class="filters-section fCol">
                             <div class="inner">
                                 <div class="filter">
@@ -1773,11 +1773,53 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="hidden-xs">
                         <div class="featured-vendors">
                             <h3 class="flexSC">Popular Vendors Near You</h3>
+                            <div class="catalog-item">
+                                <div class="catalog-item-slider">
+                                    <div class="featured-vendors-img">
+                                        <img src="images/photo.jpg"
+                                            alt="Photo of Jane Young Test, a wedding venue in Tacoma">
+                                    </div>
+                                </div>
+                                <div class="catalog-item-content">
+                                    <div class="vendor-category-link">Wedding venues</div>
+                                    <h2>
+                                        Jane Young Test
+                                    </h2>
+                                    <div class="catalog-item-meta">
+                                        <div class="rating-widget">
+                                            <div class="rating-stars">
+                                                <ul class="stars">
+                                                    <li class="star selected" data-value="1">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="star selected" data-value="2">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="star selected" data-value="3">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="star selected" data-value="4">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="star" data-value="5">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star half" style="width:13px"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="featured-vendors-location">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            Seattle
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <a class="vendor-item"
                                 href="https://localhost:44373/vendors/madison-wi/hotels/julia-seattle-bc">
                                 <div class="col-img">
@@ -1904,14 +1946,251 @@
                         </div>
                     </div>
 
-                    
+                    <div id="lg-filters">
+                        <div class="filters-section fCol">
+                            <div class="inner">
+                                <div class="filter catalog-filter">
+                                    <form action="https://localhost:44373/vendors/seattle/venues" method="post"
+                                        id="desktop-filter-form" class="filter-form">
+
+                                        <ul class="flex">
+                                            <li class="">
+                                                <button type="button" data-attr="dropdown-toggle" data-target="filter1">
+                                                    Catering options
+                                                    <sup class="selected-count"></sup>
+                                                    <i class="fa fa-chevron-down"></i>
+                                                </button>
+                                                <button class="filter-dropdown-reset" type="button"
+                                                    data-attr="filter-dropdown-reset" data-target="filter1">
+                                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                                </button>
+                                                <div id="filter1" class="filter-item-inner">
+                                                    <div class="filter-search">
+                                                        <input type="text" placeholder="Search">
+                                                    </div>
+                                                    <div class="filter-list">
+                                                        <label for="Catering_options:cmDesktop">
+
+                                                            <input id="Catering_options:cmDesktop"
+                                                                name="Catering options" type="checkbox"
+                                                                value="Custom menu" data-urlname="cm" />
+                                                            <span></span>Custom menu
+                                                        </label>
+                                                        <label for="Catering_options:outcaDesktop">
+
+                                                            <input id="Catering_options:outcaDesktop"
+                                                                name="Catering options" type="checkbox"
+                                                                value="Outside caterers allowed" data-urlname="outca" />
+                                                            <span></span>Outside caterers allowed
+                                                        </label>
+                                                        <label for="Catering_options:scocDesktop">
+
+                                                            <input id="Catering_options:scocDesktop"
+                                                                name="Catering options" type="checkbox"
+                                                                value="Set choice of catering companies"
+                                                                data-urlname="scoc" />
+                                                            <span></span>Set choice of catering companies
+                                                        </label>
+                                                        <label for="Catering_options:incoDesktop">
+
+                                                            <input id="Catering_options:incoDesktop"
+                                                                name="Catering options" type="checkbox"
+                                                                value="In-house catering only" data-urlname="inco" />
+                                                            <span></span>In-house catering only
+                                                        </label>
+                                                        <label for="Catering_options:buffDesktop">
+
+                                                            <input id="Catering_options:buffDesktop"
+                                                                name="Catering options" type="checkbox" value="Buffet"
+                                                                data-urlname="buff" />
+                                                            <span></span>Buffet
+                                                        </label>
+                                                        <label for="Catering_options:pladDesktop">
+
+                                                            <input id="Catering_options:pladDesktop"
+                                                                name="Catering options" type="checkbox"
+                                                                value="Plated dinner" data-urlname="plad" />
+                                                            <span></span>Plated dinner
+                                                        </label>
+                                                        <label for="Catering_options:nfomDesktop">
+
+                                                            <input id="Catering_options:nfomDesktop"
+                                                                name="Catering options" type="checkbox"
+                                                                value="No food minimum" data-urlname="nfom" />
+                                                            <span></span>No food minimum
+                                                        </label>
+                                                        <label for="Catering_options:nobmDesktop">
+
+                                                            <input id="Catering_options:nobmDesktop"
+                                                                name="Catering options" type="checkbox"
+                                                                value="No beverage minimum" data-urlname="nobm" />
+                                                            <span></span>No beverage minimum
+                                                        </label>
+                                                    </div>
+                                                    <div class="filter-apply-button">
+                                                        <div class="btn btn-prime"
+                                                            onclick="SendFilter($('#desktop-filter-form'))">view vendors
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="">
+                                                <button type="button" data-attr="dropdown-toggle" data-target="filter2">
+                                                    Services
+                                                    <sup class="selected-count"></sup>
+                                                    <i class="fa fa-chevron-down"></i>
+                                                </button>
+                                                <button class="filter-dropdown-reset" type="button"
+                                                    data-attr="filter-dropdown-reset" data-target="filter2">
+                                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                                </button>
+                                                <div id="filter2" class="filter-item-inner">
+                                                    <div class="filter-search">
+                                                        <input type="text" placeholder="Search">
+                                                    </div>
+                                                    <div class="filter-list">
+                                                        <label for="Services:ccDesktop">
+
+                                                            <input id="Services:ccDesktop" name="Services"
+                                                                type="checkbox" value="Cake cutting"
+                                                                data-urlname="cc" />
+                                                            <span></span>Cake cutting
+                                                        </label>
+                                                        <label for="Services:baDesktop">
+
+                                                            <input id="Services:baDesktop" name="Services"
+                                                                type="checkbox" value="Bartending" data-urlname="ba" />
+                                                            <span></span>Bartending
+                                                        </label>
+                                                        <label for="Services:hbDesktop">
+
+                                                            <input id="Services:hbDesktop" name="Services"
+                                                                type="checkbox" value="Host bar" data-urlname="hb" />
+                                                            <span></span>Host bar
+                                                        </label>
+                                                        <label for="Services:nhbDesktop">
+
+                                                            <input id="Services:nhbDesktop" name="Services"
+                                                                type="checkbox" value="No-host bar"
+                                                                data-urlname="nhb" />
+                                                            <span></span>No-host bar
+                                                        </label>
+                                                        <label for="Services:tdDesktop">
+
+                                                            <input id="Services:tdDesktop" name="Services"
+                                                                type="checkbox" value="Table decor" data-urlname="td" />
+                                                            <span></span>Table decor
+                                                        </label>
+                                                        <label for="Services:edDesktop">
+
+                                                            <input id="Services:edDesktop" name="Services"
+                                                                type="checkbox" value="Event decor" data-urlname="ed" />
+                                                            <span></span>Event decor
+                                                        </label>
+                                                        <label for="Services:seDesktop">
+
+                                                            <input id="Services:seDesktop" name="Services"
+                                                                type="checkbox" value="Setup" data-urlname="se" />
+                                                            <span></span>Setup
+                                                        </label>
+                                                        <label for="Services:cuDesktop">
+
+                                                            <input id="Services:cuDesktop" name="Services"
+                                                                type="checkbox" value="Clean up" data-urlname="cu" />
+                                                            <span></span>Clean up
+                                                        </label>
+                                                        <label for="Services:coDesktop">
+
+                                                            <input id="Services:coDesktop" name="Services"
+                                                                type="checkbox" value="Consultation"
+                                                                data-urlname="co" />
+                                                            <span></span>Consultation
+                                                        </label>
+                                                        <label for="Services:reDesktop">
+
+                                                            <input id="Services:reDesktop" name="Services"
+                                                                type="checkbox" value="Event rentals"
+                                                                data-urlname="re" />
+                                                            <span></span>Event rentals
+                                                        </label>
+                                                        <label for="Services:vrDesktop">
+
+                                                            <input id="Services:vrDesktop" name="Services"
+                                                                type="checkbox" value="Vendor referrals"
+                                                                data-urlname="vr" />
+                                                            <span></span>Vendor referrals
+                                                        </label>
+                                                        <label for="Services:dopDesktop">
+
+                                                            <input id="Services:dopDesktop" name="Services"
+                                                                type="checkbox" value="Day-of planning"
+                                                                data-urlname="dop" />
+                                                            <span></span>Day-of planning
+                                                        </label>
+                                                        <label for="Services:papDesktop">
+
+                                                            <input id="Services:papDesktop" name="Services"
+                                                                type="checkbox" value="Partial planning"
+                                                                data-urlname="pap" />
+                                                            <span></span>Partial planning
+                                                        </label>
+                                                        <label for="Services:fscDesktop">
+
+                                                            <input id="Services:fscDesktop" name="Services"
+                                                                type="checkbox" value="Full service coordination"
+                                                                data-urlname="fsc" />
+                                                            <span></span>Full service coordination
+                                                        </label>
+                                                        <label for="Services:outvDesktop">
+
+                                                            <input id="Services:outvDesktop" name="Services"
+                                                                type="checkbox" value="Outside vendors allowed"
+                                                                data-urlname="outv" />
+                                                            <span></span>Outside vendors allowed
+                                                        </label>
+                                                        <label for="Services:flodDesktop">
+
+                                                            <input id="Services:flodDesktop" name="Services"
+                                                                type="checkbox" value="Floral design"
+                                                                data-urlname="flod" />
+                                                            <span></span>Floral design
+                                                        </label>
+                                                        <label for="Services:parkDesktop">
+
+                                                            <input id="Services:parkDesktop" name="Services"
+                                                                type="checkbox" value="Parking" data-urlname="park" />
+                                                            <span></span>Parking
+                                                        </label>
+
+                                                    </div>
+                                                    <div class="filter-apply-button">
+                                                        <div class="btn btn-prime"
+                                                            onclick="SendFilter($('#desktop-filter-form'))">view vendors
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="venues.html" class="filter-reset">Clear all</a>
+                                                <!-- <label class="filter-reset">
+                                                    Сlear all filters
+                                                    <input type="reset" hidden>
+                                                </label> -->
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="flex flex-no-wrap pageTop">
                         <h3>1 Results</h3>
                         <ul class="content-banner-vendors hidden-xs">
                             <li>
-                                <a href="https://localhost:44373/photo-search/venues"
-                                    title="Search Seattle venues" onclick="track('Catalog Page: Visual Button', 'venues');"
+                                <a href="https://localhost:44373/photo-search/venues" title="Search Seattle venues"
+                                    onclick="track('Catalog Page: Visual Button', 'venues');"
                                     data-market-lat="47,6204986572266" data-market-lon="-122,350898742676"
                                     data-category-id="72">
                                     <i class="fa fa-picture-o" aria-hidden="true"></i>
@@ -1922,8 +2201,9 @@
                             </li>
                             <li>
                                 <a href="#" id="map-show-btn" title="Map Seattle venues"
-                                    onclick="track('Top Nav: Map Button');return false;" data-market-lat="47,6204986572266"
-                                    data-market-lon="-122,350898742676" data-category-id="72">
+                                    onclick="track('Top Nav: Map Button');return false;"
+                                    data-market-lat="47,6204986572266" data-market-lon="-122,350898742676"
+                                    data-category-id="72">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <span>
                                         Show on Map
@@ -1931,7 +2211,7 @@
                                 </a>
                             </li>
                         </ul>
-    
+
                         <span class="no-wrap visible-xs" onclick="OpenFiltersMap(true)">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <span>map</span>
@@ -1989,30 +2269,33 @@
                                             </ul>
                                         </div>
                                     </div>
-    
+
                                     <div class="featured-vendors-location">
                                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                                         Seattle
                                     </div>
                                     <div class="icons badges">
                                         <ul class="icons-group flex">
-                                            <li><i class="icon-badge field" data-title="Verified and trusted vendor."></i></li>
+                                            <li><i class="icon-badge field"
+                                                    data-title="Verified and trusted vendor."></i></li>
                                             <li>
-            
-                                                <i class="icon-badge fire" data-title="Popular! Likely to be booked first."></i>
+
+                                                <i class="icon-badge fire"
+                                                    data-title="Popular! Likely to be booked first."></i>
                                             </li>
-            
-            
+
+
                                             <li>
-            
-                                                <i class="icon-badge love" data-title="Published in-depth interviews answering top questions from Wedding Venture users."></i>
+
+                                                <i class="icon-badge love"
+                                                    data-title="Published in-depth interviews answering top questions from Wedding Venture users."></i>
                                             </li>
-            
+
                                             <li>
-            
+
                                                 <i class="icon-badge trophy" data-title="Highly rated."></i>
                                             </li>
-            
+
                                         </ul>
                                     </div>
                                 </div>
@@ -2021,7 +2304,7 @@
                                     services. Click View Details to learn more about Jane Young Test and to contact them
                                     for a free quote.</p>
 
-<!-- 
+                                <!-- 
 
                                 <div class="color-dark-green">
                                     <h4><i class="fa fa-shield"></i> Verified and trusted vendor</h4>
@@ -2962,6 +3245,8 @@
         async="async" id="__browserLink_initializationData" data-requestId="996e97ddc09548cb939812c644ae1a75"
         data-appName="Mozilla"></script>
     <!-- End Browser Link -->
+
+    <script src="../../js/script.js"></script>
 
 </body>
 

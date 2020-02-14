@@ -96,14 +96,19 @@ input[name="selectedMarketNew"] {
         }
 
         &::after {
-            right: getvw((-290px) / 2);
-            width: getvw(290px);
+            right: auto;
+            left: 0;
+            width: getvw(145px);
             white-space: normal;
             font-size: getvw(14px);
             font-weight: 400;
             padding: getvw(15px) getvw(20px);
         }
     }
+}
+
+.hidden {
+    display: none!important;
 }
 
 @media screen and (min-width: 768px) {

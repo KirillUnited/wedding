@@ -133,13 +133,18 @@ input[name="selectedMarketNew"] {
     height: 3.125vw;
   }
   .icon-badge::after {
-    right: -45.3125vw;
-    width: 90.625vw;
+    right: auto;
+    left: 0;
+    width: 45.3125vw;
     white-space: normal;
     font-size: 4.375vw;
     font-weight: 400;
     padding: 4.6875vw 6.25vw;
   }
+}
+
+.hidden {
+  display: none !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -4664,6 +4669,21 @@ ul.icons-group > * {
   }
 }
 
+.page-catalog #lg-filters .inner {
+  overflow: visible;
+}
+
+.page-catalog .filter-item-inner {
+  padding-left: 0;
+}
+
+.page-catalog .filter-item-inner label {
+  color: #333;
+  font-family: 'SourceSansPro';
+  font-size: 16px;
+  font-weight: 400;
+}
+
 .page-catalog .content-banner-vendors {
   list-style: none;
   padding: 0;
@@ -4860,6 +4880,60 @@ ul.icons-group > * {
   margin-bottom: 2rem;
 }
 
+.featured-vendors .catalog-item {
+  margin: 0;
+  padding-top: 1.7rem;
+  padding-bottom: 1.7rem;
+}
+
+.featured-vendors .catalog-item-content, .featured-vendors .catalog-item-slider {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.featured-vendors .catalog-item-slider {
+  width: 20%;
+  margin-right: 7%;
+}
+
+.featured-vendors .catalog-item-content {
+  margin-bottom: 0;
+}
+
+.featured-vendors .catalog-item-content h2 {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.featured-vendors .catalog-item-meta {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.featured-vendors .catalog-item .featured-vendors-img {
+  width: 100%;
+  background-color: #50315b;
+}
+
+.featured-vendors .catalog-item .vendor-category-link {
+  line-height: normal;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.featured-vendors .catalog-item .rating-widget {
+  height: auto;
+}
+
+.featured-vendors .catalog-item .rating-stars {
+  margin-top: 0;
+}
+
 @media (max-width: 767px) {
   .catalog-item {
     margin-left: 0;
@@ -4921,4 +4995,193 @@ ul.icons-group > * {
     font-size: 3.125vw;
     margin-bottom: 7.8125vw;
   }
+}
+
+/* Catalog Filters */
+.catalog-filter .filter-form ul {
+  margin: -5px;
+}
+
+.catalog-filter .filter-form ul > li {
+  position: relative;
+  padding: 5px;
+  margin-bottom: 0;
+  background: transparent;
+}
+
+.catalog-filter .filter-form ul > li > button {
+  display: inline-block;
+  vertical-align: top;
+  color: #333;
+  font-family: 'SourceSansPro';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: normal;
+  background-color: #f9f9f9;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-top: 0;
+  margin-bottom: 0;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.catalog-filter .filter-form ul > li > button.filter-dropdown-reset {
+  height: 100%;
+  font-size: 9px;
+}
+
+.catalog-filter .filter-form ul > li > button i.fa-chevron-down {
+  vertical-align: middle;
+  font-size: 7px;
+  float: none;
+  top: auto;
+  right: auto;
+  width: auto;
+  margin-right: 0;
+}
+
+.catalog-filter .filter-form ul > li.active > button, .catalog-filter .filter-form ul > li.is-selected > button, .catalog-filter .filter-form ul > li:hover > button {
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #098988;
+  border: 1px solid #098988;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.catalog-filter .filter-form ul > li > i.fa-chevron-down {
+  width: auto;
+}
+
+.catalog-filter .filter-form ul > li .filter-item-inner {
+  position: absolute;
+  top: calc(100% + 7px);
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  min-width: 366px;
+  background-color: white;
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+  -webkit-box-shadow: 0.5px 0.9px 7px rgba(32, 22, 0, 0.1);
+          box-shadow: 0.5px 0.9px 7px rgba(32, 22, 0, 0.1);
+  padding: 0;
+  z-index: 10;
+}
+
+.catalog-filter .filter-form ul > li .filter-item-inner::before {
+  content: '';
+  display: block;
+  position: absolute;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  width: 15px;
+  height: 15px;
+  background-color: #ffffff;
+  top: -7px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  z-index: -1;
+}
+
+.catalog-filter .filter-form ul > li .filter-reset {
+  display: block;
+  color: #098988;
+  font-family: 'SourceSansPro';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 10px 15px;
+  margin-bottom: 0;
+}
+
+.catalog-filter .filter-form ul > li .selected-count:empty,
+.catalog-filter .filter-form ul > li .filter-dropdown-reset {
+  display: none;
+}
+
+.catalog-filter .filter-form ul > li.is-selected .selected-count:empty,
+.catalog-filter .filter-form ul > li.is-selected .filter-dropdown-reset {
+  display: inline-block;
+}
+
+.catalog-filter .filter-form ul > li.active button > i.fa-chevron-down {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.catalog-filter .filter-form .filter-search {
+  padding: 25px 25px 10px;
+}
+
+.catalog-filter .filter-form .filter-search input {
+  width: 100%;
+  color: #333;
+  font-family: 'SourceSansPro';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  background-color: #f9f9f9;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  margin-right: 0;
+  padding: 1.07143em;
+}
+
+.catalog-filter .filter-form .filter-search input:focus {
+  border-bottom: 1px solid #098988;
+  outline: none;
+}
+
+.catalog-filter .filter-form .filter-search input.placeholder {
+  color: rgba(51, 51, 51, 0.7);
+}
+
+.catalog-filter .filter-form .filter-search input:-moz-placeholder {
+  color: rgba(51, 51, 51, 0.7);
+}
+
+.catalog-filter .filter-form .filter-search input::-moz-placeholder {
+  color: rgba(51, 51, 51, 0.7);
+}
+
+.catalog-filter .filter-form .filter-search input:-ms-input-placeholder {
+  color: rgba(51, 51, 51, 0.7);
+}
+
+.catalog-filter .filter-form .filter-search input::-webkit-input-placeholder {
+  color: rgba(51, 51, 51, 0.7);
+}
+
+.catalog-filter .filter-form .filter-list {
+  max-height: 240px;
+  list-style: none;
+  overflow: hidden;
+  overflow-y: auto;
+  padding: 10px 25px;
+}
+
+.catalog-filter .filter-form .filter-list label {
+  color: #333;
+  font-family: 'SourceSansPro';
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.catalog-filter .filter-form .filter-apply-button {
+  border-top: 1px solid #f1f1f1;
+  padding: 25px;
+}
+
+.catalog-filter .filter-form .filter-apply-button .btn {
+  width: 100%;
+  line-height: 2.2;
 }

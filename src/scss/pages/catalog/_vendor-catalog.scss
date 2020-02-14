@@ -144,6 +144,19 @@
 }
 
 .page-catalog {
+    #lg-filters .inner {
+        overflow: visible;
+    }
+
+    .filter-item-inner {
+        padding-left: 0;
+        label {
+            color: #333;
+            font-family: 'SourceSansPro';
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
 
     .content-banner-vendors {
         list-style: none;
