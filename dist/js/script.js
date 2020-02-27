@@ -80,28 +80,15 @@ $(function () {
         }
 
         toggleDropdown() {
-            if (this.dropdowns) {
-                this.dropdowns.fadeOut(200);
-                this.dropdowns.parent().removeClass('active');
-            }
-
-            if (this.dropdown.is(':visible')) {
-                this.dropdown.fadeOut(200);
-                this.toggleButton.parent().removeClass('active');
-                return
-            }
-
-            this.dropdown.fadeIn(200)
-            this.toggleButton.parent().addClass('active');
+            this.dropdowns ? this.dropdowns.parent().removeClass('active') : null;
+            this.dropdown.parent().hasClass('active') ? this.toggleButton.parent().removeClass('active') : this.toggleButton.parent().addClass('active');
         }
 
         close(target) {
             var dropdownTarget = target.closest(this.dropdowns)
             var dropdownButton = target.closest(this.toggleButton)
-            if (!dropdownTarget.length > 0 && !dropdownButton.length > 0) {
-                this.dropdowns.fadeOut(200)
-                this.dropdowns.parent().removeClass('active');
-            }
+
+            !dropdownTarget.length > 0 && !dropdownButton.length > 0 ? this.dropdowns.parent().removeClass('active') : null;
         }
     }
 
@@ -117,6 +104,21 @@ $(function () {
             button: toggleButton,
             dropdown: target,
             dropdowns: dropdowns
+        });
+
+        dropdown.toggleDropdown();
+    });
+
+    $('body').on('click', '[data-toggle="slidePopover"]', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const toggleButton = $(this);
+        const target = $(`#${toggleButton.data("target")}`);
+
+        const dropdown = new Dropdown({
+            button: toggleButton,
+            dropdown: target
         });
 
         dropdown.toggleDropdown();
@@ -146,7 +148,7 @@ $(function () {
         const filterItems = filter.closest('.filter-item-inner').find('.filter-list label');
 
         $(filterItems).each(function (index, element) {
-            if($(this).text().toLowerCase().indexOf(filterValue) > -1) {
+            if ($(this).text().toLowerCase().indexOf(filterValue) > -1) {
                 $(this).show();
             } else {
                 $(this).hide();
@@ -174,7 +176,7 @@ $(function () {
             parent.removeClass('is-selected');
             countWrapper.text('');
         }
-        
+
         searchInput.val('');
         labels.removeAttr('style');
     }

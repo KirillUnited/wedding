@@ -60,18 +60,20 @@
                 }
 
                 .filter-item-inner {
+                    display: block!important;
                     position: absolute;
                     top: calc(100% + 7px);
                     left: 50%;
                     transform: translate(-50%, 0);
-
+                    opacity: 0;
                     min-width: 366px;
                     background-color: white;
                     border: 1px solid #f1f1f1;
                     border-radius: 5px;
                     box-shadow: 0.5px 0.9px 7px rgba(32, 22, 0, 0.1);
                     padding: 0;
-                    z-index: 10;
+                    z-index: -1;
+                    transition: all 0.2s;
 
                     &::before {
                         content: '';
@@ -117,6 +119,10 @@
                         &>i.fa-chevron-down {
                             transform: rotate(180deg);
                         }
+                    }
+                    .filter-item-inner{
+                        opacity: 1;
+                        z-index: 10;
                     }
                 }
             }

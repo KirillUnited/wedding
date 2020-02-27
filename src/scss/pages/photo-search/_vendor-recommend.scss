@@ -1,0 +1,151 @@
+/* Recommendations Styling */
+.vendor-recommend {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    z-index: 100;
+    width: getrem(379px);
+    transform: translate(-50%, 0);
+    background-color: white;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0 0 18px rgba(32, 22, 0, 0.08);
+
+    &.active {
+        .popover-info-close {
+            display: inline-block;
+
+            &.fa {
+                display: none;
+            }
+        }
+    }
+
+    .popover-info-close {
+        display: none;
+        top: getrem(29px);
+        right: getrem(18px);
+
+        &.fa {
+            display: inline-block;
+        }
+    }
+
+    &-header {
+        display: block;
+        position: relative;
+        color: #333;
+        font-family: 'Lora';
+        font-size: getrem(12px);
+        font-weight: 700;
+        line-height: 23 / 12 * 1em;
+        text-transform: uppercase;
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #f0f0f0;
+        border-radius: 5px 5px 0px 0px;
+        padding: getrem(23px);
+
+        &:hover,
+        &:focus {
+            color: #333;
+            text-decoration: none;
+        }
+    }
+
+    &-body {
+        position: relative;
+        overflow-y: hidden;
+        max-height: 0;
+        transition: max-height 0.5s ease-in-out;
+
+        &.is-empty {
+            &::before {
+                position: relative;
+                display: block;
+                content: '“Heart” the photos you like and we will recommend some vendors for you';
+                font-family: 'SourceSansPro';
+                font-size: getrem(14px);
+                font-weight: 400;
+                padding: getrem(23px);
+            }
+        }
+
+        .active & {
+            max-height: 1000px;
+        }
+
+        &.featured-vendors {
+            .catalog-item {
+                padding: getrem(23px);
+                transition: all 0.3s;
+
+                &:hover {
+                    background-color: #f9f9f9;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &-count {
+        @include truncate(getrem(15px));
+        display: inline-block;
+        color: white;
+        width: 15 / 10 * 1em;
+        height: 15 / 10 * 1em;
+        font-family: SourceSansPro;
+        font-size: getrem(10px);
+        font-weight: 700;
+        line-height: 15 / 10 * 1em;
+        text-align: center;
+        background-color: #379f9e;
+        border-radius: 100%;
+        margin-left: getrem(9px);
+    }
+
+    @include less-sm() {
+        position: fixed;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-height: 100vh;
+        overflow-y: auto;
+        transform: translate(0, 0);
+        border-top: 1px solid #f0f0f0;
+        border-radius: 0;
+
+        .popover-info-close {
+            top: getvw(19px);
+            right: getvw(15px);
+        }
+
+        &-header {
+            font-size: getvw(12px);
+            padding: getvw(13px) getvw(15px);
+        }
+
+        &-body {
+
+            &.featured-vendors {
+                .catalog-item {
+                    padding: getvw(23px) getvw(15px);
+
+                    &-slider {
+                        width: getvw(113px);
+                    }
+
+                    .featured-vendors-img {
+                        padding-bottom: percentage(135 / 113);
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        &-count {
+            @include truncate(getvw(15px));
+            font-size: getvw(10px);
+            margin-left: getvw(9px);
+        }
+    }
+}
