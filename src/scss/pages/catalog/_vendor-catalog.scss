@@ -150,6 +150,7 @@
 
     .filter-item-inner {
         padding-left: 0;
+
         label {
             color: #333;
             font-family: 'SourceSansPro';
@@ -180,6 +181,31 @@
 
                 &>i {
                     margin-right: getrem(6px);
+                }
+            }
+        }
+    }
+    
+    //* Vendor Catalog Featured Products */
+    .featured-products {
+        .container {
+            width: 100%;
+        }
+
+        &-slider {
+            padding-left: 1%;
+            padding-right: 1%;
+
+            &.owl-carousel {
+                .owl-nav {
+                    z-index: 1;
+
+                    .owl-prev,
+                    .owl-next {
+                        color: #ffffff;
+                        background-color: rgb(6, 136, 135);
+                        transform: none;
+                    }
                 }
             }
         }

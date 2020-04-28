@@ -360,7 +360,89 @@ $(function () {
         });
     }
 
-    // customize fancybox gallery
+    /**
+     * VENDOR_GALLERY_MODAL
+     */
+    $('[data-toggle="modal-gallery"]').on('click', function () {
+        const targetID = $(this).data('target'),
+            $modal = $(`[data-id="${targetID}"]`),
+            $modalImgWrapper = $modal.find('.modal-msg-img .row'),
+            _createModalItem = function (param) {
+                return `
+                    <div class="col-sm-3 col-xs-6">
+                        <a class="modal-gallery-item" href="${param.imgURL || ''}" data-fancybox="gallery">
+                            <img src="${param.imgThumbnailURL || ''}" alt="${param.imgAltText || ''}"
+                                 class="thumbnail-image" />
+                        </a>
+                    </div>
+            `
+            },
+            thumbnailSizeName = "medium";
+
+        if ($modal.find('[data-attr="preloader"]').length === 0) {
+            const $preloader = createPreloader();
+
+            $modalImgWrapper.append($preloader);
+        }
+
+        $('html').css("overflow", "hidden");
+
+        $.ajax({
+            type: "POST",
+            url: "/VendorDetails/gallery?vendorId=" + $('[data-vendor]').data('vendor'),
+            success: function (response) {
+                if (response) {
+                    const data = JSON.parse(response).vendorThumbnails;
+
+                    $modalImgWrapper.empty();
+
+                    $(data).each(function (index, element) {
+                        const param = {
+                            imgURL: element.url,
+                            imgThumbnailURL: element.thumbs.filter(function (el, i, self) {
+                                return el.sSizeName === thumbnailSizeName ? el.url : false;
+                            })[0].url,
+                            imgAltText: element.sAltText
+                        };
+
+                        const $modalItem = _createModalItem(param);
+
+                        $modalImgWrapper.append($modalItem);
+                        initCustomFancybox();
+                    });
+                }
+            }
+        });
+
+        $('.modal-gallery .modal-msg-close').on('click', function () {
+            $.fancybox.close();
+            $('html').removeAttr("style");
+        });
+
+    });
+    /** END VENDOR_GALLERY_MODAL */
+
+
+    $('body').on('input change', '#vendorSearchId', function () {
+        var RESET_BTN = $(this).siblings('[data-reset-value]');
+
+        if ($(this).val()) RESET_BTN.show();
+        if (!$(this).val()) RESET_BTN.hide();
+    });
+
+    $('body').on('click', '[data-reset-value]', function (e) {
+        e.preventDefault();
+
+        var RESET_BTN = $(this),
+            RESET_TARGET_ID = RESET_BTN.data('reset-target-id'),
+            TARGET = $('#' + RESET_TARGET_ID);
+
+        if (TARGET) TARGET.val('').change();
+    });
+});
+
+// customize fancybox gallery
+function initCustomFancybox() {
     if (typeof $.fn.fancybox == 'function') {
         $('[data-fancybox="gallery"]').fancybox({
             parentEl: '.modal-gallery .modal-msg-img',
@@ -398,36 +480,70 @@ $(function () {
             },
             afterShow: function (instance, slide) {
                 $('.modal-gallery .modal-msg-img > .row').hide();
-                $('html').css("overflow", "hidden");
             },
             afterClose: function () {
                 $('.modal-gallery .modal-msg-img > .row').fadeIn("fast");
-                $('html').removeAttr("style");
             }
         });
-
-        $('.modal-gallery .modal-msg-close').on('click', function () {
-            $.fancybox.close();
-        });
     }
+}
 
-    $('body').on('input change', '#vendorSearchId', function () {
-        var RESET_BTN = $(this).siblings('[data-reset-value]');
-
-        if ($(this).val()) RESET_BTN.show();
-        if (!$(this).val()) RESET_BTN.hide();
-    });
-
-    $('body').on('click', '[data-reset-value]', function (e) {
-        e.preventDefault();
-
-        var RESET_BTN = $(this),
-            RESET_TARGET_ID = RESET_BTN.data('reset-target-id'),
-            TARGET = $('#' + RESET_TARGET_ID);
-
-        if (TARGET) TARGET.val('').change();
-    });
-});
+// Create Preloader
+const createPreloader = function () {
+    return `
+            <svg data-attr="preloader" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:transparent;display:block;" width="78px" height="78px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <g transform="rotate(0 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.9166666666666666s" repeatCount="indefinite"></animate>
+              </rect>
+            </g><g transform="rotate(30 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.8333333333333334s" repeatCount="indefinite"></animate>
+              </rect>
+            </g><g transform="rotate(60 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.75s" repeatCount="indefinite"></animate>
+              </rect>
+            </g><g transform="rotate(90 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.6666666666666666s" repeatCount="indefinite"></animate>
+              </rect>
+            </g><g transform="rotate(120 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5833333333333334s" repeatCount="indefinite"></animate>
+              </rect>
+            </g><g transform="rotate(150 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5s" repeatCount="indefinite"></animate>
+              </rect>
+            </g><g transform="rotate(180 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.4166666666666667s" repeatCount="indefinite"></animate>
+              </rect>
+            </g><g transform="rotate(210 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.3333333333333333s" repeatCount="indefinite"></animate>
+              </rect>
+            </g><g transform="rotate(240 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.25s" repeatCount="indefinite"></animate>
+              </rect>
+            </g><g transform="rotate(270 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.16666666666666666s" repeatCount="indefinite"></animate>
+              </rect>
+            </g><g transform="rotate(300 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.08333333333333333s" repeatCount="indefinite"></animate>
+              </rect>
+            </g><g transform="rotate(330 50 50)">
+              <rect x="47" y="24" rx="1.92" ry="1.92" width="6" height="12" fill="#098b8b">
+                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animate>
+              </rect>
+            </g>
+            </svg>
+    `
+}
 
 function initFeatProdSlider() {
     var slider = $('.featured-products-slider');

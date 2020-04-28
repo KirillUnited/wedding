@@ -380,6 +380,15 @@
     }
 }
 
+.vendor-pricing {
+    h5 {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
 %btn-prime-invert {
     color: #098988;
     background-color: #ffffff;

@@ -1,0 +1,847 @@
+/*
+**	Main Menu 
+*/
+$(function () {
+    $('.menu > li').on('click', function (e) {
+        if ($(window).width() > 767) return;
+        $this = $(this);
+        if ($this.find('.sub-menu').length) {
+            if ($(e.target).attr('href') == '#') {
+                e.preventDefault();
+            }
+            $this.find('.sub-menu').slideToggle();
+            $this.find('.sub-menu-opened').toggleClass('fa-chevron-down').toggleClass('fa-chevron-up');
+        }
+    });
+    $('#menuOpened').on('click', function () {
+        $('.main-menu').slideToggle().css({ 'display': 'block', 'flexDirection': 'nowrap' });
+    });
+});
+
+/*
+**	PRICES MOBILE ACCORDION
+*/
+$('.membership .scroll-box').scroll(function (event) {
+    $('.membership .scroll-box').scrollLeft($(event.target).scrollLeft());
+});
+
+/*
+**	HOME PAGE CAROUSEL
+*/
+$(document).ready(function () {
+    $(".testimonials-slider.owl-carousel").owlCarousel({
+        navElement: 'div role="presentation"',
+        items: 1,
+        loop: true,
+        nav: true,
+        margin: 10,
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>']
+    });
+});
+
+$(function () {
+    /*
+	**	Details Add a Package on v-home-details page
+	*/
+    $('#details_add-package').on('click', function (e) {
+        e.preventDefault();
+
+
+        // Update the index of the clone
+        var index = $('.details-form').find('.details-form_packages').length;   
+        var packageClone = $('#newPackage').clone();        
+        packageClone.html($(packageClone).html().replace(/\[#\]/g, '[' + index + ']'));
+        packageClone.html($(packageClone).html().replace(/_#__/g, '_' + index + '__'));
+        packageClone.html($(packageClone).html().replace(/#/g, index));
+        packageClone.attr('id', index);
+
+        var package = $('.details-form').find('.details-form_packages').last();
+        if (package.length != 0) {
+            package.after(packageClone.hide().fadeIn());
+        }
+        else {
+            // if there are no packages, add the first one before 
+            // the Add a Package button
+            $(this).before(packageClone.hide().fadeIn());            
+        }        
+        $('.details-form_packages-close').on('click', function (e) {                      
+            e.preventDefault();
+            $(this).parents('.details-form_packages').remove();
+        });
+
+        //highlighting links
+        initHighlightingLinksInText("#vendorPackages_" + index + "__sFullDescription");
+        
+    });
+
+    $('.details-form_packages-close').on('click', function (e) {               
+        e.preventDefault();
+        $(this).parents('.details-form_packages').remove();
+    });
+});
+
+/* 
+**	Open Tooltip Resolution on v-home-photo page
+*/
+$(function () {
+    if ($('[data-toggle="tooltip"]').length == 0) return;
+
+    $('[data-toggle="tooltip"]').tooltip({
+        html: true
+    });
+});
+
+/*
+**	Gallery on v-home-photo page
+*/
+$(function () {
+    var $container = $('#v-home-gallery');
+    if ($container.length == 0) return;
+
+    //	Opened Window
+    $container.on('click', '.gallery-item .thumbnail', function (e) {
+        e.preventDefault();
+        $(this).siblings('.gallery-popup').fadeIn().css('display', 'flex');
+    });
+    //	Closed Window
+    $container.on('click', '.gallery-popup_close', function () {
+        $(this).parents('.gallery-popup').fadeOut();
+    });
+    // Nothing to do if we clicking on image
+    $container.on('click', '.gallery-popup_window', function (e) {
+        e.stopPropagation();
+    });
+    // Close popup window if we click on outer zone
+    $container.on('click', '.gallery-popup', function () {
+        $(this).fadeOut();
+    });
+    //	Sort Items JQuery UI plugin
+    $("#sortable").sortable({
+        items: '.gallery-item'
+    });
+});
+
+/*
+**	The Account Form Customize Placeholder
+*/
+$(function () {
+    if ($('.account').length == 0) return;
+
+    $('input, select').on('focus', function (e) {
+        $(this).siblings('span').hide();
+    });
+    $('input, select').on('focusout', function (e) {
+        if ($(this).val()) return;
+        $(this).siblings('span').show();
+    });
+});
+
+/*
+**	Init Slider On Page Account Create
+*/
+$(function () {
+    sliderSuccessStory($("#success-stories"));
+    $(window).on('resize', function () {
+        sliderSuccessStory($("#success-stories"));
+    });
+});
+
+function sliderSuccessStory(block) {
+    if ($(window).width() <= 991) {
+        slideFlag = true;
+        block.owlCarousel({
+            navElement: 'div role="presentation"',
+            items: 1,
+            margin: 10,
+            loop: true,
+            nav: false,
+            dots: true,
+            responsiveClass: true,
+        });
+    }
+    if ($(window).width() >= 992) {
+        slideFlag = false;
+        block.trigger('destroy.owl.carousel').css('display', 'block');
+    }
+}
+
+/*
+**	Init Chart Js On v-home page 
+*/
+$(function () {
+    if (!$('#audience-diagram').length) return;
+
+    // Validate On Undefined Variable
+    if (typeof window.labels == 'undefined') {
+        var labels = [];
+        console.warn('The Diagram Waiting variable \"labels = []\"');
+    } else {
+        var labels = window.labels;
+    }
+    if (typeof window.users == 'undefined') {
+        var users = [];
+        console.warn('The Diagram Waiting variable \"users = []\"');
+    } else {
+        var users = window.users;
+    }
+
+    var ctx = document.getElementById("audience-diagram").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: ' Views',
+                data: users,
+                backgroundColor: '#6fcdcc40',
+                borderColor: '#068887',
+                borderWidth: 5,
+                pointBackgroundColor: '#068887',
+                lineTension: 0,
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            tooltips: {
+                enabled: true,
+                backgroundColor: '#fff',
+                titleFontFamily: 'RobotoCondensedBold',
+                titleFontSize: 18,
+                titleFontColor: '#068887',
+                bodyFontFamily: 'RobotoCondensed',
+                bodyFontSize: 14,
+                bodyFontColor: '#404040',
+                xPadding: 20,
+                yPadding: 10,
+                displayColors: false,
+                borderColor: '#068887',
+                borderWidth: 1
+            },
+            scales: {
+                xAxes: [{
+                    stacked: true
+                }],
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            callback: function (value, index, values) {
+                                return value + '%';
+                            }
+                        }
+                    }]
+            }
+        }
+    });
+});
+
+/*
+**	Validate Checked Terms Of Use
+*/
+$(function () {
+    if (!$('.join-form').length) return;
+
+    var form = $('.join-form');
+    var button = form.find('.button-green');
+    var check = $('.join-form').find('input[type="checkbox"]');
+
+    button.on('click', function (e) {
+        e.preventDefault();
+        if ($('.join-form').find('input[type="checkbox"]:checked').length) {
+            check.parent('label').removeClass('no-validate');
+            form.submit();
+            return;
+        }
+        check.parent('label').addClass('no-validate');
+        $(".terms-acceptance-error").show();
+    });
+    check.on('click', function (e) {
+        if ($('.join-form').find('input[type="checkbox"]:checked').length) {
+            check.parent('label').removeClass('no-validate');
+            $(".join-form .terms-acceptance-error").hide();
+        } else {
+            check.parent('label').addClass('no-validate');
+            $(".join-form .terms-acceptance-error").show();
+        }
+    });
+});
+
+/*
+ Submit review request form
+ */
+$(function () {
+    $('#add-review-request-form button[type="submit"]').on("click", function (e) {
+        e.preventDefault();
+        if ($('#add-review-request-form').valid()) {
+            $('.validation-summary-errors ul').html('');
+            $('#add-review-request-form').submit();
+        }
+    });
+
+    $('#allRequestMessages').click(function () {
+    $.ajax({
+        url: "/vendorreviews/getallreviewrequests/",
+        success: function (result) {
+            $("#requestsHistory").html(result);
+            $('#allRequestMessages').hide();
+        },
+    });
+});
+});
+
+/*
+    Vendor messages functionality
+ */
+//$(function () {
+//    $(".chat-item").click(function (e) {
+//        if ($(e.target).is(".chat-action-link") || $(e.target).parent(".chat-action-link").length > 0
+//            || $(e.target).is(".popover") || $(e.target).parents(".popover").length > 0
+//            || $(e.target).find(".popover").length > 0 || $(e.target).parents(".chat-item").find(".popover").length > 0)
+//            return;
+//        var chatId;
+//        if ($(e.target).is(".chat-item"))
+//            chatId = $(e.target).attr("chatId");
+//        else chatId = $(e.target).parents(".chat-item").attr("chatId");
+//        if (window.location.href.search(/chatId/i) > 0)
+//            window.location.href = window.location.href.replace(/chatId=[0-9]+/i, "chatId=" + chatId);
+//        else if (window.location.search != "")
+//            window.location.href = window.location.href + "&chatId=" + chatId;
+//        else window.location.href = window.location.href + "?chatId=" + chatId;
+//    });
+
+//    $("#replyForm .fa-paper-plane").click(function (e) {
+//        if ($("#replyForm textarea").val() != "" && $(e.target).attr("disabled") != "disabled") {
+//            $(e.target).attr("disabled", "disabled");
+//            $("#replyForm").submit();
+//        }
+//    });
+
+//    $("#replyForm .fa-paperclip").click(function () {
+//        $("#replyForm input[type='file']").click();
+//    });
+
+//    $(".chat-action-link").each(function (ind, el) {
+//        var chatId = $(el).attr("chatId");
+//        $(el).popover({
+//            html: true,
+//            content: '<div class="chat-actions"><a href="/messages/archivechat?chatId=' + chatId + '">Archive</a><br/><a href="/messages/deletechat?chatId=' + chatId + '">Delete</a><br/><a href="/messages/markbookedchat?chatId=' + chatId +'">Mark as Booked</a></div>',
+//            placement: 'bottom',
+//            trigger: 'focus'
+//        });
+
+//        $(el).on('shown.bs.popover', function () {
+//            $('.chat-actions a').click(function (e) {
+//                e.preventDefault();
+//                $.ajax({
+//                    type: "POST",
+//                    url: $(e.target).attr('href'),
+//                    dataType: 'json',
+//                    success: function (data) {
+//                        if (data.Result) {
+//                            $("#formFilter").submit();
+//                        }
+//                    }
+//                });
+//            });
+//        });
+//    });
+
+//    RemoveMessageLinks();
+//    ScrollToUnreadMessage();
+//});
+//function ScrollToUnreadMessage() {
+//    if ($("#messages-list").length > 0) {
+//        var unreadElems = $(".space.unread");
+//        if (unreadElems.length > 0) {
+//            $("#messages-list").scrollTop(unreadElems[0].offsetTop);
+//            if ($(window).height() + $(window).scrollTop() >= $('.unread.space:first').offset().top)
+//                ReadMessages();
+//            else {
+//                $(window).on("scroll", function (e) {
+//                    if ($(window).height() + $(window).scrollTop() >= $('.unread.space:first').offset().top) {
+//                        ReadMessages();
+//                        $(window).off("scroll");
+//                    }
+//                });
+//            }
+//        } else $("#messages-list").scrollTop($("#messages-list")[0].scrollHeight);
+//    }
+//}
+//function ReadMessages() {
+//    var currentChatId = $("#replyForm input[type='hidden']").val();
+//    $.ajax({
+//        type: "POST",
+//        url: "/Messages/ReadMessages?chatId=" + currentChatId,
+//        dataType: 'json',
+//        success: function (data) {
+//            if (data.Result) {
+//                if (data.UnreadMessagesCount > 0)
+//                    $(".user-menu_list .badge").text(data.UnreadMessagesCount + " new");
+//                else $(".user-menu_list .badge").remove();
+//                $(".chat-item[chatId=" + currentChatId + "] .message").removeClass("unread");
+//            }
+//        }
+//    });
+//}
+//function RemoveMessageLinks() {
+//    $('.message-item .remove-link').each(function (ind, el) {
+//        $(el).on('click', function () {
+//            if (confirm("Are you sure you want to delete this message?")) {
+//                $.ajax({
+//                    type: "POST",
+//                    url: "/Messages/DeleteMessage?messageId=" + $(el).attr("messageId"),
+//                    dataType: 'json',
+//                    success: function (data) {
+//                        if (data.Result) {
+//                            $(el).parents(".message-item").html("<div class='text-right'><i>Message has been removed</i></div>")
+//                        }
+//                    }
+//                });
+//            }
+//        });
+//    });
+//}
+//function AttachFileToChatSuccess(result, fileName) {
+//    $("#replyForm .fa-paper-plane").removeAttr("disabled");
+//    if (result.startsWith("<div class='alert alert-danger'")) {
+//        $(".alertMessage").html(result);
+//    } else {
+//        $(".chat-item[chatId=" + $("#replyForm input[type='hidden']").val() + "] .message")
+//            .text(fileName);
+//        UpdateMessagesList(result);
+//    }
+//}
+//function ReplyChatSuccess(result) {
+//    $("#replyForm .fa-paper-plane").removeAttr("disabled");
+//    if (result.startsWith("<div class='alert alert-danger'")) {
+//        $(".alertMessage").html(result);
+//    } else {
+//        var lastMessage = $("#replyForm textarea").val();
+//        if (lastMessage && lastMessage.length > 30)
+//            lastMessage = lastMessage.substring(0, 27) + "...";
+//        $(".chat-item[chatId=" + $("#replyForm input[type='hidden']").val() + "] .message")
+//            .text(lastMessage);
+//        UpdateMessagesList(result);
+//    }
+//}
+//function UpdateMessagesList(result) {
+//    $(".alertMessage").html("");
+//    $("#messages-list").html(result);
+//    $("#messages-list").scrollTop($("#messages-list")[0].scrollHeight);
+//    $(".chat-item[chatId=" + $("#replyForm input[type='hidden']").val() + "] .message").removeClass("unread");
+//    $("#replyForm textarea").val("");
+//    if ($("#warningSendMessage").length == 1) {
+//        if ($(".alert-info").length == 0) {
+//            $("<div class='row'>\
+//                    <div class='alert alert-info' role='alert'>\
+//                </div>\
+//            </div>").insertBefore($("#warningSendMessage"));
+//        }
+//        $(".alert-info").html($("#warningSendMessage").val());
+//    }
+//    RemoveMessageLinks();
+//}
+
+/*------------------------Testimonials------------------------------------*/
+$(function () {
+    $('.col-datepicker').datetimepicker({ format: "MM/DD/YYYY" });
+    $('#details_add-testimonial').on('click', function (e) {
+        e.preventDefault();
+
+        if ($('input[name="maxTestimonialsCount"]').length == 1 &&
+            $('input[name="maxTestimonialsCount"]').val() == $('.testimonials-block .details-form_packages').length) {
+            $('.top-message .container').html("<div class='alert alert-warning' role='alert'>\
+                As a " + $('input[name="membershipPlanName"]').val() + " member, you can add up to " + $('input[name="maxTestimonialsCount"]').val() + " client testimonials. Either <a href='/vendormembership/'>upgrade your membership</a> to allow more testimonials.</div> ");
+            $(window).scrollTop($('.top-message .container')[0].offsetTop);
+            return;
+        }
+
+        // Update the index of the clone
+        var index = $('.details-form').find('.details-form_testimonial').length;
+        var packageClone = $('#newPackage').clone();
+        packageClone.html($(packageClone).html().replace(/\[#\]/g, '[' + index + ']'));
+        packageClone.html($(packageClone).html().replace(/_#__/g, '_' + index + '__'));
+        packageClone.html($(packageClone).html().replace(/#/g, index));
+        packageClone.attr('id', index);
+
+        var package = $('.details-form').find('.details-form_testimonial').last();
+        if (package.length != 0) {
+            package.after(packageClone.hide().fadeIn());
+        }
+        else {
+            // if there are no packages, add the first one before 
+            // the Add a Package button
+            $('.details-form .testimonials-block').append(packageClone.hide().fadeIn());
+        }
+        $('.details-form_packages-close').on('click', function (e) {
+            e.preventDefault();
+            $(this).parents('.details-form_packages').remove();
+        });
+
+        $('.col-datepicker').datetimepicker({ format: "MM/DD/YYYY" });
+
+    });
+});
+
+
+//--------------------------------------------------------------messages chat
+//show chat item menu
+function ShowItemMenu(chatId, elem) {
+    //get template
+    var template;
+
+    if ($(elem).data('type')) {
+        template = $('#broadcast-template').html();
+    } else {
+        template = $('#popover-template').html();
+    }
+
+
+    //parse template
+    Mustache.parse(template);
+    //isert data to the template
+    var html = Mustache.render(template, {
+        ChatId: chatId
+    });
+    //init popover
+    $(elem).popover({
+        html: true,
+        content: html,
+        placement: 'bottom',
+        trigger: 'focus',
+        container: 'body'
+    });
+    //toggle popover
+    $(elem).popover('toggle');
+}
+
+//change height of textarea
+function CheckHeight(elem) {
+    elem.style.height = '5px';
+    elem.style.height = elem.scrollHeight + 'px';
+}
+
+///chat item click actions
+function ChatAction(chatId, event) {
+    //check if icon or menu item clicked
+    if (!$(event.target).is('.fa-cog') && !$(event.target).is('.menu-link') && !$(event.target).is('.action')) {
+        //if not, reload with new chat item
+        $('#chatId').val(chatId);
+        $('#formFilter').submit();
+    }
+}
+
+//delete message click
+function DeleteMessage(elem) {
+    //show alert window
+    if (window.confirm('Are you sure you want to delete this message?')) {
+        //if ok       
+        $.ajax({
+            type: 'POST',
+            url: '/messages/deletemessage?messageId=' + $(elem).data('messageid'),
+            dataType: 'json',
+            success: function (data) {
+                if (data.Result) {
+                    //replace message by html
+                    $(elem).parents('.message-row').html('<div class="text-right"><i>Message has been removed</i></div>');  
+                    //get prev message text
+                    var prev = $('.message-row .message-text').last().text();
+                    //update the chat with trimmed message preview
+                    $('.d-md-block .current .user-message').text(TrimString(80, '"' + prev + '"'));
+                }
+            }
+        });
+    }
+}
+
+//send message within chat
+function ReplyChatSuccess(result) {
+    //if any alert message
+    if (!result.Success) {
+        $(".message-row:last-child .send-status").html("Failed");
+
+    } else {    
+        //get new message
+        var lastMessage = $('#replyForm textarea').val();
+        //update the chat with trimmed message preview
+        $('.d-md-block .current .user-message').text('"' + TrimString(80, lastMessage) + '"');      
+        //update chat's messages block
+        UpdateMessagesList(result);
+    }
+}
+
+//update chat's messages block
+function UpdateMessagesList(result) {
+    //clear message form
+    $('#replyForm textarea').val('');  
+    //clear alert if any
+    $('.alertMessage').html('');
+    //update message status
+    $(".message-row:last-child .send-status").html("Sent");
+    //add remove button
+    $(".message-row:last-child .send-status").after(`<button class="btn-link p-0 remove-btn" 
+                        onclick="DeleteMessage(this)" data-messageid="${result.Message}">Remove</button>`);
+
+}
+
+//upload attachments
+function AttachFileToChatSuccess(result, fileName) {
+    //if any alert
+    if (!result.Success) {
+        $(".message-row:last-child .send-status").html("Failed");
+    } else {
+        //update the chat with trimmed message preview
+        $('.d-md-block .current .user-message').text(TrimString(fileName));
+        //update chat's messages block
+        UpdateMessagesList(result);
+    }
+}
+
+//trim string by index
+function TrimString(index, text) {
+    if (text && text.length > index)
+        return text.substring(0, index) + "...";
+    return text;
+}
+
+
+//scroll to unread messages
+function ScrollToUnreadMessage() {
+    var message = $('.unread');
+    if (message.length > 0) {
+        var test = message[0].offsetParent.offsetTop + message[0].offsetTop;
+        //scroll to first unread message
+        window.scrollTo(0, test);
+        ReadMessages();
+    } 
+}
+
+//mark chat messages as read
+function ReadMessages() {
+    var currentChatId = $('#chatId').val();
+    $.ajax({
+        type: 'POST',
+        url: '/messages/readmessages?chatId=' + currentChatId,
+        dataType: 'json',
+        success: function (data) {
+        }
+    });
+}
+
+var COOKIE_NAME_TRIAL_MEMBERSHIP_SETTINGS = "trial-membership-settings";
+
+function getCookieGlobal(nameAA) {
+    nameAA = nameAA + "=";
+    var carrayAA = document.cookie.split(';');
+
+    for (var i = 0; i < carrayAA.length; i++) {
+        var cAA = carrayAA[i];
+        while (cAA.charAt(0) === ' ') cAA = cAA.substring(1, cAA.length);
+        if (cAA.indexOf(nameAA) === 0) return cAA.substring(nameAA.length, cAA.length);
+    }
+
+    return null;
+}
+
+//show reached lead limit error message
+function ShowReachedLeadLimitMessage(resetDate, nextPlanId, nextPlanLeadsLimit, nextPlanName, nextPlanPrice, unreadMessage, price, daysCount) {
+    var message = `<p>You ran out of free leads this month (resets ${resetDate}).  This lead and up to ${nextPlanLeadsLimit} more leads per month is available to `
+    var cookie = getCookieGlobal(COOKIE_NAME_TRIAL_MEMBERSHIP_SETTINGS);
+    if (cookie !==null) {
+        message += `<span class="cross-out">${nextPlanName} plan vendors ($${nextPlanPrice} a month)<span class="left"></span><span class="right"></span></span>.</p>
+<p><b>Today ONLY</b>: respond to this and 
+<u>unlimited leads</u> for $${price} for ${daysCount} days (${nextPlanName} plan trial for ${daysCount} days, regular pricing after that - 30 days moneyback guarantee!)</p>
+<a class="button button-green" href="/VendorMembership/BillingDetails/${nextPlanId}?trial=true">Unlimited leads for $${price} for ${daysCount} days</a>`;
+    } else {
+        message += `${nextPlanName} plan vendors ($${nextPlanPrice} a month).</p>
+<a class="button button-green" style="width:510px" href="/VendorMembership/BillingDetails/${nextPlanId}">Upgrade to respond to this and ${nextPlanLeadsLimit} more leads this month</a>`;
+    }
+    $("#messages-result").append(`<div class="alert alert-danger" role="alert">${message}</div>`);
+}
+
+
+//on page load
+$(function () {
+
+    ScrollToUnreadMessage();
+
+    //venue changed by user
+    $("#txtVenue").change(function (e) {
+        $.ajax({
+            type: "POST",
+            url: "/messages/changevenue",
+            dataType: 'json',
+            data: { value: $(e.target).val() },
+            success: function (data) {
+            }
+        });
+    });
+
+    //attach file click
+    $("#replyForm .fa-paperclip").click(function (e) {
+        $("#replyForm input[type='file']").click();
+    });
+
+    //add new message click
+    $("#replyForm .fa-paper-plane").click(function (e) {
+        if ($("#replyForm textarea").val() !== "" && $(e.target).attr("disabled") !== "disabled") {
+            $(e.target).attr("disabled", "disabled");
+            $("#replyForm").submit();
+        }
+    });
+
+    //chat actions buttons
+    $('body').delegate('.action', 'click', function (event) {
+        //reload the page
+        $.ajax({
+            type: "POST",
+            url: $(event.target).data('href'),
+            dataType: 'json',
+            success: function (data) {
+                if (data.Result) {
+                    $("#formFilter").submit();
+                }
+            }
+        });
+    });
+});
+
+/*--------------Boost Your Business page--------------*/
+
+$(function () {
+    //copy code to clipboard
+    $('.code-clipboard a').click(function () {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(this).parents('.code-block').find('code').text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+    });
+
+    $('.instruction-btn i, .instruction-btn label').click(function (e) {
+        $(e.target).parent('.instruction-btn').find('i').toggleClass('fa-chevron-down').toggleClass('fa-chevron-up');
+        $(e.target).parent('.instruction-btn').next().toggle();
+    });
+});
+
+/*-------------------------------- Country dropdown-----------------------------------------*/
+$(function () {
+    $('.dl-country').change(function (el) {
+        //add new country states
+        $('.dl-states').html("");
+        for (var state in states[el.target.value]) {
+            var option = "";
+            if (state == "")
+                option = " disabled = 'disabled' selected = 'selected'";
+            $('.dl-states').append("<option value='" + state + "'"+option+">" + states[el.target.value][state] + "</option>");
+        }
+
+
+        //change zipcode pattern for new country
+        if (zipCodePatterns[el.target.value]) {
+            $('.tb-zipcode').rules("remove", "regex");
+            $('.tb-zipcode').rules("remove", "required");
+            $('.tb-zipcode').rules("add", {
+                required: true,
+                regex: zipCodePatterns[el.target.value],
+                messages: {
+                    required: zipCodePlaceholders[el.target.value] + " is required.",
+                    regex: "Please enter a valid " + zipCodePlaceholders[el.target.value].toLowerCase() + "."
+                }
+            });
+        }
+
+        //change zipcode placeholder for new country
+        if (zipCodePlaceholders[el.target.value]) {
+            $('.tb-zipcode').attr("placeholder", zipCodePlaceholders[el.target.value]);
+        }
+
+        //change states required message
+        $('.dl-states').rules("remove", "required");
+        $('.dl-states').rules("add", { messages: { required: states[el.target.value][""] + " is required."} });
+    });
+});
+/*-------------------------------- Phone mask-----------------------------------------*/
+
+$(function () {
+    $("input.number-mask").inputmask({ "mask": "(999) 999-9999", "placeholder": "X" });
+});
+/*
+ * Create Business profile membership page
+ */
+
+$(".select-membership").click(function () {
+    $(".select-membership").removeClass("selected");
+    $(".select-membership").text("select");
+    $(this).addClass("selected");
+    $(this).text("selected");
+    $("#membership-uid").val($(this).data("uid"));
+});
+
+$(".select-membership-btn").click(function () {
+    $(".select-membership-btn").html("");
+    $(this).html("<div class='selected'></div>");
+    $("#membership-uid").val($(this).data("uid"));
+});
+
+$("#accountMembershipSubmit").click(function () {
+    $("#select-membership-form").submit();
+});
+
+/** 
+ * vendor site Business Details page
+*/
+$(function () {
+    $('body').on('change focus', '.has-label-animation', function () {
+        var inp = $(this);
+
+        inp.val() != "" ? inp.addClass('is-filled') : inp.removeClass('is-filled');
+    });
+
+    $.each($('.has-label-animation'), function (indexInArray, valueOfElement) {
+        $(valueOfElement).trigger("change");
+    });
+});
+
+$(document).ready(function () {
+    $('body').on('submit', '#replyForm', function () {
+        var submitButton = $(this).find("[type=submit]");
+
+        submitButton.removeClass("is-active");
+        submitButton.prop("disabled", true);
+        var message = $("#replyForm textarea").val();
+        var name = $("#currentVendorName").val();
+        var photo = $("#currentVendorAvatar").val();
+        $("#messages-result").append(`<div class="row my-1 vendor-row message-row">
+                        <div class="col-12 col-md-10 m-0"><div class="d-none d-md-block">
+                        <div class="flexBS"><div class="text-muted"></div><div>${name}</div></div>
+                        <div class="message-text">${message}</div><div class="send-status">Sending...</div></div><div class="d-md-none">
+                        <div class="avatar-container flexES"><div class="fCol"><div>${name}</div>
+                        <div class="text-muted"></div></div><div class="vendor-image">
+                        <img src="${photo}"></div><div class="user-status online"></div></div>
+                        </div></div><div class="col-12 col-md-2 p-0 m-0"><div class="d-md-none">
+                        <div class="message-text">${message}</div><div class="send-status">Sending...</div></div><div class="d-none d-md-block">
+                        <div class="avatar-container flexES"><div class="vendor-image">
+                        <img src="${photo}"></div><div class="user-status online"></div></div></div></div></div>`);
+
+    });
+
+    //input valid
+    $('body').on('keyup change blur click', '[data-attr="validate"]', function () {
+        var form = $(this.form);
+        formCheck(form);
+    });
+});
+
+function formCheck(form) {
+    if (form.find('[data-attr="validate"]').val() != "") {
+        form.find("[type=submit]").addClass("is-active");
+        form.find("[type=submit]").prop("disabled", false);
+        return true;
+    } else {
+        form.find("[type=submit]").removeClass("is-active");
+        form.find("[type=submit]").prop("disabled", true);
+    }
+}
