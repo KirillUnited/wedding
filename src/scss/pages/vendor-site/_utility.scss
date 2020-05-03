@@ -1,0 +1,18 @@
+/* Utility */
+.has-img-fit {
+    position: relative;
+
+    &>img {
+        @include o-fit-absolute();
+    }
+}
+
+.list-style {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.text-truncate {
+    @include truncate(100%);
+}

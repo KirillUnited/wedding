@@ -1,5 +1,37 @@
 /* Business Details */
 .vendor-profile {
+    // Typography | Local
+    @import "typography";
+    // Layout | Local
+    @import "layout";
+    .tab {
+        color: rgba($color: #000000, $alpha: 0.7);
+
+        &.active,
+        &:hover,
+        &:focus {
+            color: rgba($color: #000000, $alpha: 1);
+        }
+    }
+
+    .date {
+        display: inline-block;
+    }
+
+    @include less-sm() {
+        .comment {
+            .row {
+                margin-left: - getvw(2px);
+                margin-right: - getvw(2px);
+
+                [class*="col"] {
+                    padding-left: getvw(2px);
+                    padding-right: getvw(2px);
+                }
+            }
+        }
+    }
+    
     .validation-summary-valid {
         ul {
             margin: 0;
@@ -201,7 +233,7 @@
         input {
             border-right: none;
         }
-        
+
         .input-group-addon {
             color: rgba($color: #000000, $alpha: 0.5);
             border-left: none;
@@ -290,6 +322,7 @@
                 input {
                     margin-bottom: 0;
                 }
+
                 &>label {
                     top: auto;
                     left: auto;
@@ -331,6 +364,6 @@
             font-size: getvw(16px);
             padding-left: getvw(15px);
             padding-right: getvw(15px);
-        }    
+        }
     }
 }

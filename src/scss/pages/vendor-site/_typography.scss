@@ -1,0 +1,93 @@
+// Typography | Local Business Details
+%heading {
+    color: #1a1a1a;
+    font-family: 'Lora';
+    font-weight: 700;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+%text {
+    font-family: 'SourceSansPro';
+    font-weight: 400;
+    line-height: 21 / 14 * 1;
+    color: #333;
+}
+
+h1 {
+    @extend %heading;
+    font-size: getrem(30px);
+    margin-top: 22 / 30 * 1em;
+    margin-bottom: 22 / 30 * 1em;
+}
+
+h2 {
+    @extend %heading;
+    font-size: getrem(24px);
+    margin-top: 22 / 24 * 1em;
+    margin-bottom: 22 / 24 * 1em;
+}
+
+h5 {
+    @extend %heading;
+    font-size: getrem(18px);
+    font-style: normal;
+}
+
+h6 {
+    @extend %heading;
+    font-size: getrem(16px);
+    margin-bottom: 15 / 16 * 1em;
+}
+
+p {
+    @extend %text;
+    margin-top: 0;
+    margin-bottom: 15 / 14 * 1em;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.text {
+    &-sm {
+        @extend %text;
+    }
+
+    &-prime {
+        color: #0b8a89;
+    }
+
+    &-second {
+        color: #89090a;
+    }
+}
+
+p,
+.text-sm {
+    font-size: getrem(14px);
+}
+
+@include less-sm() {
+    h1 {
+        font-size: getvw(28px);
+    }
+
+    h2 {
+        font-size: getvw(20px);
+    }
+
+    h5 {
+        font-size: getvw(18px);
+    }
+
+    h6 {
+        font-size: getvw(16px);
+    }
+
+    p,
+    .text-sm {
+        font-size: getvw(14px);
+    }
+}
