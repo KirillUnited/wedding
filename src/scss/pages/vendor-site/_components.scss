@@ -156,6 +156,7 @@ $btn-font-size-px: 12px;
 
     @include less-sm() {
         font-size: getvw(18px);
+
         button {
             max-width: calc(50% - #{getvw(3px)});
         }
@@ -206,6 +207,18 @@ $btn-font-size-px: 12px;
     &-container {
         position: relative;
         border-bottom: 1px solid #f0f0f0;
+    }
+
+    @include less-sm() {
+        &-list {
+            margin-left: -3vw;
+            margin-right: -3vw;
+
+            [class*="col"] {
+                padding-left: 3vw;
+                padding-right: 3vw;
+            }
+        }
     }
 }
 

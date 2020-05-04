@@ -4,6 +4,8 @@
     @import "typography";
     // Layout | Local
     @import "layout";
+
+    // Components | Local
     .tab {
         color: rgba($color: #000000, $alpha: 0.7);
 
@@ -18,6 +20,52 @@
         display: inline-block;
     }
 
+    .rating-widget {
+        display: inline-block;
+    }
+
+    .rating-stars {
+        ul {
+            line-height: 1;
+            padding-left: 0;
+
+            &>li.star {
+                display: inline-block;
+                margin: 0;
+                overflow: hidden;
+                padding: 0;
+                position: relative;
+                width: 2rem;
+                height: 2rem;
+
+                &>i.fa {
+                    font-size: 14px;
+                }
+
+                i.fa-star.half {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 8px;
+                    color: #fa7a7b;
+                }
+
+                &.selected {
+
+                    &>i.fa,
+                    &>i.fa-half {
+                        color: #fa7a7b;
+                    }
+                }
+            }
+        }
+    }
+
+    .row.star-statistic {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
     @include less-sm() {
         .comment {
             .row {
@@ -30,8 +78,48 @@
                 }
             }
         }
+
+        .rating-stars {
+            ul {
+
+                &>li.star {
+                    width: getvw(20px);
+                    height: getvw(20px);
+
+                    &>i.fa {
+                        font-size: getvw(14px);
+                    }
+
+                    i.fa-star.half {
+                        width: getvw(8px);
+                    }
+                }
+            }
+        }
+
+        .row.star-statistic {
+            margin-left: 0;
+            margin-right: 0;
+
+            [class*="col"] {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .tab {
+            &-list.row {
+                margin-left: -3vw;
+                margin-right: -3vw;
+
+                [class*="col"] {
+                    padding-left: 3vw;
+                    padding-right: 3vw;
+                }
+            }
+        }
     }
-    
+
     .validation-summary-valid {
         ul {
             margin: 0;
