@@ -60,21 +60,22 @@ function getStatusList(list) {
 }
 
 function reviewToHTML(params = {}) {
-    const reviewStatusClass = params?.status !== "None" ? params?.status === "Published" ? "text-prime" : "text-second" : '';
+    const {status, statusMsg, props: {name, date, message}} = params;
+    const reviewStatusClass = status !== "None" ? status === "Published" ? "text-prime" : "text-second" : '';
 
-    return `<div class="comment" data-status="${params?.status || ''}" data-status-msg="${params?.statusMsg || ''}">
+    return `<div class="comment" data-status="${status || ''}" data-status-msg="${statusMsg || ''}">
                 <div class="row">
                     <div class="col-5 col-sm-7">
-                        <h5>${params?.props?.name || ''}</h5>
+                        <h5>${name || ''}</h5>
                     </div>
                     <div class="col-4 col-sm-2">
-                        <span class="text-truncate date">${params?.props?.date || ''}</span>
+                        <span class="text-truncate date">${date || ''}</span>
                     </div>
                     <div class="col-3 col-sm-3">
-                        <span class="${reviewStatusClass}">${params?.statusMsg || ''}</span>
+                        <span class="${reviewStatusClass}">${statusMsg || ''}</span>
                     </div>
                     <div class="col">
-                        <p class="text-sm">${params?.props?.message || ''}</p>
+                        <p class="text-sm">${message || ''}</p>
                     </div>
                 </div>
             </div>
@@ -82,10 +83,12 @@ function reviewToHTML(params = {}) {
 }
 
 function renderStatusList(item = {}) {
-    if (item?.statusListSelector && item?.reviewStatusList) {
-        const $reviewList = $(item.statusListSelector);
-        const reviews = item.reviewStatusList.filter(function (el, i, self) {
-            return item.status.trim() == "all" || !item.status.trim() ? this : el.status == item.status;
+    const {statusListSelector, reviewStatusList, status} = item;
+
+    if (statusListSelector && reviewStatusList) {
+        const $reviewList = $(statusListSelector);
+        const reviews = reviewStatusList.filter(function (el, i, self) {
+            return status.trim() == "all" || !status.trim() ? this : el.status == status;
         });
 
         $reviewList.html("");
