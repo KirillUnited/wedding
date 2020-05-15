@@ -1,9 +1,9 @@
 /* Business Details */
 .vendor-profile {
     // Typography | Local
-    @import "typography";
+    @import "../base/typography";
     // Layout | Local
-    @import "layout";
+    @import "../layout/layout";
 
     // Components | Local
     .tab {

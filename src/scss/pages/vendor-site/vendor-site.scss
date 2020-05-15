@@ -1,8 +1,8 @@
 /* VENDORE SITE STYLING */
-@import "_fonts.sass";
-@import "mixins";
-@import "./components";
-@import "BusinessDetails";
-@import "reviews";
-@import "utility";
+@import "./base/_fonts.sass";
+@import "./abstracts/mixins";
+@import "./components/components";
+@import "./pages/BusinessDetails";
+@import "./pages/reviews";
+@import "./utility/utility";
 /* END VENDORE SITE STYLING */

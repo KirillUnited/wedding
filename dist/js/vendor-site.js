@@ -60,7 +60,8 @@ function getStatusList(list) {
 }
 
 function reviewToHTML(params = {}) {
-    const {status, statusMsg, props: {name, date, message}} = params;
+    const {status, statusMsg} = params;
+    const {name, date, message} = params.props || {};
     const reviewStatusClass = status !== "None" ? status === "Published" ? "text-prime" : "text-second" : '';
 
     return `<div class="comment" data-status="${status || ''}" data-status-msg="${statusMsg || ''}">
