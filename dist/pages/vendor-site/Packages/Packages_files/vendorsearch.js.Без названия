@@ -1,0 +1,89 @@
+﻿var seachRequestInProgress = false;
+var updateVendorCategorySuggestBox = function (event, ui) {
+    var result = ui.item.value.replace(/<\/?[^>]+(>|$)/g, "");
+    $("#vendorSearchId").val(result);
+    return false;
+};
+$(function () {
+    $("#vendorSearchId").on("autocompleteselect autocompletefocus", function (event, ui) {
+
+        var vendorUrlIdInput = $('#vendorUrlId');
+        vendorUrlIdInput.val('');
+        var vendorUrlId = ui.item.category;
+        vendorUrlIdInput.val(vendorUrlId);
+
+    });
+    $("body").on("keyup", "#vendorSearchId", function (request, response) {
+        if (!seachRequestInProgress)
+            postVendorSearchRequest($(this).val().trim());
+    });
+});
+function postVendorSearchRequest(value) {
+    if (value === "")
+        return;
+    seachRequestInProgress = true;
+    $.ajax({
+        type: "GET",
+        url: "/vendorreferrals/suggest?highlights=true&fuzzy=true&searchtype=0",
+        dataType: "json",
+        data: {
+            term: value
+        },
+        error: function () {
+            seachRequestInProgress = false;
+        },
+        success: function (data) {
+            seachRequestInProgress = false;
+            var resJSON = JSON.parse(data);
+            var newData = [];
+
+            resJSON.forEach(function (item) {
+                newData.push({
+                    label: item.Text,
+                    category: item.Values[1]
+                });
+            });
+
+
+            $("#vendorSearchId").autocomplete({
+                delay: 100,
+                source: newData,
+                select: updateVendorCategorySuggestBox,
+                focus: updateVendorCategorySuggestBox,
+                position: { my: "left+0 top+12", at: "left bottom" },
+                open: function (event, ui) {
+                    $('.b-search-form-group').addClass('disabled');
+                },
+                close: function (event, ui) {
+                    $('.b-search-form-group').removeClass('disabled');
+                }
+            }).data("ui-autocomplete")._renderItem = function (ul, item) {
+                var icon = "",
+                    dataValue = item.category;
+
+                if (item.vendorUrl != null) {
+                    icon = "<div class='b-search-list-icon'>\
+                                <img src='https://f5prodstoragecontainer.blob.core.windows.net/prod-live-public/theme/images/searchVendorIcons/" + item.vendorUrl + ".svg' alt='Alt' />\
+                            </div>";
+                }
+                ul.addClass('b-search-dropdown');
+                return $("<li></li>")
+                    .data("item.autocomplete", item)
+                    .append("<div data-vendor-url='" + (item.vendorUrl === undefined ? 1 : 0) + "' data-value='" + dataValue + "'>" + icon + "<span class='text-value'>" + item.label + "</span></div>")
+                    .appendTo(ul);
+            };
+            $("#vendorSearchId").autocomplete("search", value);
+
+            var currentValue = $("#vendorSearchId").val().trim();
+            if (currentValue !== value && !seachRequestInProgress)
+                postVendorSearchRequest(currentValue);
+
+            //set the value (by default) to the first one in the suggestion
+
+            var firstSuggestion = $(".ui-widget-content.b-search-dropdown").find("[data-value]");
+
+            $("#vendorUrlId").val(firstSuggestion.data("value"));
+        }
+
+    });
+}
