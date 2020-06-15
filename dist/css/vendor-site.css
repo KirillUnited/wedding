@@ -301,6 +301,168 @@
   }
 }
 
+/* Switch input */
+.switch {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr;
+      grid-template-columns: auto 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.switch:last-child {
+  margin-bottom: 0;
+}
+
+.switch-list, .switch-list.list-style {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 2.33333rem;
+  margin-bottom: 2.33333rem;
+}
+
+.switch-list:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.switch input[type="checkbox"], .switch .vendor-profile .details-form .select-outer select[type="checkbox"], .vendor-profile .details-form .select-outer .switch select[type="checkbox"], .switch .vendor-profile .details-form textarea[type="checkbox"], .vendor-profile .details-form .switch textarea[type="checkbox"] {
+  --active: #e5f1f1;
+  --active-inner: #0b8a89;
+  --focus: 1px #0b8a89;
+  --border: #BBC1E1;
+  --border-hover: #0b8a89;
+  --background: #fff;
+  --disabled: #F6F8FF;
+  --disabled-inner: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 0.6rem;
+  outline: none;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  top: 0.53333rem;
+  margin: 0;
+  cursor: pointer;
+  border: 1px solid var(--bc, var(--border));
+  background: var(--b, var(--disabled));
+  -webkit-transition: background .3s, border-color .3s, -webkit-box-shadow .2s;
+  transition: background .3s, border-color .3s, -webkit-box-shadow .2s;
+  -o-transition: background .3s, border-color .3s, box-shadow .2s;
+  transition: background .3s, border-color .3s, box-shadow .2s;
+  transition: background .3s, border-color .3s, box-shadow .2s, -webkit-box-shadow .2s;
+  width: 2.33333rem;
+  border-radius: 5px;
+}
+
+.switch input[type="checkbox"]::before, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]::before, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]::before, .switch .vendor-profile .details-form textarea[type="checkbox"]::before, .vendor-profile .details-form .switch textarea[type="checkbox"]::before {
+  display: none;
+}
+
+.switch input[type="checkbox"]:after, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:after, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:after, .switch .vendor-profile .details-form textarea[type="checkbox"]:after, .vendor-profile .details-form .switch textarea[type="checkbox"]:after {
+  content: '';
+  display: block;
+  left: 0;
+  top: 0;
+  position: absolute;
+  -webkit-transition: opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+  transition: opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+  -o-transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+  transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+  transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+}
+
+.switch input[type="checkbox"]:checked, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:checked, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:checked, .switch .vendor-profile .details-form textarea[type="checkbox"]:checked, .vendor-profile .details-form .switch textarea[type="checkbox"]:checked {
+  --b: var(--active);
+  --bc: var(--active);
+  --d-o: .3s;
+  --d-t: .6s;
+  --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+}
+
+.switch input[type="checkbox"]:disabled, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:disabled, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:disabled, .switch .vendor-profile .details-form textarea[type="checkbox"]:disabled, .vendor-profile .details-form .switch textarea[type="checkbox"]:disabled {
+  --b: var(--disabled);
+  cursor: not-allowed;
+  opacity: .9;
+}
+
+.switch input[type="checkbox"]:disabled:checked, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:disabled:checked, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:disabled:checked, .switch .vendor-profile .details-form textarea[type="checkbox"]:disabled:checked, .vendor-profile .details-form .switch textarea[type="checkbox"]:disabled:checked {
+  --b: var(--disabled-inner);
+  --bc: var(--border);
+}
+
+.switch input[type="checkbox"]:disabled + label, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:disabled + label, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:disabled + label, .switch .vendor-profile .details-form textarea[type="checkbox"]:disabled + label, .vendor-profile .details-form .switch textarea[type="checkbox"]:disabled + label {
+  cursor: not-allowed;
+}
+
+.switch input[type="checkbox"]:hover:not(:checked):not(:disabled), .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:hover:not(:checked):not(:disabled), .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:hover:not(:checked):not(:disabled), .switch .vendor-profile .details-form textarea[type="checkbox"]:hover:not(:checked):not(:disabled), .vendor-profile .details-form .switch textarea[type="checkbox"]:hover:not(:checked):not(:disabled) {
+  --bc: var(--border-hover);
+}
+
+.switch input[type="checkbox"]:after, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:after, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:after, .switch .vendor-profile .details-form textarea[type="checkbox"]:after, .vendor-profile .details-form .switch textarea[type="checkbox"]:after {
+  left: -1px;
+  top: 50%;
+  border-radius: 50%;
+  width: 1.33333rem;
+  height: 1.33333rem;
+  background: var(--ab, var(--background));
+  -webkit-transform: translateX(var(--x, 0)) translateY(-50%);
+      -ms-transform: translateX(var(--x, 0)) translateY(-50%);
+          transform: translateX(var(--x, 0)) translateY(-50%);
+  border: 1px solid #dde6e6;
+}
+
+.switch input[type="checkbox"]:checked, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:checked, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:checked, .switch .vendor-profile .details-form textarea[type="checkbox"]:checked, .vendor-profile .details-form .switch textarea[type="checkbox"]:checked {
+  --ab: var(--active-inner);
+  --x: 17px;
+  border: 1px solid #dde6e6;
+}
+
+.switch input[type="checkbox"]:checked::after, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:checked::after, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:checked::after, .switch .vendor-profile .details-form textarea[type="checkbox"]:checked::after, .vendor-profile .details-form .switch textarea[type="checkbox"]:checked::after {
+  border: 1px solid --active-inner;
+}
+
+.switch input[type="checkbox"]:disabled:not(:checked):after, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:disabled:not(:checked):after, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:disabled:not(:checked):after, .switch .vendor-profile .details-form textarea[type="checkbox"]:disabled:not(:checked):after, .vendor-profile .details-form .switch textarea[type="checkbox"]:disabled:not(:checked):after {
+  opacity: .6;
+}
+
+.switch label {
+  color: #333;
+  font-family: 'SourceSansPro';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5em;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .switch {
+    grid-gap: 4.6875vw;
+    margin-bottom: 4.6875vw;
+  }
+  .switch-list, .switch-list.list-style {
+    padding-bottom: 10.9375vw;
+    margin-bottom: 10.9375vw;
+  }
+  .switch input[type="checkbox"], .switch .vendor-profile .details-form .select-outer select[type="checkbox"], .vendor-profile .details-form .select-outer .switch select[type="checkbox"], .switch .vendor-profile .details-form textarea[type="checkbox"], .vendor-profile .details-form .switch textarea[type="checkbox"] {
+    height: 2.8125vw;
+    top: 2.5vw;
+    width: 10.9375vw;
+  }
+  .switch input[type="checkbox"]:after, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:after, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:after, .switch .vendor-profile .details-form textarea[type="checkbox"]:after, .vendor-profile .details-form .switch textarea[type="checkbox"]:after {
+    left: -0.3125vw;
+    width: 6.25vw;
+    height: 6.25vw;
+  }
+  .switch label {
+    font-size: 5vw;
+  }
+}
+
 /* Business Details */
 .vendor-profile h1, .vendor-profile h2, .vendor-profile h5, .vendor-profile h6 {
   color: #1a1a1a;
@@ -567,7 +729,7 @@
   color: transparent;
 }
 
-.vendor-profile .details-form input[type=checkbox], .vendor-profile .details-form .select-outer select[type=checkbox], .vendor-profile .details-form textarea[type=checkbox] {
+.vendor-profile .details-form input[type=checkbox], .vendor-profile .details-form .select-outer select[type="checkbox"], .vendor-profile .details-form textarea[type="checkbox"] {
   vertical-align: middle;
   width: 1.2rem;
   height: 1.2rem;
@@ -576,11 +738,11 @@
   padding: 0;
 }
 
-.vendor-profile .details-form input[type=checkbox]::before, .vendor-profile .details-form .select-outer select[type=checkbox]::before, .vendor-profile .details-form textarea[type=checkbox]::before {
+.vendor-profile .details-form input[type=checkbox]::before, .vendor-profile .details-form .select-outer select[type="checkbox"]::before, .vendor-profile .details-form textarea[type="checkbox"]::before {
   display: none;
 }
 
-.vendor-profile .details-form input[type=checkbox]:checked, .vendor-profile .details-form .select-outer select[type=checkbox]:checked, .vendor-profile .details-form textarea[type=checkbox]:checked {
+.vendor-profile .details-form input[type=checkbox]:checked, .vendor-profile .details-form .select-outer select[type="checkbox"]:checked, .vendor-profile .details-form textarea[type="checkbox"]:checked {
   background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='check' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' class='svg-inline--fa fa-check fa-w-16 fa-2x'%3E%3Cpath fill='%23068887' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z' class=''%3E%3C/path%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
@@ -760,7 +922,7 @@
     padding: 4.6875vw;
     margin-bottom: 10.3125vw;
   }
-  .vendor-profile .details-form input[type=checkbox], .vendor-profile .details-form .select-outer select[type=checkbox], .vendor-profile .details-form textarea[type=checkbox] {
+  .vendor-profile .details-form input[type=checkbox], .vendor-profile .details-form .select-outer select[type="checkbox"], .vendor-profile .details-form textarea[type="checkbox"] {
     width: 5.625vw;
     height: 5.625vw;
   }

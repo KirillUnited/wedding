@@ -430,12 +430,24 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="title-block title-block__small details-form_title">Informational messages</h2>
+                <h1>Informational messages</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-<form action="https://localhost:44300/VendorPrivacySettings/SavePrivacySettings" method="post" novalidate="novalidate">                    <div class="setting-item">
+<form action="https://localhost:44300/VendorPrivacySettings/SavePrivacySettings" method="post" novalidate="novalidate"> 
+    <ul class="switch-list list-style">
+        <li class="switch">
+            <input id="s1" type="checkbox">
+            <label for="s1">Receive WeddingVenture.com monthly newsletters that describe our latest features and partnership opportunities</label>
+        </li>
+        <li class="switch">
+            <input id="s2" type="checkbox" checked>
+            <label for="s2">Receive email notifications when a user sends you a message directly</label>
+        </li>
+    </ul>
+
+    <div class="setting-item">
                         <div class="setting-title">
                             Receive email notifications when a user sends you a message directly
                             <label>
