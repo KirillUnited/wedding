@@ -1,0 +1,91 @@
+﻿$(document).ready(function () {
+    $('#profilephoto').on("change",
+        function () {
+            var form = $('#add-profile-photo-form').get(0);
+            form.submit();
+        });
+
+    $('#delete-photo').click(function () {
+        if (!confirm("Are you sure you want to delete this photo?"))
+            return;
+        var form = $('#delete-profile-photo-form').get(0);
+        form.submit();
+    });
+
+    initHighlightingLinksInText(".txt-highlight-links");
+
+
+});
+
+ /*--------------------------Highlighting links in the about vendor textarea and show popovers--------------------------------------------------------*/
+
+function initHighlightingLinksInText(txtTarget) {
+    $(txtTarget).keyup(function (event) {
+        highlightingLinksInText(event.target);
+    });
+
+    $(txtTarget).keypress(function (event) {
+        highlightingLinksInText(event.target);
+    });
+
+    $(txtTarget).scroll(function (event) {
+        highlightingLinksInText(event.target);
+    });
+}
+
+function highlightingLinksInText(targetTextarea) {
+    var text = $(targetTextarea).val();
+    var links = text.match(/(https?:\/\/[^\s]+|www\.[^\s]+)/gm);
+    if (links !== null && links.length > 0) {
+        var htmltext = text.replace(/</gm, "&lt;")
+            .replace(/>/gm, "&gt;")
+            .replace(/\n$/, "<br/><br/>")
+            .replace(/\n/gm, "<br/>")
+            .replace(/\s\s/gm, "&nbsp; ")
+            .replace(/^\s/gm, "&nbsp;");
+
+        for (var i = 0; i < links.length; i++)
+            htmltext = htmltext.replace(links[i], `<span class="highlighted-text" popover-id="${i}">${links[i]}</span>`);
+
+        $(event.target).parent().children(".textarea-bg").children(".text-content").html(htmltext);
+        $(event.target).parent().children(".textarea-bg").children(".text-content").scrollTop($(targetTextarea).scrollTop());
+        updatePopovers(targetTextarea);
+
+    } else {
+        $(targetTextarea).parent().children(".textarea-bg").children(".text-content").html("");
+        $(targetTextarea).parent().children(".textarea-bg").find(".popover-link").popover("dispose");
+        $(targetTextarea).parent().children(".textarea-bg").find(".popover-link").remove();
+    }
+
+}
+
+function updatePopovers(targetTextarea) {
+    //add new popover
+    $(targetTextarea).parent().children(".textarea-bg").children(".text-content").children(".highlighted-text").each(function (ind, el) {
+        var top = $(el).offset().top - $(targetTextarea).parent().children(".textarea-bg").offset().top;
+        var left = $(el).offset().left - $(targetTextarea).parent().children(".textarea-bg").offset().left;
+        var linktext = $(el).text();
+        var popoverId = $(el).attr("popover-id");
+        if ($(el).parent(".text-content").parent(".textarea-bg").children(".popover-link[popover-id="+popoverId+"]").length === 0) {
+            $(el).parent(".text-content").parent(".textarea-bg").append(`<div class="popover-link" popover-id="${popoverId}" style="top:${top}px;left:${left}px;">${linktext}</div>`);
+            $(el).parent(".text-content").parent(".textarea-bg").children(".popover-link[popover-id=" + popoverId +"]").popover({
+                placement: "top",
+                html: true,
+                container: false,
+                content: "We do not allow any links in vendor profile descriptions (all links will be automatically removed). If you would like to display your website \
+or social media links as part of your profile, please upgrade to any of our <a href='/vendormembership/'>premium plans</a>. \
+Your website and social links will then be displayed at the top of your profile."
+            });
+            $(el).parent(".text-content").parent(".textarea-bg").children(".popover-link[popover-id=" + popoverId + "]").popover('show');
+        }
+    });
+    //remove popovers
+    $(".popover-link").each(function (ind, el) {
+        var popoverId = $(el).attr("popover-id");
+        if ($(el).parent().children(".text-content").children(".highlighted-text[popover-id=" + popoverId + "]").length === 0) {
+            $(el).popover("dispose");
+            $(el).remove();
+        }
+    });
+    
+}
