@@ -327,14 +327,6 @@
 }
 
 .switch input[type="checkbox"], .switch .vendor-profile .details-form .select-outer select[type="checkbox"], .vendor-profile .details-form .select-outer .switch select[type="checkbox"], .switch .vendor-profile .details-form textarea[type="checkbox"], .vendor-profile .details-form .switch textarea[type="checkbox"] {
-  --active: #e5f1f1;
-  --active-inner: #0b8a89;
-  --focus: 1px #0b8a89;
-  --border: #BBC1E1;
-  --border-hover: #0b8a89;
-  --background: #fff;
-  --disabled: #F6F8FF;
-  --disabled-inner: #fff;
   -webkit-appearance: none;
   -moz-appearance: none;
   height: 0.6rem;
@@ -345,8 +337,8 @@
   top: 0.53333rem;
   margin: 0;
   cursor: pointer;
-  border: 1px solid var(--bc, var(--border));
-  background: var(--b, var(--disabled));
+  border: 1px solid #BBC1E1;
+  background: #F6F8FF;
   -webkit-transition: background .3s, border-color .3s, -webkit-box-shadow .2s;
   transition: background .3s, border-color .3s, -webkit-box-shadow .2s;
   -o-transition: background .3s, border-color .3s, box-shadow .2s;
@@ -366,30 +358,27 @@
   left: 0;
   top: 0;
   position: absolute;
-  -webkit-transition: opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
-  transition: opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
-  -o-transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
-  transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
-  transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.3s ease;
+  transition: opacity 0.2s, -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease, opacity 0.2s;
+  transition: transform 0.3s ease, opacity 0.2s;
+  transition: transform 0.3s ease, opacity 0.2s, -webkit-transform 0.3s ease;
 }
 
 .switch input[type="checkbox"]:checked, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:checked, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:checked, .switch .vendor-profile .details-form textarea[type="checkbox"]:checked, .vendor-profile .details-form .switch textarea[type="checkbox"]:checked {
-  --b: var(--active);
-  --bc: var(--active);
-  --d-o: .3s;
-  --d-t: .6s;
-  --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+  background: #e5f1f1;
+  border: 1px solid #e5f1f1;
 }
 
 .switch input[type="checkbox"]:disabled, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:disabled, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:disabled, .switch .vendor-profile .details-form textarea[type="checkbox"]:disabled, .vendor-profile .details-form .switch textarea[type="checkbox"]:disabled {
-  --b: var(--disabled);
   cursor: not-allowed;
   opacity: .9;
+  background: #F6F8FF;
 }
 
 .switch input[type="checkbox"]:disabled:checked, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:disabled:checked, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:disabled:checked, .switch .vendor-profile .details-form textarea[type="checkbox"]:disabled:checked, .vendor-profile .details-form .switch textarea[type="checkbox"]:disabled:checked {
-  --b: var(--disabled-inner);
-  --bc: var(--border);
+  background: #fff;
+  border: 1px solid #BBC1E1;
 }
 
 .switch input[type="checkbox"]:disabled + label, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:disabled + label, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:disabled + label, .switch .vendor-profile .details-form textarea[type="checkbox"]:disabled + label, .vendor-profile .details-form .switch textarea[type="checkbox"]:disabled + label {
@@ -397,7 +386,7 @@
 }
 
 .switch input[type="checkbox"]:hover:not(:checked):not(:disabled), .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:hover:not(:checked):not(:disabled), .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:hover:not(:checked):not(:disabled), .switch .vendor-profile .details-form textarea[type="checkbox"]:hover:not(:checked):not(:disabled), .vendor-profile .details-form .switch textarea[type="checkbox"]:hover:not(:checked):not(:disabled) {
-  --bc: var(--border-hover);
+  border: 1px solid #0b8a89;
 }
 
 .switch input[type="checkbox"]:after, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:after, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:after, .switch .vendor-profile .details-form textarea[type="checkbox"]:after, .vendor-profile .details-form .switch textarea[type="checkbox"]:after {
@@ -406,21 +395,23 @@
   border-radius: 50%;
   width: 1.33333rem;
   height: 1.33333rem;
-  background: var(--ab, var(--background));
-  -webkit-transform: translateX(var(--x, 0)) translateY(-50%);
-      -ms-transform: translateX(var(--x, 0)) translateY(-50%);
-          transform: translateX(var(--x, 0)) translateY(-50%);
+  background: #fff;
+  -webkit-transform: translateX(0) translateY(-50%);
+      -ms-transform: translateX(0) translateY(-50%);
+          transform: translateX(0) translateY(-50%);
   border: 1px solid #dde6e6;
 }
 
 .switch input[type="checkbox"]:checked, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:checked, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:checked, .switch .vendor-profile .details-form textarea[type="checkbox"]:checked, .vendor-profile .details-form .switch textarea[type="checkbox"]:checked {
-  --ab: var(--active-inner);
-  --x: 17px;
   border: 1px solid #dde6e6;
 }
 
 .switch input[type="checkbox"]:checked::after, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:checked::after, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:checked::after, .switch .vendor-profile .details-form textarea[type="checkbox"]:checked::after, .vendor-profile .details-form .switch textarea[type="checkbox"]:checked::after {
-  border: 1px solid --active-inner;
+  background: #0b8a89;
+  -webkit-transform: translateX(17px) translateY(-50%);
+      -ms-transform: translateX(17px) translateY(-50%);
+          transform: translateX(17px) translateY(-50%);
+  border: 1px solid #0b8a89;
 }
 
 .switch input[type="checkbox"]:disabled:not(:checked):after, .switch .vendor-profile .details-form .select-outer select[type="checkbox"]:disabled:not(:checked):after, .vendor-profile .details-form .select-outer .switch select[type="checkbox"]:disabled:not(:checked):after, .switch .vendor-profile .details-form textarea[type="checkbox"]:disabled:not(:checked):after, .vendor-profile .details-form .switch textarea[type="checkbox"]:disabled:not(:checked):after {

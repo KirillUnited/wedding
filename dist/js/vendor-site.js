@@ -168,7 +168,70 @@ $(function () {
             isOpened = false;
         }
     }
+
+    
+    $('body').on('click', '[data-target="newRespond"], [data-target="newDeclined"]', function (event) {
+        event.preventDefault();
+
+        const templateID = $(this).attr('data-target');
+        const $template = $('[data-id="' + templateID +'"]');
+        const $templateClone = $template.clone();
+        const userId = $(this).attr('data-user-id');
+        const broadcastId = $(this).attr('data-broadcast-id');
+
+        $('[data-id="modal-br"]').remove();
+
+        $templateClone.appendTo('.vendor-profile');
+        $templateClone.html($($templateClone).html().replace(/#userId/g, userId))
+            .html($($templateClone).html().replace(/#broadcastId/g, broadcastId))
+            .attr('data-id', 'modal-br')
+            .fadeIn();
+
+        const button = $templateClone.find('[type=submit]');
+        const createCookie = (id, status) => document.cookie = `br-${id}=${status};`/* TEMP COOKIE SAVE */
+
+        button.on('click', function () {
+            var form = $(this.form);
+            /* TEMP COOKIE SAVE */
+            createCookie(broadcastId, templateID.replace('new', ''));
+            /* END TEMP COOKIE SAVE */
+            form.submit();
+        });
+    });
 });
+
+function createCookie(id, status) {
+    document.cookie = `br-${id}=${status};`;
+}
+
+function getCookie(name) {
+    var results = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+
+    if (results)
+        return (unescape(results[2]));
+    else
+        return null;
+}
+
+function renderCookie(id, status) {
+    const defaultStatus = "";
+    const props = {
+        reviewStatusList: getStatusList('[data-attr="review-list"]'),
+        statusListSelector: '[data-attr="review-list"]',
+    };
+
+    $('[data-attr="tab-filter"]').removeClass("active");
+    $('[data-filter=""]').addClass("active");
+    renderStatusList(Object.assign(props, { status: defaultStatus }));
+    // set items count in tabs
+    $.each($('[data-attr="tab-filter"]'), function (indexInArray, valueOfElement) {
+        let filter = $(this).data('filter');
+        let itemCount = $(`[data-status="${filter}"]`).length;
+        let $count = $(this).find(`[data-count]`);
+
+        $count.text(itemCount);
+    });
+}
 
 function getStatusList(list) {
     if (list) {
@@ -184,9 +247,59 @@ function getStatusList(list) {
 }
 
 function reviewToHTML(params = {}) {
-    const { status, statusMsg } = params;
-    const { name, date, message } = params.props || {};
-    const reviewStatusClass = status !== "None" ? status === "Published" ? "text-prime" : "text-second" : '';
+    let { status, statusMsg, type } = params;
+    let { name, date, message, repliesCount, respond, userId, broadcastId } = params.props || params;
+    let statusClass = status !== "None" ? status === "Published" ? "text-prime" : "text-second" : "";
+
+    if (type === "leads") {
+        statusClass = "text-prime";
+        /**
+         * TEMP COOKIE GET
+         */
+        if (getCookie(`br-${broadcastId}`)) {
+            status = getCookie(`br-${broadcastId}`) ? getCookie(`br-${broadcastId}`) : status;
+            statusMsg = status;
+            statusClass = status === "Declined" ? "text-second" : statusClass;
+        }
+        /* END TEMP */
+
+        var buttons = !respond ? '' : `
+                <div class="col-12">
+                    <div class="btn btn-prime" data-target="newRespond" data-user-id="${userId}" data-broadcast-id="${broadcastId}" type="button" onclick="ResponseOnBroadcast(${broadcastId}, this)">respond</div>
+                    <div class="btn btn-prime btn-prime-invert" data-user-id="${userId}" data-broadcast-id="${broadcastId}"
+                         data-target="newDeclined">decline</div>
+                </div>                                                         
+        `;
+
+        return `
+                <div class="comment comment-lead" id="br-${broadcastId}" data-status="${status || ''}" data-status-msg="${statusMsg || ''}">
+                    <div class="row">
+                        <div class="col-5 col-sm-6">
+                            <h5>${name || ''}</h5>
+                        </div>
+                        <div class="col-4 col-sm-2">
+                            <span class="text-truncate date">${date || ''}</span>
+                        </div>
+                        <div class="col-3 col-sm-2">
+                            <span class="text-truncate date">${repliesCount || '0'} proposals</span>
+                        </div>
+                        <div class="col-3 col-sm-2">
+                            <span class="${statusClass}">${statusMsg || ''}</span>
+                        </div>
+                        <div class="col-12">
+                            <span class="text-sm">A new lead is looking for a photographer</span>
+                        </div>
+                        <div class="col-12">
+                            <p class="text-sm">Dating 12/14/2019 Seattle, WA Budjet $N/A</p>
+                        </div>
+                        <div class="col-12">
+                            <p>${message || ''}</p>
+                        </div>
+                        ${buttons}
+                    </div>
+                </div>
+                `;
+    }
 
     return `<div class="comment" data-status="${status || ''}" data-status-msg="${statusMsg || ''}">
                 <div class="row">

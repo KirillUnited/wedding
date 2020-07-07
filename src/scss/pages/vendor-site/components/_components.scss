@@ -278,14 +278,23 @@ $btn-font-size-px: 12px;
     }
 
     input[type="checkbox"] {
-        --active: #e5f1f1;
-        --active-inner: #0b8a89;
-        --focus: 1px #0b8a89;
-        --border: #BBC1E1;
-        --border-hover: #0b8a89;
-        --background: #fff;
-        --disabled: #F6F8FF;
-        --disabled-inner: #fff;
+        $active: #e5f1f1;
+        $active-inner: #0b8a89;
+        $focus: 1px #0b8a89;
+        $border: #BBC1E1;
+        $border-hover: #0b8a89;
+        $background: #fff;
+        $disabled: #F6F8FF;
+        $disabled-inner: #fff;
+        $b: $disabled;
+        $bc: $border;
+        $d-o: .2s;
+        $d-t: .3s;
+        $d-t-e: ease;
+
+        $ab: $background;
+        $x: 0;
+
         -webkit-appearance: none;
         -moz-appearance: none;
         height: getrem(9px);
@@ -296,8 +305,8 @@ $btn-font-size-px: 12px;
         top: getrem(8px);
         margin: 0;
         cursor: pointer;
-        border: 1px solid var(--bc, var(--border));
-        background: var(--b, var(--disabled));
+        border: 1px solid $bc;
+        background: $b;
         transition: background .3s, border-color .3s, box-shadow .2s;
 
         &::before {
@@ -310,25 +319,33 @@ $btn-font-size-px: 12px;
             left: 0;
             top: 0;
             position: absolute;
-            transition: transform var(--d-t, .3s) var(--d-t-e, ease), opacity var(--d-o, .2s);
+            transition: transform $d-t $d-t-e, opacity $d-o;
         }
 
         &:checked {
-            --b: var(--active);
-            --bc: var(--active);
-            --d-o: .3s;
-            --d-t: .6s;
-            --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+            $b: $active;
+            $bc: $active;
+            $d-o: .3s;
+            $d-t: .6s;
+            $d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+
+            background: $b;
+            border: 1px solid $bc;
         }
 
         &:disabled {
-            --b: var(--disabled);
+            $b: $disabled;
+
             cursor: not-allowed;
             opacity: .9;
+            background: $b;
 
             &:checked {
-                --b: var(--disabled-inner);
-                --bc: var(--border);
+                $b: $disabled-inner;
+                $bc: $border;
+
+                background: $b;
+                border: 1px solid $bc;
             }
 
             &+label {
@@ -339,7 +356,8 @@ $btn-font-size-px: 12px;
         &:hover {
             &:not(:checked) {
                 &:not(:disabled) {
-                    --bc: var(--border-hover);
+                    $bc: $border-hover;
+                    border: 1px solid $bc;
                 }
             }
         }
@@ -353,18 +371,20 @@ $btn-font-size-px: 12px;
             border-radius: 50%;
             width: getrem(20px);
             height: getrem(20px);
-            background: var(--ab, var(--background));
-            transform: translateX(var(--x, 0)) translateY(-50%);
+            background: $ab;
+            transform: translateX($x) translateY(-50%);
             border: 1px solid #dde6e6;
         }
 
         &:checked {
-            --ab: var(--active-inner);
-            --x: 17px;
+            $ab: $active-inner;
+            $x: 17px;
             border: 1px solid #dde6e6;
 
             &::after {
-                border: 1px solid --active-inner;
+                background: $ab;
+                transform: translateX($x) translateY(-50%);
+                border: 1px solid $ab;
             }
         }
 
@@ -410,7 +430,7 @@ $btn-font-size-px: 12px;
                 height: getvw(20px);
             }
         }
-        
+
         label {
             font-size: getvw(16px);
         }
