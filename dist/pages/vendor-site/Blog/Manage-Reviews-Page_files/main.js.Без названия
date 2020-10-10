@@ -1,0 +1,85 @@
+﻿function resetPreviousStatusMessage() {
+    $('.alert').remove();
+}
+
+/*----------------------------------------------------------------*/
+/* ------------   VENDOR LINK EXCHANGE POPUP ELEMENTS  -------------*/
+/*----------------------------------------------------------------*/
+$(document).ready(function () {
+
+    $('.button-sale_price').on('click', function (e) {
+        e.preventDefault();
+        $('.popup-linkexchange').fadeIn().css('display', 'flex');
+    });
+
+    //hide  popup if user closes it
+    $('#linkexchange-window-close').on('click', function (e) {
+        e.preventDefault();
+        $('.popup-linkexchange').fadeOut();
+    });
+
+    //after the request for quotes is sent, hide the messaging window
+    $('#btnLinkExchangeRequestSubmit').on('click', function () {
+        $('.popup-linkexchange').fadeOut();
+    });
+
+    //link exchange link for the vendor's "to do" items
+    $('#hrefLinkExchange').on('click', function (e) {
+        e.preventDefault();
+        $('.popup-linkexchange').fadeIn().css('display', 'flex');
+    });
+
+    $('#faq-accordion').on('show.bs.collapse', function (e) {
+        var parent = $(e.target).prev();
+        var icon = $(parent).find('i');
+        $(icon).removeClass('fa-chevron-down').addClass('fa-chevron-up');
+    });
+
+    $('#faq-accordion').on('hide.bs.collapse', function (e) {
+        var parent = $(e.target).prev();
+        var icon = $(parent).find('i');
+        $(icon).removeClass('fa-chevron-up').addClass('fa-chevron-down');
+    });
+});
+
+var lock = false;
+//send response 
+function ResponseOnBroadcast(broadcastId, elem) {   
+    if ($(elem).siblings('.dropdown-menu').hasClass('show')) {
+        if (!lock) {
+            lock = true;
+            var form = $('#form-' + broadcastId);
+            form.submit();
+        }
+    }
+}
+
+//success response
+function SuccessRespond(data) {
+    if (data.Success) {
+        lock = false;
+        window.location = '/messages/';
+    }
+}
+
+/*----------------------------------------------------------------*/
+/* ------------   VENDOR LINK SUBMISSION  -------------*/
+/*----------------------------------------------------------------*/
+function OnLinkSubmitSuccess(data) {
+    if (data.Success) {
+        $('#validatingLink').hide();  
+        setTimeout(function () {
+            $('#successMessageText .alert').text('The link was successfully submitted. Allow 24-48 hours for our moderators to review and approve your account.');
+            $('#successMessageText').modal('show');
+        }, 600);      }
+    else {
+        OnLinkSubmitError();
+    }
+}   
+
+//on failure broadcast sending
+function OnLinkSubmitError() {   
+    $('#validatingLink').hide(); 
+    var messageText = 'We could not automatically detect the link to your profile from the webpage URL you have submitted.  Please allow 24-48 hours for our moderators to verify the link manually.  Please contact us at vendors@weddingventure.com if you need help with this item.';    
+    $('#submit-link-form .text-error').text(messageText);
+}
