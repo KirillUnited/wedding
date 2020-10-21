@@ -115,8 +115,8 @@ $sm-container-max-media: 767px;
     $remSize: $size / $base;
     @return #{$remSize}rem;
 }
-
-@function getvw($xs-size, $w-max: 320px) {
+$w-max: 320px;
+@function getvw($xs-size, $w-max: $w-max) {
     $xs-size: strip-unit($xs-size);
     $w-max: strip-unit($w-max);
     @return $xs-size * 100vw / $w-max;

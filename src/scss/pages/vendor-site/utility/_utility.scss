@@ -16,3 +16,15 @@
 .text-truncate {
     @include truncate(100%);
 }
+
+@media screen and (min-width: 768px) {
+    .hidden-gt-xs {
+        display: none !important;
+    }
+}
+
+@include less-sm {
+    .hidden-xs {
+        display: none !important;
+    }
+}
