@@ -1,0 +1,69 @@
+$vw-btn-color-primary: #000000;
+$vw-btn-color-secondary: #fff;
+
+button.vw-button {
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    padding: 0;
+    cursor: pointer;
+
+    @media screen and (-ms-high-contrast: active) {
+        border: 2px solid currentcolor;
+    }
+}
+
+.vw-button,
+a.vw-button,
+button.vw-button {
+    display: inline-flex;
+    align-items: center;
+    align-self: start;
+    justify-content: center;
+    min-width: 10ch;
+    min-height: 37px;
+    padding: 0.25em 40 / 12 * 1em;
+    transition: 180ms ease-in-out;
+    background-color: $vw-btn-color-primary;
+    color: $vw-btn-color-secondary;
+    font-size: getrem(12px);
+    line-height: 23 / 12 * 1;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    appearance: none;
+
+    @media screen and (-ms-high-contrast: active) {
+        border: 2px solid currentColor;
+    }
+
+    &:hover,
+    &:active {
+        background-color: #515151;
+    }
+
+    &:focus {
+        outline-color: transparent;
+        outline-style: solid;
+        box-shadow: 0 0 0 3px scale-color($vw-btn-color-primary, $lightness: 30%);
+    }
+
+    &-invert {
+        color: #333;
+        background-color: $vw-btn-color-secondary;
+
+        &:hover,
+        &:active {
+            color: $vw-btn-color-secondary;
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    @include less-sm {
+        font-size: getvw(10px);
+    }
+}

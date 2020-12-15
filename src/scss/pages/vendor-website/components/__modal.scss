@@ -1,0 +1,36 @@
+.vw-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    background-color: hsla(0, 0%, 0%, 0.75);
+
+    &-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        background-color: transparent;
+        user-select: none;
+        appearance: none;
+        border: none;
+        line-height: 1;
+        padding: 15 / 16 * 1em;
+    }
+
+    &-content {
+        position: relative;
+        width: Min(710px, 100%);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        background-color: hsl(0, 0%, 100%);
+        padding: Min(65px, getvw(60px)) Min(80px, getvw(20px));
+    }
+}

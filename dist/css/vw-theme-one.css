@@ -1,0 +1,187 @@
+/* VENDOR WEBSITE CUSTOM STYLING: THEME ONE */
+h1,
+.vw-h1,
+h2,
+.vw-h2,
+h3,
+.vw-h3,
+h4,
+.vw-h4 {
+  font-family: Alegreya;
+}
+
+h1,
+.vw-h1,
+h2,
+.vw-h2 {
+  text-align: center;
+}
+
+.vw-post-card-content {
+  height: 26.26667rem;
+  -webkit-transform: translateX(-30px);
+      -ms-transform: translateX(-30px);
+          transform: translateX(-30px);
+  background-color: #fff;
+}
+
+.vw-posts-list-item:nth-child(2n) .vw-post-card-content {
+  -webkit-transform: translateX(30px);
+      -ms-transform: translateX(30px);
+          transform: translateX(30px);
+}
+
+.vw-review {
+  position: relative;
+  padding-left: 7.66667rem;
+}
+
+.vw-review-img {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  width: 8.4rem;
+  height: 8.4rem;
+}
+
+.vw-review-metadata .date {
+  color: rgba(51, 51, 51, 0.5);
+  font-family: SourceSansPro;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.vw-review-stats .rate {
+  font-family: Alegreya;
+}
+
+.vw-about .vw-container {
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.vw-about .vw-container:last-child {
+  border-bottom: none;
+}
+
+.vw-about-header {
+  padding-bottom: 0;
+}
+
+.vw-about-header .vw-container {
+  padding-top: 5.33333rem;
+}
+
+.vw-about .vw-social {
+  text-align: left;
+  margin-bottom: 1.66667rem;
+}
+
+.vw-about .vw-social-list {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.vw-price-card {
+  padding-bottom: 0;
+}
+
+.vw-price-card-value {
+  width: clamp(0%, 17.46667rem, 100%);
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+  background-color: #fff;
+  padding: 1.93333rem 1.93333rem 0;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+.vw-price-card-value .value {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .vw-container-sm {
+    max-width: 100%;
+  }
+  .vw-header #menu-active:checked ~ .vw-header-navbar {
+    background-color: #000000;
+  }
+  .vw-header #menu-active:checked ~ .vw-header-navbar [class^="line-"] {
+    background-color: #ffffff;
+  }
+  .vw-header #menu-active:checked ~ .vw-header-navbar .vw-header-logo img {
+    display: none;
+  }
+  .vw-header #menu-active:checked ~ .vw-header-navbar .vw-header-logo .logo-invert {
+    display: block;
+  }
+  .vw-header #menu-active:checked ~ .vw-header-navbar .vw-social svg {
+    fill: #ffffff;
+  }
+  .vw-header-menu-link.vw-button {
+    color: #ffffff;
+  }
+  .vw-header-menu-link.vw-button:hover, .vw-header-menu-link.vw-button:active, .vw-header-menu-link.vw-button:focus {
+    background-color: #515151;
+  }
+  .vw-gallery .vw-container {
+    max-width: 87.5vw;
+  }
+  .vw-posts .vw-section-content .vw-container {
+    max-width: 100%;
+    padding: 0;
+  }
+  .vw-posts-list-item {
+    margin-bottom: 0;
+  }
+  .vw-post-card-content {
+    max-width: 87.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  .vw-posts-list-item:nth-child(2n) .vw-post-card-content {
+    -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  .vw-review {
+    position: relative;
+    padding-left: 0;
+    padding-top: 12.5vw;
+  }
+  .vw-review-img {
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+    width: 25vw;
+    height: 25vw;
+  }
+  .vw-review-content {
+    padding-top: 25vw;
+  }
+  .vw-review-title {
+    -ms-grid-row: 4;
+    grid-row: 4;
+    margin-top: 1.5em;
+  }
+  .vw-about-header .vw-container {
+    max-width: 72.5vw;
+    padding-top: 3.125vw;
+    padding-left: 3.125vw;
+    padding-right: 3.125vw;
+  }
+  .vw-about .vw-social {
+    margin-bottom: 7.8125vw;
+  }
+}

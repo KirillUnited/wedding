@@ -1,0 +1,304 @@
+.vw-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: getrem($header-height);
+}
+
+.vw-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: getrem(1260px);
+    margin-right: auto;
+    margin-left: auto;
+    padding: getrem(30px) getrem(80px);
+
+    &-fluid {
+        position: relative;
+        max-width: getrem(1366px);
+        padding-left: 0;
+        padding-right: 0;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &-sm {
+        background-color: #fff;
+        max-width: getrem(660px);
+    }
+}
+
+.vw-section {
+    &-header {
+        padding-top: 3vh;
+        padding-bottom: 3vh;
+    }
+}
+
+.vw-hero {
+    &-img {
+        height: 93vh;
+    }
+}
+
+.vw-gallery {
+    .vw-container {
+        transform: translateY(-30px);
+        background-color: #fff;
+        border-bottom: 1px solid #f2f2f2;
+    }
+
+    &-list {
+        display: grid;
+        height: 790px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: getrem(12px);
+        margin-bottom: getrem(60px);
+
+        &-item {
+            &:first-child {
+                grid-row: 1/3;
+            }
+        }
+    }
+
+    .list-style {
+        margin-bottom: getrem(60px);
+    }
+
+    .vw-button {
+        align-self: center;
+    }
+}
+
+.vw-posts {
+    &-list {
+        &-item {
+            margin-bottom: getrem(60px);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &:nth-child(2n) {
+                .vw-post-card {
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+    }
+}
+
+.vw-reviews {
+    &-list {
+        &-item {
+            margin-bottom: getrem(60px);
+        }
+    }
+}
+
+.vw-about {
+
+    h1,
+    .vw-h1,
+    h2,
+    .vw-h2 {
+        text-align: left;
+    }
+
+    &.has-bg {
+        min-height: 93vh;
+
+        .vw-about-header {
+            padding-top: 8vh;
+        }
+    }
+
+    &-bg {
+        &.has-img-fit {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 93vh;
+            z-index: -1;
+        }
+    }
+
+    &-img {
+        padding-bottom: 100%;
+    }
+}
+
+.vw-pricing {
+    &-list {
+        display: grid;
+        grid-template: auto / repeat(2, 1fr);
+        gap: getrem(60px);
+
+        &-item {
+            &.grid-1_3-2 {
+                grid-column: 2;
+                grid-row: 1/3;
+            }
+        }
+    }
+}
+
+.vw-post {
+
+    h1,
+    .vw-h1,
+    h2,
+    .vw-h2 {
+        text-align: left;
+    }
+
+    &.has-bg {
+        .vw-post-content {
+            padding-top: 8vh;
+        }
+    }
+
+    &-bg {
+        &.has-img-fit {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 41vh;
+            z-index: -1;
+        }
+    }
+
+    img {
+        object-fit: cover;
+        object-position: 50% 50%;
+        margin-bottom: 40 / 16 * 1em;
+    }
+
+    .vw-social {
+        &.is-aside {
+            position: absolute;
+            top: 42vh;
+            left: 0;
+            transform: translate(-100%, 0);
+
+            .vw-social-list {
+                flex-direction: column;
+            }
+
+            .vw-social-item {
+                margin-bottom: 15 / 16 * 1em;
+            }
+        }
+    }
+}
+
+@include less-sm {
+    .vw-container {
+        max-width: 100%;
+        padding: getvw(25px);
+    }
+
+    .vw-hero {
+        &-img {
+            height: auto;
+            padding-bottom: percentage(280 / 320);
+        }
+    }
+
+    .vw-gallery {
+        .vw-container {
+            transform: translateY(-10px);
+        }
+
+        &-list {
+            height: getvw(196px);
+            gap: getvw(2px);
+            margin-bottom: getvw(45px);
+        }
+
+        .list-style {
+            margin-bottom: getvw(45px);
+        }
+    }
+
+    .vw-posts {
+        &-list {
+            &-item {
+                margin-bottom: getvw(20px);
+
+                &:nth-child(2n) {
+                    .vw-post-card {
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
+
+    .vw-reviews {
+        .vw-container {
+            padding: 0;
+        }
+
+        &-list {
+            &-item {
+                margin-bottom: getvw(45px);
+            }
+        }
+    }
+
+    .vw-about {
+        &.has-bg {
+            min-height: auto;
+        }
+
+        &-bg {
+            &.has-img-fit {
+                height: auto;
+                padding-bottom: percentage(178 / 320);
+            }
+        }
+    }
+
+    .vw-pricing {
+        &-content {
+            .vw-container {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
+
+        &-list {
+            display: block;
+
+            &-item {
+                margin-bottom: getvw(45px);
+            }
+        }
+    }
+
+    .vw-post {
+
+        &.has-bg {
+            .vw-post-content {
+                padding-top: 0;
+            }
+        }
+
+        &-bg {
+            &.has-img-fit {
+                position: relative;
+                height: auto;
+                padding-bottom: percentage(281 / 320);
+            }
+        }
+
+        img {
+            height: getvw(246px);
+        }
+    }
+}

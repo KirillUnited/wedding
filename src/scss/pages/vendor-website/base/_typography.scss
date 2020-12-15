@@ -1,0 +1,107 @@
+$vw-typography-variants: h1,
+h2,
+h3,
+h4;
+$vw-h1-font-size: 38px !default;
+$vw-h2-font-size: 38px !default;
+$vw-h3-font-size: 24px !default;
+$vw-h4-font-size: 12px !default;
+$vw-text-font-size: 16px !default;
+
+@each $type in $vw-typography-variants {
+
+    #{$type},
+    .vw-#{$type} {
+        color: black;
+        font-weight: 500;
+        line-height: 36 / 24 * 1;
+        text-transform: uppercase;
+        margin-bottom: 1em;
+        // Help prevent overflow of long words/names/URLs
+        word-break: break-word;
+        // Optional, not supported for all languages:
+        hyphens: auto;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// As of v0.3.0, `clamp` not well enough supported on mobile browsers for use
+// Due to build-in min/max Sass functions, requires `unquote()` to correctly
+// render as CSS min/max
+h1,
+.vw-h1 {
+    font-size: getrem($vw-h1-font-size);
+    font-size: unquote("min(max(3rem, 5vw), #{getrem($vw-h1-font-size)})");
+}
+
+h2,
+.vw-h2 {
+    font-size: getrem($vw-h2-font-size);
+    font-size: unquote("min(max(2.5rem, 5vw), #{getrem($vw-h2-font-size)})");
+}
+
+h3,
+.vw-h3 {
+    font-size: getrem($vw-h3-font-size);
+}
+
+h4,
+.vw-h4 {
+    font-size: getrem($vw-h4-font-size);
+}
+
+p,
+li {
+    font-size: getrem($vw-text-font-size);
+    line-height: normal;
+}
+
+p {
+    margin: 0 0 24px / $vw-text-font-size * 1em;
+}
+
+a,
+a:active,
+a:hover,
+a:visited,
+a:link {
+    color: inherit;
+}
+
+@include less-sm {
+    $vw-h1-font-size: 22px;
+    $vw-h2-font-size: 22px;
+    $vw-h3-font-size: 16px;
+    $vw-h4-font-size: 12px;
+    $vw-text-font-size: 14px;
+
+    h1,
+    .vw-h1 {
+        font-size: getvw($vw-h1-font-size);
+        font-size: unquote("min(max(3rem, 5vw), #{getvw($vw-h1-font-size)})");
+    }
+
+    h2,
+    .vw-h2 {
+        font-size: getvw($vw-h2-font-size);
+        font-size: unquote("min(max(2.5rem, 5vw), #{getvw($vw-h2-font-size)})");
+    }
+
+    h3,
+    .vw-h3 {
+        font-size: getvw($vw-h3-font-size);
+    }
+
+    h4,
+    .vw-h4 {
+        font-size: getvw($vw-h4-font-size);
+    }
+
+    p,
+    li {
+        font-size: getvw($vw-text-font-size);
+    }
+}

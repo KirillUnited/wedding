@@ -1,0 +1,196 @@
+.vw-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #fff;
+    transition: 180ms ease-in-out;
+
+    &.nav-up {
+        transform: translateY(-100%);
+    }
+
+    &.scroll-up {
+        background-color: #000000;
+
+        .lines {
+            [class ^="line-"] {
+                background-color: #ffffff;
+            }
+        }
+
+        .vw-header-logo {
+            img {
+                display: none;
+            }
+
+            .logo-invert {
+                display: block;
+            }
+        }
+
+        .vw-social {
+            svg {
+                fill: #ffffff;
+            }
+        }
+    }
+
+    &-logo {
+        display: inline-block;
+        vertical-align: middle;
+        width: 126px;
+        height: 26px;
+        background-color: transparent;
+
+        .logo-invert {
+            display: none;
+        }
+    }
+
+    &-navbar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 3vh;
+        padding-bottom: 3vh;
+    }
+
+    &-menu {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &-link {
+            &.vw-button-invert {
+                background-color: transparent;
+                padding: 0.25em 20 / 12 * 1em;
+            }
+        }
+
+        .scroll-up & {
+            &-link {
+                color: #ffffff;
+
+                &.vw-button:not(.vw-button-invert) {
+                    background-color: #515151;
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        background-color: #515151;
+                    }
+                }
+            }
+        }
+    }
+
+    .vw-container {
+        max-width: getrem(1240px);
+        padding: 0 getrem(20px);
+    }
+
+    .vw-social {
+        display: none;
+        align-self: flex-end;
+    }
+
+    @include less-sm {
+        &-burger {
+            align-self: flex-start;
+            margin-bottom: 0;
+            margin-right: getvw(25px);
+
+            .lines {
+                cursor: pointer;
+                z-index: 1;
+
+                [class ^="line-"] {
+                    width: getvw(18px);
+                    height: getvw(1px);
+                    background-color: #000000;
+                    margin: getvw(4px) 0;
+                    transition: all .6s ease;
+                }
+
+                [class="line-2"] {
+                    width: getvw(14px);
+                }
+            }
+        }
+
+        #menu-active:checked {
+            ~.vw-header-navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff; //TEMP
+                z-index: 100;
+                padding-left: getvw(20px);
+                padding-right: getvw(20px);
+                padding-bottom: 5vh;
+
+                .vw-header-burger {
+                    .line-1 {
+                        transform: translatey(getvw(1px) + getvw(4px)) rotate(45deg);
+                    }
+
+                    .line-2 {
+                        transform: scale(0);
+                    }
+
+                    .line-3 {
+                        transform: translatey(-(getvw(1px) + getvw(4px))) rotate(-45deg);
+                    }
+                }
+
+                .has-menu,
+                .vw-social {
+                    width: 100%;
+                    display: block;
+                }
+            }
+        }
+
+        &-logo {
+            align-self: flex-start;
+            width: getvw(75px);
+            height: getvw(15px);
+            margin-top: getvw(3px);
+        }
+
+        &-navbar {
+            justify-content: flex-start;
+        }
+
+        .has-menu {
+            display: none;
+        }
+
+        &-menu {
+            flex-direction: column;
+
+            &-link {
+                &.vw-button {
+                    color: #333;
+                    background-color: transparent;
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        color: #fff;
+                        background-color: #515151;
+                    }
+                }
+            }
+        }
+
+        .vw-container {
+            padding: 0 getvw(20px);
+        }
+    }
+}

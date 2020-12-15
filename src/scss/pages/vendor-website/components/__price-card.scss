@@ -1,0 +1,23 @@
+.vw-price-card {
+    background-color: #f8f7f5;
+    padding: getrem(60px);
+
+    .label {
+        display: inline-block;
+        vertical-align: middle;
+        color: rgba(51, 51, 51, 0.5);
+        font-family: SourceSansPro;
+        font-size: 10 / 16 * 1em;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @include less-sm {
+        padding: getvw(40px) getvw(25px);
+    }
+}

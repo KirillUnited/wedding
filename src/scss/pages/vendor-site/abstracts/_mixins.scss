@@ -121,6 +121,11 @@ $w-max: 320px;
     $w-max: strip-unit($w-max);
     @return $xs-size * 100vw / $w-max;
 }
+@function getvmin($xs-size, $w-max: $w-max) {
+    $xs-size: strip-unit($xs-size);
+    $w-max: strip-unit($w-max);
+    @return $xs-size * 100vmin / $w-max;
+}
 // line clamp
 @mixin line-clamp($line) {
     display: -webkit-box;

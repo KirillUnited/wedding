@@ -1,0 +1,233 @@
+/* VENDOR WEBSITE CUSTOM STYLING: THEME ONE */
+@import "../../pages/vendor-site/abstracts/mixins";
+
+h1,
+.vw-h1,
+h2,
+.vw-h2,
+h3,
+.vw-h3,
+h4,
+.vw-h4 {
+    font-family: Alegreya;
+}
+
+h1,
+.vw-h1,
+h2,
+.vw-h2 {
+    text-align: center;
+}
+
+.vw-post-card {
+    &-content {
+        height: getrem(394px);
+        transform: translateX(-30px);
+        background-color: #fff;
+
+        .vw-posts-list-item:nth-child(2n) & {
+            transform: translateX(30px);
+        }
+    }
+}
+
+.vw-review {
+    position: relative;
+    padding-left: getrem(115px);
+
+    &-img {
+        position: absolute;
+        top: getrem(60px);
+        left: 0;
+        width: getrem(126px);
+        height: getrem(126px);
+    }
+
+    &-metadata {
+        .date {
+            color: rgba(51, 51, 51, 0.5);
+            font-family: SourceSansPro;
+            font-size: 12 / 16 * 1em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+
+    &-stats {
+        .rate {
+            font-family: Alegreya;
+        }
+    }
+}
+
+.vw-about {
+    .vw-container {
+        background-color: #fff;
+        border-bottom: 1px solid #f2f2f2;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &-header {
+        padding-bottom: 0;
+
+        .vw-container {
+            padding-top: getrem(80px);
+        }
+    }
+
+    .vw-social {
+        text-align: left;
+        margin-bottom: getrem(25px);
+
+        &-list {
+            display: inline-flex;
+        }
+    }
+}
+
+.vw-price-card {
+    padding-bottom: 0;
+
+    &-value {
+        width: clamp(0%, getrem(262px), 100%);
+        align-self: center;
+        text-align: center;
+        background-color: #fff;
+        padding: getrem(29px) getrem(29px) 0;
+        margin-top: 50px;
+        margin-bottom: 0;
+
+        .value {
+            display: block;
+        }
+    }
+
+    @include less-sm {}
+}
+
+@include less-sm {
+    .vw-container {
+        &-sm {
+            max-width: 100%;
+        }
+    }
+
+    .vw-header {
+        #menu-active:checked {
+            ~.vw-header-navbar {
+                background-color: #000000;
+
+                [class ^="line-"] {
+                    background-color: #ffffff;
+                }
+
+
+                .vw-header-logo {
+                    img {
+                        display: none;
+                    }
+
+                    .logo-invert {
+                        display: block;
+                    }
+                }
+
+                .vw-social {
+                    svg {
+                        fill: #ffffff;
+                    }
+                }
+            }
+        }
+
+        &-menu {
+            &-link {
+                &.vw-button {
+                    color: #ffffff;
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        background-color: #515151;
+                    }
+                }
+            }
+        }
+    }
+
+    .vw-gallery {
+        .vw-container {
+            max-width: getvw(280px);
+        }
+    }
+
+    .vw-posts {
+        .vw-section-content {
+            .vw-container {
+                max-width: 100%;
+                padding: 0;
+            }
+        }
+
+        &-list {
+            &-item {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .vw-post-card {
+        &-content {
+            max-width: getvw(280px);
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            transform: translateY(-10px);
+
+            .vw-posts-list-item:nth-child(2n) & {
+                transform: translateY(-10px);
+            }
+        }
+    }
+
+    .vw-review {
+        position: relative;
+        padding-left: 0;
+        padding-top: getvw(40px);
+
+        &-img {
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: getvw(80px);
+            height: getvw(80px);
+        }
+
+        &-content {
+            padding-top: getvw(80px);
+        }
+
+        &-title {
+            grid-row: 4;
+            margin-top: 24 / 16 * 1em;
+        }
+    }
+
+    .vw-about {
+        &-header {
+            .vw-container {
+                max-width: getvw(232px);
+                padding-top: getvw(10px);
+                padding-left: getvw(10px);
+                padding-right: getvw(10px);
+            }
+        }
+
+        .vw-social {
+            margin-bottom: getvw(25px);
+        }
+    }
+}

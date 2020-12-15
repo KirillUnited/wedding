@@ -1,0 +1,28 @@
+.vw-footer {
+    color: #ffffff;
+    background-color: #000000;
+
+    .vw-container {
+        align-items: center;
+    }
+
+    &-logo {
+        position: relative;
+        width: getrem(234px);
+        height: getrem(30px);
+        background-color: transparent;
+        margin-bottom: getrem(50px);
+
+        &::after {
+            display: block;
+            position: absolute;
+            bottom: - getrem(25px);
+            left: 50%;
+            transform: translateX(-50%);
+            content: '';
+            width: getrem(47px);
+            height: getrem(2px);
+            background-color: #ffffff;
+        }
+    }
+}
