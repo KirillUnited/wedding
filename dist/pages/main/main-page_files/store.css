@@ -1,0 +1,1213 @@
+﻿.header-top {
+    border-bottom: 1px solid #e1e1e1;
+}
+.breadcumbs {
+    line-height: 35px;
+    margin: 0;
+}
+.breadcrumbs li, .breadcrumbs li a {
+    font-size: 14px;
+    font-family: "Roboto";
+}
+.breadcrumbs li {
+    color: #808080;
+}
+        .breadcrumbs li a {
+            color: #151616;
+        }
+    .breadcrumbs li i {
+        padding: 0 5px;
+        font-size: 14px;
+    }
+i.phone-link{
+    line-height:35px;
+    float:right;
+    cursor:pointer;
+}
+.store-phone {
+    font-size: 18px;
+    color: #000000;
+    font-family: "SourceSansPro";
+    float: right;
+    line-height: 35px;
+}
+    .store-phone span {
+        font-size: 14px;
+        color: #808080;
+        padding-right:20px;
+    }
+    .col-img img{
+        max-width:100px;
+    }
+a.user-cart {
+    font-size: 28px;
+    color: #000;
+    padding-left: 20px;
+    border-left: 1px solid #e1e1e1;
+}
+.desktop-account > li:last-child a.user-cart i.fa-shopping-cart {
+    color: #404040;
+    font-size: 22px;
+}
+
+.user-cart .badge {
+    background: #0b8a89;
+    font-size: 10px;
+    font-family: "SourceSansPro";
+    font-weight: 400;
+    position: relative;
+    top: -10px;
+    left: -15px;
+    margin-left: 2px;
+    color: #fff;
+    padding: 3px 5px;
+}
+a.user-cart:link, a.user-cart:hover, a.user-cart:visited{
+    text-decoration:none;
+    color:#000;
+}
+.user-cart span{
+    font-size: 18px;
+}
+.bg-search {
+    background-color: #f2f2f2;
+    margin-left: -160px;
+    margin-right: -160px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+    .bg-search img {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+.bg-wedding {
+    background-image: url('https://f5prodstoragecontainer.blob.core.windows.net/prod-live-public/theme/images/bride-bride-and-groom-celebration.jpg');
+    background-repeat: no-repeat;
+    background-position-x: -136px;
+    background-position-y: -650px;
+    background-size: 1800px;
+    height: 354px;
+}
+
+/*-------------------------------------Product details page--------------------------------------------------*/
+
+.product-details .bg-search, .bg-search .search-list {
+    padding: 20px 0;
+}
+
+.product-details #search-products-form button {
+    background: #fff;
+}
+    .product-details #search-products-form button i {
+        color: #b1b1b1;
+    }
+    .bg-search .search-content{
+        background:rgba(68, 68, 68, 0.8);
+        padding: 67px 20%;
+        width: 100%;
+        height: 100%;
+        z-index:1;
+    }
+    .bg-search p, .bg-search h1 {
+        color: #fff;
+    }
+    .bg-search h1 {
+        font-size: 39px;
+        letter-spacing: 2px;
+        font-family: "Lora";
+        text-transform:none;
+        text-transform:capitalize;
+    }
+#search-products-form .search-box {
+    max-width: 800px;
+    height: 55px;
+    background: #fff;
+    border-radius: 6px;
+    position: relative;
+    padding-left: 120px;
+    padding-right: 60px;
+    margin: 0 auto;
+}
+#search-products-form input[type=text] {
+    width: 100%;
+    height: 35px;
+    border: none;
+    background: #fff;
+    outline: 0;
+    margin: 10px 0;
+    padding-left: 10px;
+    border-left: 1px solid #e1e1e1;
+}
+#search-products-form button {
+    width: 64px;
+    height: 55px;
+    background-color: #0b8a89;
+    opacity: 1;
+    position: absolute;
+    right:0;
+    top:0;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    outline:0;
+}
+    #search-products-form button i {
+        color: #fff;
+        position: unset;
+        font-size: 20px;
+    }
+#search-products-form i.fa-chevron-down {
+    position: absolute;
+    left: 105px;
+    top: 20px;
+    font-size: 12px;
+    color: #0b8a89;
+}
+#search-products-form select {
+    width: 115px;
+    height: 55px;
+    border: 0;
+    position:absolute;
+    left:0;
+    margin-left: 10px;
+    padding: 10px 25px 10px 10px;
+    outline: 0;
+    -webkit-appearance: none;
+}
+    #search-products-form select, #search-products-form select option{
+        text-transform:capitalize;
+    }
+    .bg-search p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+.menu li a {
+    font-size: 16px;
+    line-height: 22px;
+    color: #010101;
+}
+.col-logo {
+    width: 310px;
+}
+
+.col-menu{
+    width:620px;
+}
+.col-account{
+    width:300px;
+    float:right;
+    padding:0;
+    margin:0;
+}
+.col-account .desktop-account{
+    padding:0;
+}
+.desktop-account .button, #addToCartForm .button {
+    filter: none;
+    border-bottom: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.07143;
+    color: #ffffff;
+    text-transform: none;
+}
+@media (max-width: 1023px) {
+    .col-menu{
+        width:410px;
+    }
+}
+.desktop-account .button-green:hover, .desktop-account .button:hover, .rose-stars-block .button:hover, #addToCartForm .button:hover, .button-gray:hover {
+    border-bottom: 0;
+    filter: none;
+    box-shadow: none;
+}
+        .rose-stars-block .button:hover{
+            background:#fff;
+        }
+        .desktop-account > li.menu-dropdown ul {
+            left: 120px;
+            top: 40px;
+        }
+.desktop-account > li:last-child .flexSC > i:last-child {
+    color: #fff;
+}
+.desktop-account > li:last-child i:last-child {
+    font-size: 16px;
+}
+.desktop-account > li.menu-dropdown {
+    background: #e1e1e1;
+    width: 31px;
+    height: 31px;
+    padding: 7px 6px 2px 10px;
+    border-radius: 31px;
+}
+.wedding-store p.about {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    font-family: "SourceSansPro";
+    font-weight: 400;
+}
+
+.wedding-store .more, .product-details a.more, .left-menu ul.menu-dropdown-menu li a.more {
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 23px;
+    color: #068887;
+    font-family: "Lora";
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.products-list {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.product-item {
+    height: 300px;
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 15px;
+    border-bottom: 1px solid #eee;
+}
+.product-item img{
+    max-height:180px;
+}
+.products-list.owl-carousel .product-item .image-block {
+    height: 180px;
+    overflow: hidden;
+}
+    .wedding-store .products-list .product-item:first-child{
+        margin-left:0;
+    }
+    .wedding-store .products-list .product-item:last-child {
+        margin-right: 0;
+    }
+    a.product-item:hover, a.product-item:visited, a.product-item:link {
+        text-decoration: none;
+        color:#000;
+    }
+.wedding-store .products-list .product-item .product-title {
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    font-family: "Lora";
+}
+.wedding-store .products-list .product-item .product-price {
+    color: #000000;
+    padding-top: 10px;
+}
+.product-details {
+    font-family: "SourceSansPro";
+}
+.product-details .rating-stars{
+    min-width:0;
+}
+.left-menu .rating-stars ul.stars{
+    display:block;
+    padding-left:0;
+}
+.wedding-store .rating-stars ul > li, .product-details .rating-stars ul > li {
+    width: 15px;
+    height: 18px;
+}
+
+        .wedding-store .rating-stars ul > li.star > i.fa, .product-details .rating-stars ul > li.star > i.fa{
+            font-size: 12px;
+        }
+
+        .left-menu h4 {
+            font-size: 16px;
+            letter-spacing: 1px;
+            line-height: 21px;
+            color: #808080;
+            font-family: "Lora";
+            font-weight: 700;
+            cursor:pointer;
+        }
+.left-menu label {
+    font-size: 16px;
+    line-height: 23px;
+    color: #333333;
+    font-family: "Lora";
+    font-weight: 700;
+}
+.left-menu .check {
+    color: #068887;
+    display:inline-block;
+    float:left;
+    margin: 5px 5px 0 0;
+    width:15px;
+    height:15px;
+    cursor:pointer;
+}
+.filter-item label {
+    font-size: 16px;
+    color: #000000;
+    font-family: "SourceSansPro";
+    font-weight: 400;
+    letter-spacing: 0;
+}
+.left-menu ul{
+    list-style:none;
+    padding-left:0;
+}
+    .left-menu ul li label a, .left-menu ul.menu-dropdown-menu li > a {
+        color: #333333;
+        line-height: 32px;
+        border-bottom: 1px solid #e1e1e1;
+        text-transform: capitalize;
+        cursor: pointer;
+        font-family: "SourceSansPro";
+    }
+.left-menu > a {
+    display: block;
+    font-size: 14px;
+    line-height: 47px;
+    color: #333333;
+    font-family: "Lora";
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: capitalize;
+}
+    .left-menu > a i {
+        font-size: 18px;
+        color: #0b8a89;
+    }
+
+.left-menu ul li > a:hover, .left-menu ul li a.current{
+    color: #808080;
+    text-decoration: none;
+}
+    .left-menu ul li ul {
+        padding-left: 14px;
+        display: none;
+    }
+.left-menu .description {
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    font-family: "SourceSansPro";
+    font-weight: 400;
+}
+.left-menu hr, .product-details hr {
+    width:100%;
+    height:2px;
+    border-top: 1px solid #e1e1e1;
+}
+.left-menu .left-links{
+    display:block;
+}
+@media(min-width:770px){
+    .left-menu ul li ul.left-links {
+        padding-left: 0;
+    }
+}
+
+
+.rose-stars-block {
+    border-radius: 5px;
+    background-color: #f98687;
+    width:100%;
+    z-index:1;
+    position:relative;
+}
+.bg-stars {
+    background: url("https://f5prodstoragecontainer.blob.core.windows.net/prod-live-public/theme/images/bg-stars.png");
+    background-position-x: -10px;
+    background-position-y: -35px;
+    opacity: 0.3;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.rose-stars-block .content {
+    color: #fff;
+    position: relative;
+    padding: 27px;
+    z-index:3;
+}
+    .rose-stars-block i {
+        display: inline-block;
+        padding: 0 10px 2px 2px;
+        font-size: 36px;
+        float:left;
+    }
+        .rose-stars-block i.fa-shield{
+            font-size:40px;
+            padding-bottom:0;
+        }
+
+        .rose-stars-block .promotion-title {
+            font-size: 14px;
+            font-family: "Lora";
+            font-weight: 700;
+            padding-right:40px;
+            display: inline-block;
+            float: left;
+        }
+        .left-menu .rose-stars-block .promotion-title{
+            max-width:100px;
+            height:34px;
+            float:none;
+            margin-bottom:10px;
+            padding-right:0;
+        }
+.rose-stars-block .description {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: "SourceSansPro";
+    font-weight: 400;
+    color: #fff;
+    display: inline-block;
+    float: left;
+}
+.left-menu .rose-stars-block .description{
+    float:none;
+    display:block;
+    padding-bottom:15px;
+}
+    .rose-stars-block .button {
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: #fa7a7b;
+        font-family: "Lora";
+        font-weight: 700;
+        text-align: center;
+        filter: none;
+        border-bottom: 0;
+        border-radius: 5px;
+        text-transform: none;
+        cursor:pointer;
+        float:right;
+        display:inline-block;
+    }
+    .left-menu .rose-stars-block .button{
+        float:none;
+    }
+    .wedding-store h3 {
+        letter-spacing: 1px;
+        line-height: 23px;
+        color: #000000;
+        font-family: "Lora";
+    }
+
+    .categories{display:inline-block;}
+.categories .category-item {
+    width: 300px;
+    height: 380px;
+    padding-top:30px;
+    padding-bottom: 14px;
+    display: inline-block;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+    border-bottom: 1px solid #e1e1e1;
+
+}
+.categories .category-item .image-block{
+    width:260px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0 20px;
+}
+    .categories .category-item img {
+        height: 180px;
+        height: auto;
+        display: block;
+        float: none;
+        margin-right: 0;
+        margin:0 auto;
+    }
+    .categories .category-item .category-title {
+        line-height: 23px;
+        font-family: "Lora";
+        font-weight: 700;
+        text-transform: capitalize;
+        padding: 10px 0;
+    }
+    .categories .category-item p {
+        line-height: 20px;
+        font-family: "SourceSansPro";
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
+
+.back-link {
+    background: #f5f5f5;
+    margin-left: -160px;
+    margin-right: -160px;
+    padding: 15px 0 13px;
+}
+    .back-link a {
+        font-size: 15px;
+        line-height: 22px;
+        color: #000000;
+        font-family: "Lora";
+    }
+
+    .footer{
+        background:#000;
+        color:#fff;
+    }
+        .footer .logo {
+            font-size: 36px;
+            color: #ffffff;
+            font-family: "Lora";
+            float:none;
+            text-align:center;
+            font-weight:400;
+        }
+        .footer .logo a{
+            color:#fff;
+        }
+            .footer a:hover, .footer a:visited, .footer a:link{
+                text-decoration:none;
+            }
+            .footer hr {
+                border-top: 1px solid #2a2a2a;
+                max-width: 100%;
+            }
+        .footer .section-title {
+            font-size: 14px;
+            line-height: 22px;
+            color: #ffffff;
+            font-family: "Lora";
+            font-weight: 700;
+            text-transform:capitalize;
+        }
+.footer-menu {
+    width: 580px;
+    margin: 0 auto;
+}
+.footer-menu ul{
+    list-style:none;
+}
+    .footer-menu li a {
+        font-size: 14px;
+        line-height: 22px;
+        color: #ffffff;
+        font-family: "SourceSansPro";
+        border-bottom: 1px solid #2a2a2a;
+    }
+        .footer-menu li a:link, .footer-menu li a:hover, .footer-menu li a:visited{
+            text-decoration:none;
+        }
+        .footer .follow-links a{
+            width:34px;
+            height:34px;
+            border-radius:34px;
+            background:#fff;
+            display:inline-block;
+            margin:7px;
+            padding:5px;
+        }
+            .footer .follow-links a i.fa-instagram {
+                background-image: linear-gradient(0deg, #e09b3d 0%, #c74c4d 30%, #c21975 60%, #7024c4 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .footer .follow-links a i.fa-facebook {
+                color: #337ab7;
+            }
+.footer .copy {
+    font-size: 18px;
+    line-height: 22px;
+    color: #222222;
+    font-family: "Lato";
+    font-weight: 400;
+    padding: 20px 0 30px;
+    background: #fff;
+    margin: 20px 0 0;
+}
+    .footer .copy a {
+        color: #222222;
+    }
+.footer .copy span{
+    color:#e1e1e1;
+}
+.products-filter {
+    padding-bottom: 30px;
+    margin: 30px 0;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    font-family: "Roboto";
+    position: relative;
+}
+    .products-filter .products-sort {
+        position: absolute;
+        right: 0;
+        top: 30px;
+    }
+    .products-filter label, .products-filter select {
+        font-size: 15px;
+        line-height: 23px;
+        color: #000000;
+        font-family: "Roboto";
+        font-weight: 400;
+        float: right;
+    }
+    .products-filter select {
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        padding: 5px 10px;
+        outline: 0;
+    }
+    .products-filter a {
+        font-size: 15px;
+        color: #068887;
+    }
+    .products-filter label{
+        padding:5px 20px 5px;
+    }
+    .products-filter .sellers{
+        margin-top:20px;
+    }
+    .products-filter .filter-link {
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        padding: 5px 5px 5px 15px;
+        font-size: 13px;
+        margin-right: 15px;
+    }
+    .products-filter .filter-link i{
+        margin-left:10px;
+        cursor:pointer;
+    }
+    .product-photos{
+        display:inline-block;
+        float:left;
+        width:53px;
+    }
+        .product-photos img {
+            width: 50px;
+            height: auto;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+.product-img {
+    display: inline-block;
+    float: left;
+    margin: 20px;
+    position: relative;
+}
+    .product-img img {
+        max-width: 420px;
+        height: auto;
+    }
+.product-details h1 {
+    font-size: 22px;
+    line-height: 27px;
+    font-family: "Lora";
+    margin:0;
+}
+
+.product-details h4 {
+    font-size: 18px;
+    line-height: 27px;
+    font-family: "Lora";
+    margin:0;
+}
+
+.best-label {
+    font-size: 14px;
+    line-height: 23px;
+    color: #ffffff;
+    font-family: "Lora";
+    text-transform: uppercase;
+    padding: 2px 10px;
+    background: #068887;
+    display: inline-block;
+    position: absolute;
+    top: -10px;
+}
+.product-item .best-label{
+    border-radius : 20px;
+    top: 10px;
+    left: 10px;
+}
+.product-item .rating-stars ul > li.star i.fa-star.half {
+    top: 6px;
+    left: 2px;
+}
+.best-sellers .rating-stars ul > li.star i.fa-star.half {
+    top: 6px;
+    left: 0;
+}
+
+.product-details p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+}
+.product-details .price-block {
+    font-size: 16px;
+    font-family: "Lora";
+}
+    .product-details .price-block label {
+        font-weight: 400;
+        width: 100px;
+        padding-right: 50px;
+    }
+    .product-details .price-block s {
+        font-size: 18px;
+        line-height: 23px;
+        color: #737373;
+        font-family: "SourceSansPro";
+    }
+    .product-details .price-block .price {
+        font-size: 30px;
+        line-height: 24px;
+        color: #000000;
+        font-family: "SourceSansPro";
+    }
+.product-details .product-colors .thumb {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+    margin-right:20px;
+    border:1px solid #e1e1e1;
+    text-align:center;
+}
+    .product-details .product-colors .thumb.current {
+        border-color:#0b8a89;
+    }
+#addToCartForm label {
+    font-size: 16px;
+    line-height: 23px;
+    color: #000000;
+    font-family: "Lora";
+    font-weight: 400;
+    width: 70px;
+}
+#addToCartForm .tb-qty i, #updateProductQty .tb-qty i {
+    color: #737373;
+    font-size: 13px;
+    position: absolute;
+    top: 13px;
+    cursor: pointer;
+}
+#addToCartForm .select-outer{
+    background: #fff;
+    width: 136px;
+    display: inline-block;
+    margin-bottom: 0;
+}
+#addToCartForm i.fa-minus, #updateProductQty i.fa-minus {
+    left: 20px;
+}
+#addToCartForm i.fa-plus, #updateProductQty i.fa-plus {
+    right: 20px;
+}
+
+#addToCartForm .tb-qty, #updateProductQty .tb-qty {
+    display: inline-block;
+    position: relative;
+}
+#addToCartForm input, #updateProductQty input {
+    width: 135px;
+    height: 38px;
+    border-radius: 3px;
+    border: 1px solid #dedede;
+    padding: 9px 34px;
+    outline: none;
+    text-align: center;
+}
+#addToCartForm .button {
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    font-family: "Lora";
+    border: 0;
+    height:47px;
+}
+    #addToCartForm hr{
+        margin-top:30px;
+        margin-bottom:30px;
+    }
+
+.product-item:link, .product-item:hover, .product-item:active {
+    text-decoration: none;
+}
+
+.best-sellers .product-item {
+    display: block;
+    padding: 20px 0;
+    border-bottom: 1px solid #e1e1e1;
+    height:auto;
+}
+    .best-sellers .product-item .product-title {
+        font-size: 14px;
+        font-family: "SourceSansPro";
+    }
+
+    .best-sellers .product-item:last-child {
+        border-bottom: none;
+    }
+
+.best-sellers .col-img {
+    width: 75px;
+    margin-right: 12px;
+    float: left;
+}
+
+    .best-sellers .col-img img {
+        width: 75px;
+    }
+
+.best-sellers .col-data {
+    color: #000;
+    margin-left: 76px;
+    text-align:left;
+}
+/*Store carousel*/
+.store-slider .owl-item {
+    position: relative;
+}
+
+    .store-slider .owl-item .item-content {
+        margin-top: 140px;
+        display: inline-block;
+        width:50%;
+        float:right;
+    }
+
+.store-slider .item-content p {
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 23px;
+    color: #010202;
+    font-family: "Lora";
+    text-align: center;
+}
+
+.store-slider .item-content h1 {
+    font-size: 48px;
+    letter-spacing: 1px;
+    line-height: 64px;
+    color: #010202;
+    font-family: "Lora";
+    font-weight: 400;
+    text-align: center;
+    text-transform: none;
+}
+
+.store-slider.owl-carousel .owl-item img {
+    width: 50%;
+    display: inline-block;
+}
+
+.store-carousel-item {
+    height: 432px;
+    border-radius: 5px;
+    background: #f3f3f4;
+    overflow: hidden;
+}
+
+.store-slider .owl-nav .owl-prev, .store-slider .owl-nav .owl-next {
+    position: absolute;
+    top: 50%;
+    color: #068887;
+    font-size: 24px;
+    font-family: "Lora";
+    padding: 0 20px;
+}
+
+.store-slider .owl-nav .owl-next {
+    right: 0;
+}
+
+/*PayPal button*/
+.paypal-container {
+    width: 250px;
+    text-align: center;
+}
+
+
+@media (min-width: 1250px) {
+    .container {
+            width: 1250px;
+        }
+    }
+
+    @media(max-width:770px) {
+        /*breadcrumbs*/
+        ul.breadcrumbs li{
+            display:none;
+        }
+            ul.breadcrumbs li:nth-last-child(4), ul.breadcrumbs li:nth-last-child(3) {
+                display: inline;
+            }
+        .store-phone {
+            display: none;
+        }
+
+            .store-phone span {
+                line-height: 14px;
+                padding-bottom: 5px;
+                padding-right:0;
+            }
+        .phone-link:hover + .store-phone {
+            display: block;
+            position:absolute;
+            top:0;
+            right:15px;
+            background:#fff;
+        }
+
+        /*left menu*/
+        .left-menu {
+            width: auto;
+            max-width: 80%;
+            min-width: 300px;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            height: 100%;
+            z-index: 100;
+            transition: left 0.4s ease-in-out;
+            overflow-y: auto;
+            background: #fff;
+            padding-left: 10px;
+        }
+
+            .left-menu .arrow {
+                color: #068887;
+            }
+
+            .left-menu i.open {
+                transform: rotate(-180deg)
+            }
+            .left-menu .left-links {
+                display: none;
+            }
+
+            /*search form*/
+        .bg-search {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+            .bg-search form {
+                margin: 0 15px;
+            }
+
+            .bg-search .search-content {
+                width: 100%;
+                padding: 47px 15px;
+            }
+
+        #search-products-form .search-box {
+            padding-left: 20px;
+        }
+
+        #search-products-form input[type=text] {
+            border-left: 0;
+        }
+
+        /*store carousel*/
+        .store-carousel-item{
+            height:270px;
+        }
+        .store-slider .owl-item .item-content {
+            margin-top: 25px;
+            position: absolute;
+            top: 0;
+            width:100%;
+        }
+        .store-slider .item-content p {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .store-slider .item-content h1{
+            font-size:24px;
+            line-height:30px;
+        }
+        .store-slider.owl-carousel .owl-item img {
+            display: inline-block;
+            width: 100%;
+            margin-top: 90px;
+        }
+        /*filter*/
+        .products-filter{
+            border:none;
+            margin:0;
+        }
+        .wedding-store .products-filter h3, .wedding-store .products-filter .sellers {
+            width: 50%;
+            float: left;
+            margin:0;
+        }
+        .filters-button {
+            width: 100%;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+            padding: 5px 0;
+            font-size: 12px;
+            letter-spacing: 1px;
+            line-height: 23px;
+            color: #068887;
+            font-family: "Lora";
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /*Layout*/
+        .row-one .mobile-nav {
+            top: -5px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .col-logo .fa-bars:before {
+            color: #b7b7b7;
+        }
+
+        .col-logo .fa-bars {
+            background: #fff;
+            height: 25px;
+        }
+
+        /*Product details*/
+        .product-details .bg-search {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+        .product-details #search-products-form .search-box {
+            padding-left: 0;
+        }
+
+        .product-details #search-products-form input[type=text] {
+            border: 0;
+        }
+
+        .product-img {
+            margin: 15px 25px 25px;
+            display: block;
+        }
+        .best-label {
+            top: -10px;
+            left: -30px;
+        }
+
+        .product-images-pages {
+            text-align: center;
+        }
+
+            .product-images-pages .image-item {
+                cursor: pointer;
+                display: inline-block;
+                margin: 4px;
+                width: 8px;
+                height: 7px;
+                border-radius: 3px;
+                background-color: #ffffff;
+                border: 1px solid rgba(0,0,0,0.1);
+            }
+
+                .product-images-pages .image-item.active {
+                    width: 8px;
+                    height: 7px;
+                    border-radius: 7px;
+                    background: #6a6a6a;
+                }
+
+        .desktop-account .button-green:hover, .desktop-account .button:hover, .rose-stars-block .button:hover, #addToCartForm .button:hover {
+            border-bottom: 0;
+            filter: none;
+            box-shadow: none;
+        }
+
+        /*Rose banner*/
+        .rose-stars-block .promotion-title {
+            padding-right: 10px;
+        }
+
+        .rose-stars-block .content {
+            padding: 13px;
+        }
+
+        .rose-stars-block .button {
+            float: left;
+            height: 26px;
+            margin-top: 5px;
+            padding: 5px 20px;
+        }
+
+        #addToCartForm .button {
+            width: 100%;
+        }
+        .paypal-container{
+            width:100%;
+        }
+
+        a.more.recommendations {
+            margin-right: 100px;
+        }
+
+        .products-list{
+            text-align:center;
+        }
+        .products-list .product-item{
+            width:100%;
+            margin:0;
+        }
+            .products-list.owl-carousel .product-item {
+                height:240px;
+            }
+                .products-list.owl-carousel .product-item ul.stars{
+                    width:120px;
+                }
+                .products-list.owl-carousel .product-item .image-block {
+                    height: 100px;
+                }
+                .products-list.owl-carousel .owl-nav {
+                    position: absolute;
+                    top: -80px;
+                    right: 0;
+                }
+
+            .products-list.owl-carousel .owl-nav .owl-prev, .products-list.owl-carousel .owl-nav .owl-next {
+                width: 28px;
+                height: 28px;
+                border-radius: 14px;
+                background-color: #ffffff;
+                border: 1px solid rgba(0,0,0,0.1);
+                display: inline-block;
+                margin: 3px;
+                padding: 1px 10px;
+                font-size: 16px;
+                color: #68c6c5;
+            }
+
+        .footer-menu {
+            width: 100%;
+        }
+
+            .footer-menu ul {
+                text-align: center;
+                padding-left: 0;
+                margin-bottom: 10px;
+            }
+    }
+ 

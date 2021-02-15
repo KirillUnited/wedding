@@ -54,6 +54,15 @@ gulp.task('pug', function () {
         .pipe(gulp.dest('dist'));
 });
 
+const purgecss = require('gulp-purgecss');
+gulp.task('purgecss', () => {
+    return gulp.src('dist/css/main-page.css')
+        .pipe(purgecss({
+            content: ['dist/pages/main/**/*.html']
+        }))
+        .pipe(gulp.dest('dist/pages/main'));
+});
+
 gulp.task('watch', ['pug'], function () {
     gulp.watch('src/**/*', ['pug']);
 });
