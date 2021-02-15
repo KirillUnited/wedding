@@ -1,0 +1,106 @@
+﻿
+/*-----------------------Rating stars functionality-------------------------------*/
+$(document).ready(function () {
+
+    /* 1. Visualizing things on Hover - See next part for action on click */
+    $('.stars li').on('mouseover', function () {
+        var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+
+        // Now highlight all the stars that's not after the current hovered star
+        $(this).parent().children('li.star').each(function (e) {
+            if (e < onStar) {
+                $(this).addClass('hover');
+            }
+            else {
+                $(this).removeClass('hover');
+            }
+        });
+
+    }).on('mouseout', function () {
+        $(this).parent().children('li.star').each(function (e) {
+            $(this).removeClass('hover');
+        });
+    });
+
+
+    /* 2. Action to perform on click */
+    $('.control .stars li').on('click', function () {
+        var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+        var stars = $(this).parent().children('li.star');
+
+        for (i = 0; i < stars.length; i++) {
+            $(stars[i]).removeClass('selected');
+        }
+
+        for (i = 0; i < onStar; i++) {
+            $(stars[i]).addClass('selected');
+        }
+        var ratingInput = $(this).parents('.rating-stars').find('input[type="hidden"]');
+        $(ratingInput).val(onStar);
+
+        //add info alert if user set rating 1 or 2
+        if ($(ratingInput).attr("name") === "OverallExperience") {
+            if (onStar <= 2 && $('#info-experience').length === 0)
+                $(".row.rating").after("<div class='alert alert-info' id='info-experience' role='alert'>\
+                <b>Looks like you had a negative experience with this vendor.</b> As the best practice, we encourage you to \
+                contact them directly to give them a chance to resolve your concern prior to you \
+                submitting a review. Either way, we encourage you to submit a review below.\
+                </div>");
+            else if (onStar > 2)
+                $('#info-experience').remove();
+        }
+
+    });
+
+    $("a.go-back").click(function () {
+        if (window.history.length > 1)
+            window.history.back();
+        else window.location.href = "/";
+    });
+
+    /*---------------------------------Calendar initializing ----------------------*/
+
+    $('.col-datepicker').datetimepicker({ format: 'MM/DD/YYYY' });
+    $('.col-datepicker-month').datetimepicker({ format: 'MMMM DD, YYYY' });
+});
+
+
+
+/*------------------------------Review useful functionality----------------*/
+$(function () {
+    $('span.useful').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: '/vendor-reviews/rate-post?reviewId=' + $(e.target).data('reviewId') + '&vote=' + $(e.target).data('command'),
+            dataType: 'json',
+            success: function (data) {
+                $(e.target).parents('.comment-meta').html('<span>Thank you for your feedback!</span>');
+            }
+        });
+    });
+});
+
+/*------------------------------Show more reviews ------------------------------*/
+function GetMoreReviews() {
+    var page = parseInt($("#btnMoreReviews").data("page"));
+    $.get("/vendordetails/getvendorreviews?vendorUID=" + $(event.target).data("vendor-uid") + "&page=" + (page + 1),
+        function (data) {
+            $("#moreReviews").remove();
+            $("#reviewsList").append(data);
+        });
+}
+
+//on review success show "review successfully submitted msg"
+function OnSendReviewSuccess() {
+    $('#createAccountLoading').hide();  
+    $('#reviewSubmitted').modal({ backdrop: 'static', keyboard: false });
+    $('#reviewSubmitted').modal("show");   
+}
+
+//on review failure show error text
+function OnSendReviewError() {
+    var messageText = 'An error occurred while saving your review. Please refresh the page and try again. If the issues persist, contact us at vendors@weddingventure.com';
+    $('#createAccountLoading').hide();
+    $(form).find('.text-error').text(messageText);    
+}

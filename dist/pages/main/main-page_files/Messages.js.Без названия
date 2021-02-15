@@ -1,0 +1,247 @@
+﻿
+//-----------------------------------------------------------broadcast messages
+
+//on success broadcast sending
+function OnSendBroadcastSuccess(data) {
+    if (data.Success) {
+        $('#createAccountLoading').hide();
+        $('#broadcast-message').modal('hide');
+        $('#broadcast-message-form .text-error').text('');
+        setTimeout(function () {
+            $('#successMessageText .alert').text('Your request for quotes has been successfully sent. Please allow '
+                + ' 24 - 48 hours for available and interested vendors to respond with quotes. We will send you an email notification ' +
+                'as new quotes arrive.');
+            $('#successMessageText').modal('show');
+        }, 600);
+        $(form)[0].reset();        
+        UpdateSpamControl($(form).find(".spam-control")[0]);
+    }
+    else {
+        OnSendBroadcastError();
+    }
+}
+
+//on failure broadcast sending
+function OnSendBroadcastError() {
+    var messageText = 'An error occurred while saving your message. Please refresh the page and try again. If the issues persist, contact us at vendors@weddingventure.com';
+    $('#createAccountLoading').hide();
+    $('#broadcast-message-form .text-error').text(messageText);
+    UpdateSpamControl($(form).find(".spam-control")[0]);
+}
+
+//show broadcast form pop up 
+function openBroadcastModal() {
+    // show popup
+    $('#broadcast-message').modal('show');
+    $('.modal-backdrop').remove();    
+}
+
+//-----------------------------------------------------------featured vendors contact forms
+//on success 
+function OnSendFeaturedVendorsMessageSuccess() {   
+    $('#createAccountLoading').hide();    
+    $('#featuredVendorsQuoteRequestForm .text-error').text('');
+    $(form).find("[type=submit]").removeAttr('disabled');
+    $('#featuredVendorsQuoteRequestForm')[0].reset();
+    setTimeout(function () {
+        $('#successMessageText .alert').text('Your request for quotes has been successfully sent. Please allow '
+            + ' 24 - 48 hours for available and interested vendors to respond with quotes. We will send you an email notification ' +
+            'as new quotes arrive.');
+        $('#successMessageText').modal('show');
+    }, 600);
+   
+}
+
+//on failure 
+function OnSendFeaturedVendorsMessageError() {
+    $(form).find("[type=submit]").removeAttr('disabled');
+    var messageText = 'An error occurred while saving your message. Please refresh the page and try again. If the issues persist, contact us at vendors@weddingventure.com';
+    $('#broadcast-message-form .text-error').text(messageText);
+}
+
+
+//-----------------------------------------------------------vendor contact forms
+
+//on success message send name of the messaging form so that we can get correct vendor data
+function OnSendMessageSuccess(formName) {
+    if (!form)
+        form = $(formName);
+    if (form.length === 1) {
+        dataVendorID = $(form).find("[type=submit]").data("vendor-id");
+        ajaxAction = $(form).find("[type=submit]").data("ajax-action");
+        //log send message
+        $.ajax({
+            type: "POST",
+            url: AJAX_PATH,
+            data: "action=" + ajaxAction + "&" +
+                "id=" + dataVendorID,
+            dataType: 'html',
+            success: function () {
+            }
+        });
+    }
+  
+    if (formName === '#contactVendorModal') {
+        $('#contactVendorModal').hide();
+        $('#createAccountLoading').hide();
+        $('#contactVendorModal .text-error').text('');
+        $(formName + " button[type=submit]").removeAttr('disabled');
+        setTimeout(function () {
+            if ($("#additionalQuotes").length > 0) {
+                $("#additionalQuotes .alert.phone-consultation").hide();
+                $("#additionalQuotes .alert.message").show();
+                $("#additionalQuotes").modal("show");
+            } else {
+                $('#successMessageText .alert').text('Your message has been sent successfully! We will notify you via the email you provided when the vendor responds to your inquiry.');
+                $('#successMessageText').modal('show');
+            }
+        }, 600);
+
+        window.location = '/messages/';
+    }
+    else if (formName === '#pricePackageModal') {
+        $('#pricePackageModal .modal-msg').fadeOut();
+        $('#createAccountLoading').hide();
+        $('#pricePackageModal .text-error').text('');
+        $(formName + " button[type=submit]").removeAttr('disabled');
+        $(formName)[0].reset();
+        UpdateCurrentUserData();
+        UpdateSpamControl($(formName).find(".spam-control")[0]);
+        setTimeout(function () {
+            if ($("#additionalQuotes").length > 0) {
+                $("#additionalQuotes .alert.phone-consultation").hide();
+                $("#additionalQuotes .alert.message").show();
+                $("#additionalQuotes").modal("show");
+            } else {
+                $('#successMessageText .alert').text('Your message has been sent successfully! We will notify you via the email you provided when the vendor responds to your inquiry.');
+                $('#successMessageText').modal('show');
+            }
+        }, 600);
+    }
+    else if (formName === '#bookPackageModal') {
+        $('#bookPackageModal').hide();
+        $('#createAccountLoading').hide();
+        $('#bookPackageModal .text-error').text('');
+        $(formName + " button[type=submit]").removeAttr('disabled');
+        setTimeout(function () {
+            $('#successMessageText .alert').text('Your booking request has been submitted. We will notify you via the email you provided when the vendor confirms your booking and requests the deposit.');
+            $('#successMessageText').modal('show');
+        }, 600);       
+    }
+    else if (formName === '#contactVendorForm') {
+        $('#createAccountLoading').hide();
+        $(form).find('.text-error').text('');
+        $(form).find("[type=submit]").removeAttr('disabled');
+        setTimeout(function () {
+            if ($("#additionalQuotes").length > 0) {
+                $("#additionalQuotes .alert.phone-consultation").hide();
+                $("#additionalQuotes .alert.message").show();
+                $("#additionalQuotes").modal("show");
+            } else {
+                $('#successMessageText .alert').text('Your message has been sent successfully! We will notify you via the email you provided when the vendor responds to your enquiry.');
+                $('#successMessageText').modal('show');
+            }
+        }, 600);
+
+        form[0].reset();
+        UpdateCurrentUserData();
+        UpdateSpamControl($(form).find(".spam-control")[0]);
+        window.location = '/messages/';
+    }
+    else if (formName === '#requestFreeConsultationModal') {
+        $('#createAccountLoading').hide();
+        $('#requestFreeConsultationModal').parents('.modal-msg').hide();
+        $('#requestFreeConsultationModal .text-error').text('');
+        $(formName + " [type=submit]").removeAttr('disabled');
+        $(formName)[0].reset();
+        UpdateSpamControl($(formName + " .spam-control")[0]);
+        setTimeout(function () {
+            if ($("#additionalQuotes").length > 0) {
+                $("#additionalQuotes .alert.phone-consultation").show();
+                $("#additionalQuotes .alert.message").hide();
+                UpdateCurrentUserData();
+                $("#additionalQuotes").modal("show");
+            } else {
+                $('#successMessageText .alert').text('Your consultation request has been submitted successfully! If the vendor is available, they will contact you within 72 hours.');
+                $('#successMessageText').modal('show');
+            }
+        }, 600);
+    }
+    else {
+        window.location = '/messages/';
+    }
+}
+
+//on failure message send name of the messaging form so that we can get correct vendor data
+function OnSendMessageError(formName) {
+    var messageText = 'An error occurred while saving your message. Please refresh the page and try again. If the issues persist, contact us at vendors@weddingventure.com';
+    $('#createAccountLoading').hide();
+    if (formName === '#contactVendorModal' || formName === "#contactVendorForm" || formName === "#pricePackageModal" || formName === "#requestFreeConsultationModal") {
+        $(form).find('.text-error').text(messageText);
+        UpdateSpamControl($(form).find(".spam-control")[0]);
+        $(form).find("[type=submit]").removeAttr('disabled');
+    }
+}
+
+//spam control
+var spamPlaceholders =
+   [{ Q: "what's 3 plus 4 ?", A: "7" }, { Q: "what's 5 plus 5 ?", A: "10" }, { Q: "what's 1 plus 2 ?", A: "3" },
+        { Q: "what's 3 plus 3 ?", A: "6" }, { Q: "what's 5 minus 1 ?", A: "4" }, { Q: "what's 4 plus 5 ?", A: "9" },
+        { Q: "what's 2 plus 2 ?", A: "4" }, { Q: "what's 7 plus 1 ?", A: "8" }, { Q: "what's 3 plus 2 ?", A: "5" },
+        { Q: "what's 4 plus 6 ?", A: "10" }];
+var wrongSpamAnswerNumber = 0;
+function UpdateSpamControl(ctrlSpam) {
+    var placeholderInd = Math.floor(Math.random() * Math.floor(spamPlaceholders.length));
+    $(ctrlSpam).attr("placeholder", "Spam control: " + spamPlaceholders[placeholderInd].Q);
+    $(ctrlSpam).val("");
+    var form = $(ctrlSpam).parents("form");
+    var blockSubmitButton = false;
+    $(form).find("input[type=text]:first").off("change").on("change", function (event) {
+        if (!blockSubmitButton) {
+            blockSubmitButton = true;
+            window.setTimeout(function () { blockSubmitButton = false;}, 3000);
+        }
+    });
+
+    form.find("[type=submit]").off("click").on("click", function (event) {
+        if (blockSubmitButton || wrongSpamAnswerNumber >= 3) {
+            event.preventDefault();
+            form.find(".text-error").text("Error occurred");
+            return;
+        }
+        if (!form.valid()) {
+            event.preventDefault();
+            UpdateSpamControl(ctrlSpam);
+            return;
+        }
+        if ($(ctrlSpam).val() !== spamPlaceholders[placeholderInd].A) {
+            event.preventDefault();
+            wrongSpamAnswerNumber++;
+            form.find(".text-error").text("Incorrect answer to spam control question");
+            UpdateSpamControl(ctrlSpam);
+            return;
+        }
+        form.find(".text-error").text("");
+        if (!form.is(".is-allowed"))
+            IsAllowed(event, "#" + form.attr("id"));
+
+    });
+}
+
+$(function () {
+    //update spam control
+    $(".spam-control").each(function (ind, el) {
+        UpdateSpamControl(el);
+    });
+    $("#contactVendorForm, #contactVendorModal, #pricePackageModal, #requestFreeConsultationModal, #featuredVendorsQuoteRequestForm").submit(function (event) {
+        if($(event.target).valid())
+            $(event.target).find("[type=submit]").attr("disabled", "disabled");
+    });
+
+    //select vendors checkboxes on the additional quotes popup
+    $("#additionalQuotes .check").click(function (event) {
+        $(event.target).toggleClass("fa-check-square-o");
+        $(event.target).toggleClass("fa-square-o");
+        $("#vendorsIds").val("[" + $("#additionalQuotesForm .check.fa-check-square-o").map(function (ind, el) { return $(el).data("vendor-id"); }).toArray().join(",") + "]");
+    });  
+});
