@@ -615,3 +615,144 @@ function initDefaultSlider() {
         $('.js-slider-default').slick('unslick');
     }
 };
+
+/*-------------------------------------Webchat popup-------------------------------------*/
+
+(function () {
+    "use strict";
+
+    var webchat = document.querySelector("#webchat");
+
+    var webchatpopup = document.querySelector('[data-attr="webchatpopup"]');
+    var maximizeButton = webchatpopup.querySelector('[data-attr="maximize"]');
+    var minimizeButton = webchatpopup.querySelector('[data-attr="minimize"]');
+    var badge = webchatpopup.querySelector(".badge");
+    var previewMsg = webchatpopup.querySelector('.b-chat-window-preview');
+    var statusClassName = "is-minimizable";
+    var isOpen = webchatpopup.classList.contains(statusClassName) ? false : true;
+    var spinner = webchatpopup.querySelector(".loading-spinner");
+    var scriptIsLoaded = false;
+    var SCRIPT_URL = "https://cdn.botframework.com/botframework-webchat/latest/webchat.js";
+
+    maximizeButton.addEventListener("click", handleMaximize, false);
+    minimizeButton.addEventListener("click", handleMinimize, false);
+
+    function init() {
+        if (window.WebChat && webchat) {
+            var styleOptions = {
+                botAvatarImage: "https://f5prodstoragecontainer.blob.core.windows.net/prod-live-public/theme/images/vendor-avatar.jpg",
+                botAvatarInitials: "VA",
+                emojiSet: true
+            };
+            var styleSet = window.WebChat.createStyleSet({
+                bubbleBackground: "#f8f8f8",
+                bubbleFromUserBackground: "#6bc7c6"
+            });
+            var store = window.WebChat.createStore({}, function (_ref) {
+                var dispatch = _ref.dispatch;
+                return function (next) {
+                    return function (action) {
+                        if (action.type === "DIRECT_LINE/CONNECT_FULFILLED") {
+                            dispatch({
+                                type: "WEB_CHAT/SEND_EVENT",
+                                payload: {
+                                    name: "webchat/join",
+                                    value: {
+                                        language: window.navigator.language
+                                    }
+                                }
+                            });
+                        }
+
+                        if (action.type === "DIRECT_LINE/INCOMING_ACTIVITY") {
+                            var event = new Event("webchatincomingactivity");
+                            event.data = action.payload.activity;
+                            window.dispatchEvent(event);
+                        }
+
+                        return next(action);
+                    };
+                };
+            });
+
+            styleSet.textContent = Object.assign({}, styleSet.textContent, {
+                fontFamily: "Roboto",
+                fontSize: "16px",
+                color: "#fff"
+            });
+            window.WebChat.renderWebChat(
+                {
+                    directLine: window.WebChat.createDirectLine({
+                        token: "q4ZOE6Pmd-Y.JaYpQ0alD4tqZWlomwd5MlKe6dSTI27CkgAHkPAaI2M"
+                    }),
+                    username: "WeddingVenture Virtual Assistant",
+                    locale: "en-US",
+                    styleOptions: styleOptions,
+                    styleSet: styleSet,
+                    store: store
+                },
+                document.getElementById("webchat")
+            );
+            window.addEventListener("webchatincomingactivity", function (_ref2) {
+                var data = _ref2.data;
+
+                if (!isOpen && data.type === "message" && data.from.role === "bot") {
+                    badge.classList.remove("hidden");
+                    if (!sessionStorage.getItem('first_time_user')) {
+                        showPreview();
+                        sessionStorage.setItem('first_time_user', true);
+                    }
+                }
+
+                if (data.text && data.from.role === "user") {
+                    track("virtual assistant request", data.text);
+                }
+            });
+
+            document.querySelector("#webchat > *").focus();
+        }
+    }
+
+    function handleMaximize(event) {
+        isOpen = true;
+        badge.classList.add("hidden");
+        webchatpopup.classList.remove(statusClassName);
+        showPreview(false);
+        !scriptIsLoaded && SCRIPT_URL.trim() ? scriptLoader(SCRIPT_URL) : null;
+    }
+
+    function handleMinimize(event) {
+        isOpen = false;
+        webchatpopup.classList.add(statusClassName);
+    }
+
+    function showPreview(state = true) {
+        state ? previewMsg.classList.add("fadein") : previewMsg.classList.remove("fadein");
+    }
+
+    function scriptLoader(url, attr) {
+        new Promise((resolve, reject) => {
+            const script = window.document.createElement('script');
+            script.src = url;
+            script.crossOrigin = 'anonymous';
+            attr = attr || {};
+
+            for (const attrName in attr) {
+                script[attrName] = attr[attrName];
+            }
+
+            script.addEventListener('load', () => {
+                spinner.remove();
+                init();
+                scriptIsLoaded = true;
+                resolve(script);
+            }, false);
+
+            script.addEventListener('error', () => {
+                reject(script);
+            }, false);
+
+            window.document.body.appendChild(script);
+        });
+    }
+})();
