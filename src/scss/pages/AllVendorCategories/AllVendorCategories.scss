@@ -1,0 +1,235 @@
+.text-h1,
+.text-h2,
+.text-h5 {
+    color: #1a1a1a;
+    font-family: Lora;
+    font-weight: 600;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+.text-h1 {
+    font-size: min(35px, 6.5vw);
+}
+
+.text-h2 {
+    font-size: min(30px, 6.5vw);  
+}
+
+.text-h5 {
+    font-size: 14px;
+    line-height: calc(20 / 14);
+}
+
+.font-italic {
+    font-style: italic !important;
+}
+
+img {
+    display: block;
+    display: flex;
+    font-family: Lora;
+    font-weight: 300;
+    height: auto;
+    line-height: 2;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    text-transform: capitalize;
+}
+
+img::after {
+    content: attr(alt);
+    font-size: 1em;
+    color: rgb(100, 100, 100);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+}
+
+.avc-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.avc-section+* {
+    border-top: 1px solid #f0f0f0;
+}
+
+.avc-grid {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: min(80px, 11vh);
+    -ms-grid-columns: min(300px, 30%) min(80px, 11vh) 1fr;
+    grid-template-columns: min(300px, 30%) 1fr;
+}
+
+.avc-sidebar {
+    -ms-grid-row: 1;
+    grid-row: 1;
+    -ms-grid-column: 1;
+    grid-column: 1;
+}
+
+.avc-aside {
+    -ms-grid-row: 2;
+    grid-row: 2;
+    -ms-grid-column: 1;
+    grid-column: 1;
+}
+
+.avc-aside>*+*,
+.avc-sidebar>*+* {
+    margin-top: 10px;
+}
+
+.avc-aside-title {
+    color: #0a5b5b;
+    font-family: SourceSansPro;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.avc-main {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    grid-row: 1/4;
+    -ms-grid-column: 2;
+    grid-column: 2;
+}
+
+.avc-title {
+    margin-top: 0;
+    margin-bottom: 2em;
+}
+
+.avc-widget {
+    display: block;
+    font-size: 14px;
+    font-family: SourceSansPro;
+    background-color: #f9f9f9;
+    border: 1px solid #f2f2f2;
+    border-radius: 3px;
+    padding: 30px;
+}
+
+.avc-widget>*+* {
+    margin-top: calc((10 / 14) * 1em);
+    margin-bottom: 0;
+}
+
+.avc-widget .icon {
+    vertical-align: middle;
+}
+
+.avc-widget .icon+* {
+    vertical-align: middle;
+    margin-left: calc((10 / 14) * 1em);
+}
+
+.avc-widget-title {
+    margin-bottom: 0;
+}
+
+.avc-list {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(min(calc(50% - 10px), 180px), 1fr));
+}
+
+.avc-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.avc-card>*+* {
+    margin-top: 15px;
+}
+
+.avc-card:hover {
+    text-decoration: none;
+}
+
+.avc-card-img.has-img-fit {
+    max-width: 100%;
+    padding-top: calc((150 / 180) * 100%);
+    background-color: #f9f9f9;
+}
+
+.avc-card-body .icon {
+    display: inline-block;
+    width: calc(14 / 14 * 1em);
+    height: calc(14 / 14 * 1em);
+    margin-right: 1.3em;
+}
+
+.avc-card-body .icon+* {
+    vertical-align: middle;
+}
+
+.avc-card-footer {
+    margin-top: auto;
+}
+
+@media screen and (max-width: 767px) {
+
+    .text-h1,
+    .text-h2 {
+        text-align: center;
+    }
+
+    .avc-section {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .avc-section+* {
+        border-top: none;
+    }
+
+    .avc-grid {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .avc-aside {
+        -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        order: 1;
+    }
+
+    .avc-sidebar {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .avc-list {
+        grid-gap: 20px 10px;
+    }
+}
