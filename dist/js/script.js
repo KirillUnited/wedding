@@ -756,3 +756,85 @@ function initDefaultSlider() {
         });
     }
 })();
+
+$(function () {
+    const $featuredVendorListWrapper = $('[data-featured-vendors-list]');
+    let isSlider = $featuredVendorListWrapper.data('props') === 'slider' || false;
+    const renderFeaturedVendorRatingStars = function(value) {
+        let listItemsHTML = '';
+
+        for (var i = 1; i <= 5; i++) {
+            var className = value == 0 ? "selected" : value >= i ? "selected" : "";
+            var first = (value - i + 1);
+            var second = Math.round(first * 4) / 4;
+
+            listItemsHTML += `
+                <li class="star ${className}" data-value="${i}">
+                    <i class="fa fa-star"></i>
+                    ${(value < i && value > (i - 1)) ? `<i class="fa fa-star half" style="width:${second.toString().replace(",", ".")}em"></i >` : ''}
+                </li>
+            `;
+        }
+
+        return `
+            <div class='rating-widget'>
+                <div class='rating-stars'>
+                    <ul class="stars">
+                        ${listItemsHTML}
+                    </ul>
+                </div>
+            </div>
+            `;
+    };
+    const renderFeaturedVendor = function(item = {}) {
+        return `
+            <div class="featured-vendors-item text-center">
+                <a href="${item.sFullUrlPathToVendor || '#'}"
+                   class="post-link" title="Top Wedding ${item.sVendorCategory || ''} in ${item.sVendorCity || ''}">
+                    <div class="featured-vendors-img">
+                        <img class="lazyload" data-src="${item.sPreviewImagePath || ''}"
+                             alt="${item.sVendorBusinessName || ''} photo">
+                    </div>
+
+                    <div class="title-block">
+                        <h3>${item.sVendorBusinessName || ''}</h3>
+                        <h4>Wedding ${item.sVendorCategory || ''} in ${item.sVendorCity || ''}</h4>
+
+                        ${item.vendorRating.Value > 0 ? 
+                        `${renderFeaturedVendorRatingStars(item.vendorRating.Key)}
+                         <span class="rating-count">(${item.vendorRating.Value})</span>
+                        ` : renderFeaturedVendorRatingStars(5)} 
+
+                        <div class="featured-vendors-location">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            ${item.sVendorCity || ''}
+                        </div>
+                    </div>
+                    <div class="featured-label">
+                        featured
+                    </div>
+                </a>
+            </div>
+        `;
+    };
+
+    $.get('/Home/GetFeaturedVendors', function (data) {
+        if (data) {
+            const resJSON = JSON.parse(data);
+            const featuredVendorListHTML = resJSON.map(item => {
+                return renderFeaturedVendor(item);
+            });
+
+            new Promise((resolve, reject) => {
+                $('.featured-vendors').removeClass('hidden');
+                $featuredVendorListWrapper.html(featuredVendorListHTML.join(''));
+                resolve();
+            }).then(() => {
+                if (isSlider) {
+                    $featuredVendorListWrapper.removeClass('size-grid');
+                    initFeaturedContentSlider($featuredVendorListWrapper);
+                }
+            });
+        }
+    });
+});
